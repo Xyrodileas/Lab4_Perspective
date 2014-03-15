@@ -15,31 +15,31 @@ public class EcouteurDeSouris implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		System.out.println(" Souris clic");
+		System.out.println(" Souris a clique");
 		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		System.out.println(" Souris entrer");
+		System.out.println(" Souris entrer dans notre panneau Image");
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		System.out.println(" Souris mouseExited");
+		System.out.println(" Souris qui bouge");
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
-		System.out.println(" Souris mousePressed");
+		System.out.println(" Souris pression");
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		System.out.println(" Souris mouseReleased");
+		System.out.println("Souris pression relache");
 
 		
 	}

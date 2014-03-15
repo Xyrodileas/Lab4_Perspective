@@ -34,8 +34,6 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 		
 		this.fenetrePrincipale=fenetre;
 		
-		this.setVisible(true);
-		
 	}
 	
 	/**
@@ -45,13 +43,22 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 	
 	public void paint(Graphics g){
 		
-		super.paintComponent(g);
+		//super.paintComponent(g);
 		
 		//TEST
 		Image image2 = getToolkit().getImage(CHEMIN_REP+"\\carteDuMonde.png");
 		
-		if(image != null) 
-		g.drawImage(image2, 200, 20, this);
+		if(image2 == null){
+			System.out.println("je dessine");
+			g.drawImage(image2, 200, 20, this);
+			
+		}
+		else{
+			g.drawString("Image", 650, 350);
+			}
+			
+		
+		//repaint();
 	}
 	
 	
