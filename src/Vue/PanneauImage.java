@@ -30,6 +30,9 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 	
 	public Modele.Image image;
 	
+	//TEST A SUPPRIMER APRES
+	Image image2;
+	
 	public PanneauImage(FenetrePrincipale fenetre){
 		
 		this.fenetrePrincipale=fenetre;
@@ -46,12 +49,12 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 		//super.paintComponent(g);
 		
 		//TEST
-		//CE la vrai variable image a utiliser
-		Image image2 = getToolkit().getImage(CHEMIN_REP+"\\src\\"+"\\images\\"+"\\carteDuMonde.png");
+		//Cette variable est a supprimer appress !!!!
+	
 		
 		if(image2 != null){
 			System.out.println("je dessine");
-			g.drawImage(image2, image2.SCALE_DEFAULT ,image2.SCALE_DEFAULT, this);
+			g.drawImage(image2, image2.SCALE_DEFAULT,image2.SCALE_DEFAULT, this);
 			
 		}
 		else{
@@ -65,6 +68,11 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 	
 	public void setImage(){
 		image = Modele.FabriqueImage.fabriqueImage();
+	}
+	
+	public void setImage2(String chemin){
+		image2 = getToolkit().getImage(chemin);
+		repaint();
 	}
 	
 	/**

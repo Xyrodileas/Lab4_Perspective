@@ -14,9 +14,13 @@ package Vue;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.filechooser.FileSystemView;
 
 
 
@@ -25,6 +29,7 @@ public class Menu extends JMenuBar {
 	/**
 	 * Attributs de Menu
 	 */
+	private static final String CHEMIN_REP = System.getProperty("user.dir").replace("src", "");
 	public FenetrePrincipale fenetrePrincipale;
 	
 		
@@ -50,6 +55,20 @@ public class Menu extends JMenuBar {
 			   		
 			   		ouvrir.addActionListener(new ActionListener(){
 			    			public void actionPerformed(ActionEvent arg0) {
+			    				
+			    				//récupération du répertoire par défaut
+			    				File cheminParDefaut = new File(CHEMIN_REP+"\\src\\"+"\\images\\"); 
+			    					    				
+			    				//création et affichage des JFileChooser
+			    				JFileChooser boitedeChoix = new JFileChooser(cheminParDefaut);
+			    				boitedeChoix.showOpenDialog(null);
+			    				
+			    				//Affichage du lien pour création futur
+			    				System.out.println(boitedeChoix.getSelectedFile());
+			    				System.out.println(boitedeChoix.getSelectedFile().getPath());
+			    				
+			    				fenetrePrincipale.panneauImage.setImage2(boitedeChoix.getSelectedFile().getPath());
+			    			
 			    		
 			    		    }
 			    	    });
