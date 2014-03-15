@@ -18,4 +18,11 @@ public class Perspective extends Controleur.Observable {
 	public Originator Unnamed2;
 	public Controleur.Command Unnamed3;
 	public Controleur.Command Unnamed4;
+	
+	public Perspective(){
+		
+	}
+	
+	
+	
 }

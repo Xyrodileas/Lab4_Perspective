@@ -31,6 +31,7 @@ public class Image  {
 		
 		chemin=cheminR;
 		initTableauImage();
+	
 	}
 	
 	
