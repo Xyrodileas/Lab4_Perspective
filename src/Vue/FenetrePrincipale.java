@@ -43,13 +43,15 @@ public class FenetrePrincipale extends JFrame{
 		        menu = new Menu(this);
 		        panneauImage = new PanneauImage(this);
 		        
-		        		        
+		        //Ajout ecouteur de souris au panneauImage
+		        panneauImage.addMouseListener(new Vue.EcouteurDeSouris(this));
 		        
+		        		        		        
 		        //Ajout des elements a la fenetre PP
 		        
 		        this.setJMenuBar(menu);
 		        this.getContentPane().add(panneauImage);
-		        //add(panneauImage,BorderLayout.CENTER);
+		        add(panneauImage,BorderLayout.CENTER);
 		        
 		        this.pack();
 		        this.setVisible(true);

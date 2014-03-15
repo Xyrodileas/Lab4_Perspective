@@ -13,17 +13,20 @@ Date créé: 2014-03-15
 package Vue;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.util.Observable;
 
-import javax.swing.JPanel;
+import javax.swing.JComponent;
 
 
-public class PanneauImage extends JPanel implements Controleur.Observer {
+
+public class PanneauImage extends JComponent implements Controleur.Observer {
 	
 	/**
 	 * Attributs de PanneauImage
 	 */
 	public FenetrePrincipale fenetrePrincipale;
+	private static final String CHEMIN_REP = System.getProperty("user.dir").replace("src", "");
 	
 	public Modele.Image image;
 	
@@ -39,13 +42,16 @@ public class PanneauImage extends JPanel implements Controleur.Observer {
 	 * Methode qui va permettre de dessiner
 	 * l'image sur le panneau image
 	 */
+	
 	public void paint(Graphics g){
 		
-		/**super.paintComponent(g);
-		image = getToolkit().getImage("adresse de l'image");
+		super.paintComponent(g);
+		
+		//TEST
+		Image image2 = getToolkit().getImage(CHEMIN_REP+"\\carteDuMonde.png");
 		
 		if(image != null) 
-		g.drawImage(image, 200, 20, this);**/
+		g.drawImage(image2, 200, 20, this);
 	}
 	
 	
