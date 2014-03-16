@@ -15,7 +15,6 @@ package Vue;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.Observable;
-
 import javax.swing.JComponent;
 
 
@@ -46,7 +45,7 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 	
 	public void paint(Graphics g){
 		
-		//super.paintComponent(g);
+		super.paintComponent(g);
 		
 		//TEST
 		//Cette variable est a supprimer appress !!!!
@@ -72,6 +71,7 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 	
 	public void setImage2(String chemin){
 		image2 = getToolkit().getImage(chemin);
+		
 		repaint();
 	}
 	
@@ -93,6 +93,7 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 	
 }

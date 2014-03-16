@@ -25,13 +25,11 @@ public class Image  {
 	private static final String CHEMIN_REP = System.getProperty("user.dir").replace("src", "");
 	private Perspective perspective;
 	private String chemin;
-	private Image [] tabImage;
+	private ImageIcon [] tabImage;
 	
-	public Image(String cheminR){
-		
-		chemin=cheminR;
-		initTableauImage();
 	
+	public Image(){
+		initTableauImage();	
 	}
 	
 	
@@ -44,14 +42,17 @@ public class Image  {
 			f = new File(CHEMIN_REP+"\\src\\"+"\\images\\");
 			System.out.println(f);
 			s = f.list(null);
-			Image[] tabImage= new Image[s.length];
+			ImageIcon[] tabImage= new ImageIcon[s.length];
 			for(int i = 0; i < s.length;i++){
 				
-				System.out.println(s[i]);
-				tabImage[i] = new Image(CHEMIN_REP+"\\src\\"+"\\images\\"+s[i]);
+				tabImage[i] = new ImageIcon(s[i]);
 				System.out.println(tabImage[i]);
 		}
 	}
+	  /** public static void main(String[] args) {
+	      Image im = new Image();
+	        
+	    }**/
 
 	
 }
