@@ -14,7 +14,9 @@ package Vue;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.util.Observable;
+
 import javax.swing.JComponent;
 
 
@@ -31,6 +33,7 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 	
 	//TEST A SUPPRIMER APRES
 	Image image2;
+	BufferedImage imagebuffer;
 	
 	public PanneauImage(FenetrePrincipale fenetre){
 		
@@ -53,7 +56,7 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 		
 		if(image2 != null){
 			System.out.println("je dessine");
-			g.drawImage(image2, image2.SCALE_DEFAULT,image2.SCALE_DEFAULT, this);
+			g.drawImage(image2, image2.SCALE_FAST,image2.SCALE_FAST, this);
 			
 		}
 		else{
