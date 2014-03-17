@@ -12,9 +12,14 @@ Date créé: 2014-03-15
 
 package Vue;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Insets;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Observable;
 
 import javax.swing.JComponent;
@@ -23,17 +28,17 @@ import javax.swing.JComponent;
 
 public class PanneauImage extends JComponent implements Controleur.Observer {
 	
-	/**
-	 * Attributs de PanneauImage
-	 */
+	//ATTRIBUTS DE IMAGE
 	public FenetrePrincipale fenetrePrincipale;
-	private static final String CHEMIN_REP = System.getProperty("user.dir").replace("src", "");
-	
 	public Modele.Image image;
+	private BufferedImage imagebuffer;
 	
-	//TEST A SUPPRIMER APRES
-	Image image2;
-	BufferedImage imagebuffer;
+	private int zoom=1;
+	private Insets insets;
+	private Dimension size;
+	private  int largeurDuPanneau;
+    private  int hauteurDuPanneau ;
+		
 	
 	public PanneauImage(FenetrePrincipale fenetre){
 		
@@ -47,36 +52,50 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 	 */
 	
 	public void paint(Graphics g){
-		
-		super.paintComponent(g);
-		
-		//TEST
-		//Cette variable est a supprimer appress !!!!
-	
-		
-		if(image2 != null){
-			System.out.println("je dessine");
-			g.drawImage(image2, image2.SCALE_FAST,image2.SCALE_FAST, this);
+			
+			   super.paintComponent(g);
+			      Graphics2D graphic2d = (Graphics2D) g;
+			      if (imagebuffer != null) {
+
+			   	   	insets = getInsets();
+			   	   	size = getSize();
+			          
+			        int largeurDuPanneau = size.width - (insets.left + insets.right);
+			        int hauteurDuPanneau = size.height - (insets.top + insets.bottom);
+			    	  
+			     
+			        int LargeurDeImage = imagebuffer.getWidth() * zoom;
+			        int hauteurDeImage = imagebuffer.getHeight() * zoom;
+			        
+			        int x = (largeurDuPanneau - LargeurDeImage) / 2;
+			        int y = (hauteurDuPanneau - hauteurDeImage) / 2;
+			        
+			        // Pour permettre au bord optionnel d'etre dessine.
+			        graphic2d.translate(insets.left, insets.top);
+			        graphic2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+			        graphic2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+			        graphic2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+			        graphic2d.drawImage(imagebuffer, x, y, LargeurDeImage, hauteurDeImage, null);
+			        
+			        // Retour a l'origine du repere.
+			        graphic2d.translate( -insets.left, -insets.top);
 			
 		}
 		else{
-			g.drawString("Image", 650, 350);
+			g.drawString("Choisir une Image...", 650, 350);
 			}
 			
 		
-		//repaint();
+
 	}
 	
 	
-	public void setImage(){
-		image = Modele.FabriqueImage.fabriqueImage();
-	}
-	
-	public void setImage2(String chemin){
-		image2 = getToolkit().getImage(chemin);
-		
+	public void setImage(String lienImage) throws IOException{
+		image = Modele.FabriqueImage.fabriqueImage(lienImage);
+		imagebuffer = image.getBufferedImage();
 		repaint();
 	}
+
 	
 	/**
 	 * Methode qui permet de rafraichir 

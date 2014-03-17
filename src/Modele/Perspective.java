@@ -19,8 +19,22 @@ public class Perspective extends Controleur.Observable {
 	public Controleur.Command Unnamed3;
 	public Controleur.Command Unnamed4;
 	
-	public Perspective(){
+	private int hauteur;
+	private int largeur;
+	
+	public Perspective(int largeurRecu, int hauteurRecu){
 		
+		hauteur= hauteurRecu;
+		largeur = largeurRecu;
+		
+	}
+	
+	public int getHauteur(){
+		return hauteur;
+	}
+	
+	public int getLargeur(){
+		return largeur;
 	}
 	
 	
