@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: Originator.java
-Date créé: 2014-03-15
+Date crï¿½ï¿½: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -14,7 +14,14 @@ package Modele;
 
 
 public class Originator {
-	public Perspective Unnamed1;
+    public double zoom;
+    public Image Unnamed1;
+    public Originator Unnamed2;
+    public Controleur.Command Unnamed3;
+    public Controleur.Command Unnamed4;
+
+    private int hauteur;
+    private int largeur;
 	public void SetSave(Object Perspective) {
 	
 	}
