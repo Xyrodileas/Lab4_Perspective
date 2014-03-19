@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: OriginatoPerspective.java
-Date créé: 2014-03-15
+Date crï¿½ï¿½: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -13,21 +13,27 @@ package Modele;
 
 
 public class Perspective extends Controleur.Observable {
-	public double zoom;
-	public Image Unnamed1;
-	public Originator Unnamed2;
-	public Controleur.Command Unnamed3;
-	public Controleur.Command Unnamed4;
+	private double zoom;
+	public Gardien sauvegardes;
 	
 	private int hauteur;
 	private int largeur;
 	
 	public Perspective(int largeurRecu, int hauteurRecu){
-		
-		hauteur= hauteurRecu;
-		largeur = largeurRecu;
+		this.zoom = 1.00;
+		this.hauteur= hauteurRecu;
+		this.largeur = largeurRecu;
+        this.sauvegardes = new Gardien();
 		
 	}
+    public Perspective(int largeurRecu, int hauteurRecu, double zoom){
+
+        this.hauteur= hauteurRecu;
+        this.largeur = largeurRecu;
+        this.zoom = zoom;
+
+    }
+
 	
 	public int getHauteur(){
 		return hauteur;
@@ -36,7 +42,10 @@ public class Perspective extends Controleur.Observable {
 	public int getLargeur(){
 		return largeur;
 	}
-	
+
+    public double getZoom(){
+        return zoom;
+    }
 	
 	
 }

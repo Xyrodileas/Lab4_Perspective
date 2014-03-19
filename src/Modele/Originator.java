@@ -15,18 +15,21 @@ package Modele;
 
 public class Originator {
     public double zoom;
-    public Image Unnamed1;
-    public Originator Unnamed2;
-    public Controleur.Command Unnamed3;
-    public Controleur.Command Unnamed4;
+    public Image img;
 
     private int hauteur;
     private int largeur;
-	public void SetSave(Object Perspective) {
-	
+	public void SetSave(Perspective maperspective) {
+
+        this.hauteur = maperspective.getHauteur();
+        this.hauteur = maperspective.getLargeur();
+        this.zoom = maperspective.getZoom();
 	}
 	
-	public void CreateSave() {
-	
+	public ImageSnap CreateSave() {
+        return new ImageSnap(this.zoom, this.hauteur, this.largeur);
 	}
+    public Perspective restoreFromMemento(ImageSnap snap){
+        return new Perspective(snap.getLargeur(), snap.getLargeur(), snap.getZoom());
+    }
 }

@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: ImageSnap.java
-Date créé: 2014-03-15
+Date crï¿½ï¿½: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -15,5 +15,26 @@ package Modele;
 
 
 public class ImageSnap {
-	public FabriqueImage Unnamed1;
+    private double zoom;
+
+    private int hauteur;
+    private int largeur;
+
+	public ImageSnap(double zoom, int hauteur, int largeur){
+        this.zoom = zoom;
+        this.hauteur = hauteur;
+        this.largeur = largeur;
+    }
+
+    public double getZoom() {
+        return zoom;
+    }
+
+    public int getHauteur() {
+        return hauteur;
+    }
+
+    public int getLargeur() {
+        return largeur;
+    }
 }
