@@ -51,13 +51,13 @@ public class EcouteurDeSouris implements MouseListener,MouseWheelListener {
 	public void mouseWheelMoved(MouseWheelEvent arg0) {
 		if (arg0.getWheelRotation()<0){
             System.out.println("Zoom avant");
-            panneauImage.testIncrémenterZoom();
+            panneauImage.testIncrementerZoom();
             panneauImage.rafraichirPanneauImage();
 		}
 		else {
 			
-			System.out.println("Zoom Arrière");
-			panneauImage.testDecrémenterZoom();
+			System.out.println("Zoom Arriï¿½re");
+			panneauImage.testDecrementerZoom();
 			panneauImage.rafraichirPanneauImage();
 		}
 		

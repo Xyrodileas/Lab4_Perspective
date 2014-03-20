@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: PanneauImage.java
-Date créé: 2014-03-15
+Date crï¿½ï¿½: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -110,11 +110,11 @@ public class PanneauImage extends JPanel implements Controleur.Observer {
 		this.repaint();
 	}
 	
-	public void testIncrémenterZoom(){
+	public void testIncrementerZoom(){
 		zoom++;
 	}
 	
-	public void testDecrémenterZoom(){
+	public void testDecrementerZoom(){
 		if( zoom >1)
 			zoom--;
 	}
