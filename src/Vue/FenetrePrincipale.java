@@ -12,6 +12,7 @@ Date cr��: 2014-03-15
 package Vue;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 
@@ -41,15 +42,23 @@ public class FenetrePrincipale extends JFrame{
 		        menu = new Menu(this);
 		        panneauImage = new PanneauImage(this);
 		        
+		        
 		        //Ajout ecouteur de souris au panneauImage
-		        panneauImage.addMouseListener(new Vue.EcouteurDeSouris(this));
-		        panneauImage.addMouseWheelListener(new Vue.EcouteurDeSouris(this));
+		        panneauImage.addMouseListener(new Vue.EcouteurDeSouris(this,panneauImage));
+		        panneauImage.addMouseWheelListener(new Vue.EcouteurDeSouris(this,panneauImage));
 		    
 		        		        		        
 		        //Ajout des elements a la fenetre PP
 		        
 		        this.setJMenuBar(menu);
-		        this.getContentPane().add(panneauImage);
+		        this.getContentPane().add(panneauImage,BorderLayout.CENTER);
+		        
+		        //JARRIVE PAS A AJOUTER MON SCROLLPANE
+		        //this.getContentPane().add(new JScrollPane(panneauImage), BorderLayout.CENTER);
+		       
+		        
+		        
+				
 		        add(panneauImage,BorderLayout.CENTER);
 		        
 		        this.pack();

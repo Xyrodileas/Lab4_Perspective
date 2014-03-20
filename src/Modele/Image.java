@@ -36,17 +36,11 @@ public class Image  {
 		
 			image= ImageIO.read(new File(lienImage));
 			chemin = lienImage;
-		
 	      	int imageLargeur = image.getWidth();
 	        int imageHauteur = image.getHeight();
 	        
 	        perspective = new Perspective ((largeurDupanneau - imageLargeur) / 2,(hauteurDuPanneau - imageHauteur) / 2);
 	  
-	         
-		
-		 //On peut récupérer la taille de l'image
-		 System.out.println(image.getHeight());
-		 System.out.println(image.getWidth());
 		 
 	}
 	

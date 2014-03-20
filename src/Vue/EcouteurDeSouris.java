@@ -9,10 +9,11 @@ import java.awt.event.MouseWheelListener;
 public class EcouteurDeSouris implements MouseListener,MouseWheelListener {
 	
 	private FenetrePrincipale fenetrePrincipale;
+	private PanneauImage panneauImage;
 	
-	public EcouteurDeSouris(FenetrePrincipale fenetre){
+	public EcouteurDeSouris(FenetrePrincipale fenetre, PanneauImage im){
 		fenetrePrincipale = fenetre;
-		
+		panneauImage = im;
 	}
 
 	@Override
@@ -50,11 +51,14 @@ public class EcouteurDeSouris implements MouseListener,MouseWheelListener {
 	public void mouseWheelMoved(MouseWheelEvent arg0) {
 		if (arg0.getWheelRotation()<0){
             System.out.println("Zoom avant");
-		
+            panneauImage.testIncrémenterZoom();
+            panneauImage.rafraichirPanneauImage();
 		}
 		else {
 			
 			System.out.println("Zoom Arrière");
+			panneauImage.testDecrémenterZoom();
+			panneauImage.rafraichirPanneauImage();
 		}
 		
 	}

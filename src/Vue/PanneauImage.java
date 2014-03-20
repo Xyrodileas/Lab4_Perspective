@@ -12,6 +12,7 @@ Date créé: 2014-03-15
 
 package Vue;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -23,10 +24,13 @@ import java.io.IOException;
 import java.util.Observable;
 
 import javax.swing.JComponent;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSlider;
 
 
 
-public class PanneauImage extends JComponent implements Controleur.Observer {
+public class PanneauImage extends JPanel implements Controleur.Observer {
 	
 	//ATTRIBUTS DE IMAGE
 	public FenetrePrincipale fenetrePrincipale;
@@ -38,11 +42,16 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 	private Dimension size;
 	private  int largeurDuPanneau;
     private  int hauteurDuPanneau ;
+    
+   
+    
+    //protected JSlider zoomeur = new JSlider(JSlider.BOTTOM, 1, 4, 1);
 		
 	
 	public PanneauImage(FenetrePrincipale fenetre){
 		
 		this.fenetrePrincipale=fenetre;
+				
 		
 	}
 	
@@ -71,14 +80,10 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 			        int y = (hauteurDuPanneau - hauteurDeImage) / 2;
 			        
 			        // Pour permettre au bord optionnel d'etre dessine.
-			        graphic2d.translate(insets.left, insets.top);
-			        graphic2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-			        graphic2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-			        graphic2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+		
 			        graphic2d.drawImage(imagebuffer, x, y, LargeurDeImage, hauteurDeImage, null);
 			        
-			        // Retour a l'origine du repere.
-			        graphic2d.translate( -insets.left, -insets.top);
+			
 			
 		}
 		else{
@@ -105,6 +110,16 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 		this.repaint();
 	}
 	
+	public void testIncrémenterZoom(){
+		zoom++;
+	}
+	
+	public void testDecrémenterZoom(){
+		if( zoom >1)
+			zoom--;
+	}
+	
+	
 	
 	/**
 	 * Methode qui va permettre de mettre a jour
@@ -112,7 +127,7 @@ public class PanneauImage extends JComponent implements Controleur.Observer {
 	 * perspective
 	 */
 	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
+		rafraichirPanneauImage();
 		
 	}
 
