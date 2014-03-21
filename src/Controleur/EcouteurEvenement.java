@@ -84,13 +84,13 @@ public class EcouteurEvenement implements MouseListener,MouseWheelListener, KeyL
 	public void mouseWheelMoved(MouseWheelEvent arg0) {
 		if (arg0.getWheelRotation()<0){
             System.out.println("Zoom avant");
-            panneauImage.testIncrementerZoom();
+            //panneauImage.testIncrementerZoom();
             panneauImage.rafraichirPanneauImage();
 		}
 		else {
 			
 			System.out.println("Zoom Arri�re");
-			panneauImage.testDecrementerZoom();
+			//panneauImage.testDecrementerZoom();
 			panneauImage.rafraichirPanneauImage();
 		}
 		

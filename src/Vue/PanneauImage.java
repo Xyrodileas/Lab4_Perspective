@@ -22,6 +22,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -30,7 +31,7 @@ import javax.swing.JSlider;
 
 
 
-public class PanneauImage extends JPanel implements Controleur.Observer {
+public class PanneauImage extends JPanel implements Modele.Observer {
 	
 	//ATTRIBUTS DE IMAGE
 	public FenetrePrincipale fenetrePrincipale;
@@ -52,7 +53,7 @@ public class PanneauImage extends JPanel implements Controleur.Observer {
 	public PanneauImage(FenetrePrincipale fenetre){
 		
 		this.fenetrePrincipale=fenetre;
-			
+		
 	}
 	
 	/**
