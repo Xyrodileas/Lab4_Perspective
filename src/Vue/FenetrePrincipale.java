@@ -12,9 +12,6 @@ Date cr��: 2014-03-15
 package Vue;
 
 import javax.swing.*;
-
-import Controleur.EcouteurEvenement;
-
 import java.awt.*;
 
 
@@ -25,7 +22,6 @@ public class FenetrePrincipale extends JFrame{
 	/**
 	 * Attributs de FenetrePrincipale
 	 */
-	public Controleur.Receiver receveur;
 	public PanneauImage panneauImage;
 	public Menu menu;
 
