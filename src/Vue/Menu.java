@@ -76,9 +76,6 @@ public class Menu extends JMenuBar {
 				    				boitedeChoix.showOpenDialog(null);//création et affichage des JFileChooser
 				    				
 				    				
-				    				//Affichage du lien pour création de l'image
-				    				System.out.println(boitedeChoix.getSelectedFile().getPath() + " C'est le lien recu dans depuis le navigateur");
-									
 				    				//Envoie du chemin recu à la méthode setImage du panneauImage
 				    				fenetrePrincipale.panneauImage.setImage(boitedeChoix.getSelectedFile().getPath());
 								} catch (IOException e) {
@@ -198,6 +195,9 @@ public class Menu extends JMenuBar {
 			//sous menu coller du menu modifier
 			JMenuItem coller = new JMenuItem("Coller");
 			
+			JMenuItem undo = new JMenuItem("Undo");
+			
+			JMenuItem redo = new JMenuItem("Redo");
 			//Action de copier
 	   		copier.addActionListener(new ActionListener(){
 	    			public void actionPerformed(ActionEvent arg0) {
@@ -212,11 +212,27 @@ public class Menu extends JMenuBar {
 	    				System.out.println("Coller");
 	    		    }
 	    	    });
+	   		
+	   		undo.addActionListener(new ActionListener(){
+    			public void actionPerformed(ActionEvent arg0) {
+    				System.out.println("Undo");
+    		    }
+    	    });
+	   		redo.addActionListener(new ActionListener(){
+    			public void actionPerformed(ActionEvent arg0) {
+    				System.out.println("Redo");
+    		    }
+    	    });
+
 
 	   		//Ajout du menu copier au menu modifier
 	   		modifier.add(copier);
 	   		//Ajout du menu coller au menu modifier
 	   		modifier.add(coller);
+	   		//Ajout du menu undo au menu modifier
+	   		modifier.add(undo);
+	   		//Ajout du menu redo au menu modifier
+	   		modifier.add(redo);
 	   		
 	   		//Ajout du menu modifier au JMenuBar global
 	   		add(modifier);
