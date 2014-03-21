@@ -64,6 +64,9 @@ public class Menu extends JMenuBar {
 			   		//Onglet ouvrir du sous menu Fichier
 			   		JMenuItem ouvrir = new JMenuItem("Ouvrir");
 			   		
+			   		//Onglet sauvegarder
+			   		JMenuItem sauvegarder = new JMenuItem("Sauvegarder");
+			   		
 			   		ouvrir.addActionListener(new ActionListener(){
 			    			public void actionPerformed(ActionEvent arg0) {
 			    				
@@ -82,15 +85,20 @@ public class Menu extends JMenuBar {
 									//Sinon on affiche une petite fenetre d'erreur
 									JOptionPane.showMessageDialog(fenetrePrincipale, "Erreur");
 
-
-									
+							
 								}
 			    		
 			    		    }
 			    	    });
+			   		sauvegarder.addActionListener(new ActionListener(){
+		    			public void actionPerformed(ActionEvent arg0) {
+		    				System.out.println("SAVEEEEE");
+		    		    }
+		    	    });
 
 			   		//Ajout de l'onglet ouvrir dans le menu fichier
 			   		menufichier.add(ouvrir);
+			   		menufichier.add(sauvegarder);
 			   		//ajout de l'ongler fichier au JMenuBar global
 			   		add(menufichier);
 			   
