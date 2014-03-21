@@ -12,7 +12,7 @@ Date cr��: 2014-03-15
 package Modele;
 
 
-public class Perspective extends Controleur.Observable {
+public class Perspective extends Modele.Observable {
 	private double zoom;
 	public Gardien sauvegardes;
 	

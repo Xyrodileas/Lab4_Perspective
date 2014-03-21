@@ -25,6 +25,7 @@ public class Image  {
 	
 	private BufferedImage image;	
 	private Perspective perspective;
+	
 	private String chemin;
 	private int imageLargeur;
 	private int imageHauteur;

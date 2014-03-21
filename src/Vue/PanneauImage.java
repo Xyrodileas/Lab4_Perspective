@@ -22,6 +22,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -30,16 +31,17 @@ import javax.swing.JSlider;
 
 
 
-public class PanneauImage extends JPanel implements Controleur.Observer {
+public class PanneauImage extends JPanel implements Modele.Observer {
 	
 	//ATTRIBUTS DE IMAGE
 	public FenetrePrincipale fenetrePrincipale;
 	public Modele.Image image;
 	private BufferedImage imagebuffer;
 	
-	private int zoom=1;
+	
 	private Insets insets;
 	private Dimension size;
+	
 	private  int largeurDuPanneau;
     private  int hauteurDuPanneau ;
     
@@ -51,7 +53,7 @@ public class PanneauImage extends JPanel implements Controleur.Observer {
 	public PanneauImage(FenetrePrincipale fenetre){
 		
 		this.fenetrePrincipale=fenetre;
-			
+		
 	}
 	
 	/**
@@ -72,9 +74,10 @@ public class PanneauImage extends JPanel implements Controleur.Observer {
 			        int hauteurDuPanneau = size.height - (insets.top + insets.bottom);
 			    	  
 			     
-			        int LargeurDeImage = imagebuffer.getWidth() * zoom;
-			        int hauteurDeImage = imagebuffer.getHeight() * zoom;
+			        int LargeurDeImage = (int) (imagebuffer.getWidth() * image.getPerspective().getZoom());
+			        int hauteurDeImage = (int) (imagebuffer.getHeight() * image.getPerspective().getZoom());
 			        
+			        //Centre du panneau
 			        int x = (largeurDuPanneau - LargeurDeImage) / 2;
 			        int y = (hauteurDuPanneau - hauteurDeImage) / 2;
 			        
@@ -107,16 +110,6 @@ public class PanneauImage extends JPanel implements Controleur.Observer {
 	public void rafraichirPanneauImage(){
 		this.repaint();
 	}
-	
-	public void testIncrementerZoom(){
-		zoom++;
-	}
-	
-	public void testDecrementerZoom(){
-		if( zoom >1)
-			zoom--;
-	}
-	
 	
 	
 	/**
