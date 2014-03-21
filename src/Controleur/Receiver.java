@@ -13,7 +13,15 @@ Date créé: 2014-03-15
 package Controleur;
 
 
+
 public class Receiver {
+	
+	private Controleur.SingletonCommande singleton;
+	
+	public Receiver(){
+		
+	}
+	
 	public void Action() {
 	
 	}

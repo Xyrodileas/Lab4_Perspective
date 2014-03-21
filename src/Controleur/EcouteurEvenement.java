@@ -1,20 +1,53 @@
-package Vue;
+package Controleur;
 
-import java.awt.event.MouseAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-public class EcouteurDeSouris implements MouseListener,MouseWheelListener {
+import Vue.FenetrePrincipale;
+import Vue.PanneauImage;
+
+public class EcouteurEvenement implements MouseListener,MouseWheelListener, KeyListener {
 	
-	private FenetrePrincipale fenetrePrincipale;
 	private PanneauImage panneauImage;
 	
-	public EcouteurDeSouris(FenetrePrincipale fenetre, PanneauImage im){
-		fenetrePrincipale = fenetre;
+	public EcouteurEvenement( PanneauImage im){
+		
 		panneauImage = im;
 	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		System.out.println(arg0.getSource());
+		System.out.println(arg0.getExtendedKeyCode());
+		System.out.println(arg0.getID());
+		pause();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		System.out.println("Bonjour");
+		pause();
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		System.out.println("Bonjour");
+		pause();
+	}
+	  private void pause(){
+		    try {
+		      Thread.sleep(1000);
+		    } catch (InterruptedException e) {
+		      e.printStackTrace();
+		    }
+		  }  
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
@@ -62,5 +95,5 @@ public class EcouteurDeSouris implements MouseListener,MouseWheelListener {
 		}
 		
 	}
-
+	
 }

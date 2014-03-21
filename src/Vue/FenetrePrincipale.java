@@ -13,6 +13,8 @@ package Vue;
 
 import javax.swing.*;
 
+import Controleur.EcouteurEvenement;
+
 import java.awt.*;
 
 
@@ -44,9 +46,9 @@ public class FenetrePrincipale extends JFrame{
 		        
 		        
 		        //Ajout ecouteur de souris au panneauImage
-		        panneauImage.addMouseListener(new Vue.EcouteurDeSouris(this,panneauImage));
-		        panneauImage.addMouseWheelListener(new Vue.EcouteurDeSouris(this,panneauImage));
-		        //panneauImage.addKeyListener(new EcouteurClavier(this,panneauImage) );
+		        panneauImage.addMouseListener(new Controleur.EcouteurEvenement(panneauImage));
+		        panneauImage.addMouseWheelListener(new Controleur.EcouteurEvenement(panneauImage));
+		        panneauImage.addKeyListener(new Controleur.EcouteurEvenement(panneauImage) );
 		        		        		        
 		        //Ajout des elements a la fenetre PP
 		        
