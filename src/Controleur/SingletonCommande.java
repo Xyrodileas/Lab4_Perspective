@@ -14,8 +14,7 @@ package Controleur;
 
 
 public class SingletonCommande {
-	
-	public Receiver Unnamed1;
+
 	public static SingletonCommande instanceSingleton;
 
     private SingletonCommande(){
