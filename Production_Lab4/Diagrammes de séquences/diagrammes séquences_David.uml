@@ -26,7 +26,7 @@
       <fontname>Dialog</fontname>
       <fontsize>12</fontsize>
       <defaultstereotypeview>0</defaultstereotypeview>
-      <activediagram>Diagramme de séquence 4</activediagram>
+      <activediagram>Diagramme de séquence</activediagram>
     </settings>
     <searchpath href="PROJECT_DIR" />
     <members>
@@ -70,7 +70,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Thu Mar 20 20:09:09 EDT 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Thu Mar 20 20:13:36 EDT 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -98,6 +98,11 @@
               <UML:ClassifierRole.base>
                 <UML:Class xmi.idref = '-64--88-0-100--49724295:144e1d8bd08:-8000:000000000000087C'/>
               </UML:ClassifierRole.base>
+              <UML:ClassifierRole.availableFeature>
+                <UML:Operation xmi.idref = '-64--88-0-100--49724295:144e1d8bd08:-8000:000000000000088F'/>
+                <UML:Operation xmi.idref = '-64--88-0-100--49724295:144e1d8bd08:-8000:0000000000000892'/>
+                <UML:Operation xmi.idref = '-64--88-0-100--49724295:144e1d8bd08:-8000:0000000000000895'/>
+              </UML:ClassifierRole.availableFeature>
             </UML:ClassifierRole>
             <UML:ClassifierRole xmi.id = '-64--88-0-100--49724295:144e1d8bd08:-8000:000000000000086A'
               isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
@@ -947,6 +952,15 @@
         <UML:Class xmi.id = '-64--88-0-100--5784e31f:144e1e99f08:-8000:0000000000000AE3'
           name = 'Caretaker' visibility = 'public' isSpecification = 'false' isRoot = 'false'
           isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
+        <UML:Class xmi.id = '-64--88-0-100--5784e31f:144e1e99f08:-8000:0000000000000AEF'
+          name = 'PanneauImage' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+          isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
+        <UML:Class xmi.id = '-64--88-0-100--5784e31f:144e1e99f08:-8000:0000000000000AF0'
+          name = 'ControleurImage' visibility = 'public' isSpecification = 'false'
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
+        <UML:Class xmi.id = '-64--88-0-100--5784e31f:144e1e99f08:-8000:0000000000000AF1'
+          name = 'Panneau' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+          isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
       </UML:Namespace.ownedElement>
     </UML:Model>
   </XMI.content>
@@ -963,7 +977,7 @@
       name="Diagramme de séquence"
 >
   <group name="Fig0"
-       description="org.argouml.sequence2.diagram.FigClassifierRole[296, 88, 150, 540]pathVisible=false;stereotypeView=0;"
+       description="org.argouml.sequence2.diagram.FigClassifierRole[304, 88, 150, 540]pathVisible=false;stereotypeView=0;"
        href="-64--88-0-100--49724295:144e1d8bd08:-8000:0000000000000867"
        fill="1"
        fillcolor="white"
@@ -974,7 +988,7 @@
     </private>
     
     <rectangle name="Fig0.0"
-      x="296"
+      x="304"
       y="88"
       width="150"
       height="540"
@@ -985,7 +999,7 @@
       visibility="0"
     />
     <rectangle name="Fig0.1"
-      x="296"
+      x="304"
       y="88"
       width="150"
       height="0"
@@ -995,7 +1009,7 @@
       strokecolor="black"
     />
     <group name="Fig0.2"
-         description="org.argouml.sequence2.diagram.FigLifeLine[296, 137, 150, 490]"
+         description="org.argouml.sequence2.diagram.FigLifeLine[304, 137, 150, 490]"
          href="-64--88-0-100--49724295:144e1d8bd08:-8000:0000000000000867"
          fill="1"
          fillcolor="white"
@@ -1006,7 +1020,7 @@
       </private>
       
       <rectangle name="Fig0.2.0"
-        x="296"
+        x="304"
         y="137"
         width="150"
         height="490"
@@ -1022,13 +1036,13 @@
         stroke="1"
         strokecolor="black"
       >
-        <moveto x="371"
+        <moveto x="379"
                 y="137" />
-        <lineto x="371"
+        <lineto x="379"
                 y="627" />
       </path>
       <group name="Fig0.2.2"
-           description="org.argouml.sequence2.diagram.FigActivation[361, 137, 20, 490]"
+           description="org.argouml.sequence2.diagram.FigActivation[369, 137, 20, 490]"
            href="-64--88-0-100--49724295:144e1d8bd08:-8000:0000000000000867"
            fill="1"
            fillcolor="white"
@@ -1039,7 +1053,7 @@
         </private>
         
         <rectangle name="Fig0.2.2.0"
-          x="361"
+          x="369"
           y="137"
           width="20"
           height="490"
@@ -1051,7 +1065,7 @@
       </group>
     </group>
     <group name="Fig0.3"
-         description="org.argouml.sequence2.diagram.FigHead[296, 88, 150, 50]"
+         description="org.argouml.sequence2.diagram.FigHead[304, 88, 150, 50]"
          href="-64--88-0-100--49724295:144e1d8bd08:-8000:0000000000000867"
          fill="1"
          fillcolor="white"
@@ -1062,7 +1076,7 @@
       </private>
       
       <rectangle name="Fig0.3.0"
-        x="296"
+        x="304"
         y="88"
         width="150"
         height="50"
@@ -1072,7 +1086,7 @@
         strokecolor="black"
       />
       <text name="Fig0.3.1"
-        x="296"
+        x="304"
         y="88"
         width="150"
         height="24"
@@ -1088,7 +1102,7 @@
         justification="Center"
       >:Controleur</text>
       <group name="Fig0.3.2"
-           description="org.argouml.uml.diagram.ui.FigStereotypesGroup[296, 88, 150, 0]"
+           description="org.argouml.uml.diagram.ui.FigStereotypesGroup[304, 88, 150, 0]"
            href="-64--88-0-100--49724295:144e1d8bd08:-8000:0000000000000867"
            fill="0"
            fillcolor="white"
@@ -1099,7 +1113,7 @@
         </private>
         
         <rectangle name="Fig0.3.2.0"
-          x="296"
+          x="304"
           y="88"
           width="150"
           height="0"
@@ -1585,7 +1599,7 @@
     >
       <moveto x="125"
               y="200" />
-      <lineto x="361"
+      <lineto x="369"
               y="200" />
     </path>
   </group>
@@ -1676,7 +1690,7 @@
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="381"
+      <moveto x="389"
               y="232" />
       <lineto x="601"
               y="232" />
