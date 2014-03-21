@@ -14,7 +14,10 @@ package Vue;
 public class DemarrerApplicationGraphique {
 	
 	   public static void main(String[] args) {
-	        new Vue.FenetrePrincipale();
+	        
+	    	Thread t = new Thread((Runnable) new Vue.FenetrePrincipale());    	
+	    	t.start();	 
+
 	        
 	    }
 

@@ -73,7 +73,7 @@ public class PanneauImage extends JPanel implements Controleur.Observer {
 			    	  
 			     
 			        int LargeurDeImage = imagebuffer.getWidth() * zoom;
-			        int hauteurDeImage = imagebuffer.getHeight() * 5;
+			        int hauteurDeImage = imagebuffer.getHeight() * zoom;
 			        
 			        int x = (largeurDuPanneau - LargeurDeImage) / 2;
 			        int y = (hauteurDuPanneau - hauteurDeImage) / 2;
