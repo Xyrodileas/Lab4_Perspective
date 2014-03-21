@@ -51,8 +51,7 @@ public class PanneauImage extends JPanel implements Controleur.Observer {
 	public PanneauImage(FenetrePrincipale fenetre){
 		
 		this.fenetrePrincipale=fenetre;
-				
-		
+			
 	}
 	
 	/**
@@ -74,16 +73,15 @@ public class PanneauImage extends JPanel implements Controleur.Observer {
 			    	  
 			     
 			        int LargeurDeImage = imagebuffer.getWidth() * zoom;
-			        int hauteurDeImage = imagebuffer.getHeight() * zoom;
+			        int hauteurDeImage = imagebuffer.getHeight() * 5;
 			        
 			        int x = (largeurDuPanneau - LargeurDeImage) / 2;
 			        int y = (hauteurDuPanneau - hauteurDeImage) / 2;
 			        
 			        // Pour permettre au bord optionnel d'etre dessine.
 		
-			        graphic2d.drawImage(imagebuffer, x, y, LargeurDeImage, hauteurDeImage, null);
-			        
-			
+			        graphic2d.drawImage(imagebuffer, x, y, LargeurDeImage, hauteurDeImage, this);
+			       			
 			
 		}
 		else{
