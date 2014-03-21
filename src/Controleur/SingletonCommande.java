@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: SingletonCommande.java
-Date créé: 2014-03-15
+Date crï¿½ï¿½: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -13,13 +13,16 @@ Date créé: 2014-03-15
 package Controleur;
 
 
-public class SingletonCommande extends Command {
+public class SingletonCommande {
 	
 	public Receiver Unnamed1;
-	public SingletonCommande Unnamed2;
-	
-	public Command Instance() {
-		return null;
+	public SingletonCommande instanceSingleton;
+
+    private SingletonCommande(){
+        instanceSingleton = this;
+    }
+	public SingletonCommande getInstance() {
+		return instanceSingleton;
 	
 	}
 	
