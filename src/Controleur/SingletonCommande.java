@@ -27,7 +27,8 @@ public class SingletonCommande {
 	
 	}
 	
-	public void Execution() {
-	
+	public void Execution(int action, int[] valeurs) {
+
+
 	}
 }
