@@ -16,12 +16,14 @@ package Controleur;
 public class SingletonCommande {
 	
 	public Receiver Unnamed1;
-	public SingletonCommande instanceSingleton;
+	public static SingletonCommande instanceSingleton;
 
     private SingletonCommande(){
-        instanceSingleton = this;
     }
-	public SingletonCommande getInstance() {
+	public static synchronized SingletonCommande getInstance() {
+        if(instanceSingleton == null){
+            instanceSingleton = new SingletonCommande();
+        }
 		return instanceSingleton;
 	
 	}
