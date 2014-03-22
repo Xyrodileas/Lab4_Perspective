@@ -4,18 +4,20 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
 import Vue.FenetrePrincipale;
 import Vue.PanneauImage;
 
-public class EcouteurEvenement implements MouseListener,MouseWheelListener, KeyListener {
-	
+public class EcouteurEvenement implements MouseListener, MouseWheelListener,
+		KeyListener,MouseMotionListener {
+
 	private PanneauImage panneauImage;
-	
-	public EcouteurEvenement( PanneauImage im){
-		
+
+	public EcouteurEvenement(PanneauImage im) {
+
 		panneauImage = im;
 	}
 
@@ -41,59 +43,79 @@ public class EcouteurEvenement implements MouseListener,MouseWheelListener, KeyL
 		System.out.println("Bonjour");
 		pause();
 	}
-	  private void pause(){
-		    try {
-		      Thread.sleep(1000);
-		    } catch (InterruptedException e) {
-		      e.printStackTrace();
-		    }
-		  }  
+
+	private void pause() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		System.out.println(" Souris a clique");
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		System.out.println(" Souris entrer dans notre panneau Image");
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		System.out.println(" Souris qui bouge");
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		System.out.println(" Souris pression");
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		System.out.println("Souris pression relache");
 
-		
 	}
 
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent arg0) {
-		if (arg0.getWheelRotation()<0){
-            System.out.println("Zoom avant");
-            //panneauImage.testIncrementerZoom();
-            panneauImage.rafraichirPanneauImage();
-		}
-		else {
-			
+		if (arg0.getWheelRotation() < 0) {
+			System.out.println("Zoom avant");
+			// panneauImage.testIncrementerZoom();
+			panneauImage.rafraichirPanneauImage();
+		} else {
+
 			System.out.println("Zoom Arri�re");
-			//panneauImage.testDecrementerZoom();
+			// panneauImage.testDecrementerZoom();
 			panneauImage.rafraichirPanneauImage();
 		}
-		
+
 	}
-	
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// int xModifie = e.getX();
+		// int yModifier = e.getY();
+
+		int xModifie = e.getLocationOnScreen().x;
+		int yModifier = e.getLocationOnScreen().y;
+
+		// setLocation(e.getLocationOnScreen().x - dX, e.getLocationOnScreen().y
+		// - dY);
+		//
+		//
+		// dX = e.getLocationOnScreen().x - this.getX();
+		// dY = e.getLocationOnScreen().y - this.getY();
+
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+	}
+
 }
