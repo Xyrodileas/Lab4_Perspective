@@ -99,11 +99,18 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
+		
+		System.out.println("Deplacement de la souris");
+		
+		int[] tabParametres = {0,0};
+		
 		// int xModifie = e.getX();
 		// int yModifier = e.getY();
 
-		int xModifie = e.getLocationOnScreen().x;
-		int yModifier = e.getLocationOnScreen().y;
+		tabParametres[0] = e.getLocationOnScreen().x;
+		tabParametres[1] = e.getLocationOnScreen().y;
+		
+	
 
 		// setLocation(e.getLocationOnScreen().x - dX, e.getLocationOnScreen().y
 		// - dY);
@@ -112,6 +119,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		// dX = e.getLocationOnScreen().x - this.getX();
 		// dY = e.getLocationOnScreen().y - this.getY();
 
+		SingletonCommande.execution(7,tabParametres );
 	}
 
 	@Override
