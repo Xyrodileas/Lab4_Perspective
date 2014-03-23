@@ -28,34 +28,21 @@ public class SingletonCommande {
 
 	public static void execution(int action, int[] valeurs) {
 
+        Commande maCommande;
 		switch (action) {
 
 		case 1:
+            maCommande = new Translation(valeurs[0], valeurs[1]);
+            break;
+		default:
+			maCommande = null;
+            break;
+        }
+        if(maCommande != null)
+            maCommande.execution();
+        else{}
+            // throw Exception;
 
-			break;
-		case 2:
-
-			break;
-		case 3:
-
-			break;
-		case 4:
-
-			break;
-		case 5:
-
-			break;
-		case 6:
-
-			break;
-		case 7:
-
-			Translation nouvelleTranslation = new Translation();
-			nouvelleTranslation.setTranslation(valeurs[0], valeurs[1]);
-
-			break;
-
-		}
 
 	}
 }

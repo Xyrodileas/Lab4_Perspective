@@ -1,21 +1,15 @@
 package Controleur;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-
-import Vue.FenetrePrincipale;
 import Vue.PanneauImage;
+
+import java.awt.event.*;
 
 public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		KeyListener,MouseMotionListener {
 
 	private PanneauImage panneauImage;
 
+    private int x, y;
 	public EcouteurEvenement(PanneauImage im) {
 
 		panneauImage = im;
@@ -55,12 +49,14 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		System.out.println(" Souris a clique");
-
+        this.x = arg0.getX();
+        this.y = arg0.getY();
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		System.out.println(" Souris entrer dans notre panneau Image");
+
 
 	}
 
@@ -102,15 +98,14 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		
 		System.out.println("Deplacement de la souris");
 		
-		int[] tabParametres = {0,0};
+		int[] tabParametres = {e.getLocationOnScreen().x - this.x, e.getLocationOnScreen().y - this.y};
 		
 		// int xModifie = e.getX();
 		// int yModifier = e.getY();
 
-		tabParametres[0] = e.getLocationOnScreen().x;
-		tabParametres[1] = e.getLocationOnScreen().y;
-		
-	
+
+
+
 
 		// setLocation(e.getLocationOnScreen().x - dX, e.getLocationOnScreen().y
 		// - dY);
@@ -119,7 +114,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		// dX = e.getLocationOnScreen().x - this.getX();
 		// dY = e.getLocationOnScreen().y - this.getY();
 
-		SingletonCommande.execution(7,tabParametres );
+		SingletonCommande.execution(1,tabParametres );
 	}
 
 	@Override

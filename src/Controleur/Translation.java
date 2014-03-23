@@ -1,8 +1,14 @@
 package Controleur;
 
-public class Translation {
+public class Translation extends Commande{
 
 	int x, y;
+
+    public Translation(int xModifie, int yModifie) {
+
+        x = xModifie;
+        y = yModifie;
+    }
 
 	public int getX() {
 		return x;
@@ -20,10 +26,10 @@ public class Translation {
 		this.y = y;
 	}
 
-	public void setTranslation(int xModifie, int yModifie) {
 
-		x -= xModifie;
-		y -= yModifie;
-	}
+    public void execution(){
+
+    }
+
 
 }

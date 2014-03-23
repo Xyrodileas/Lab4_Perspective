@@ -12,22 +12,11 @@ Date cr��: 2014-03-15
 
 package Vue;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Insets;
-import java.awt.RenderingHints;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Observable;
-import java.util.Observer;
-
-import javax.swing.JComponent;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSlider;
 
 
 
@@ -72,8 +61,8 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 			          
 			        int largeurDuPanneau = size.width - (insets.left + insets.right);
 			        int hauteurDuPanneau = size.height - (insets.top + insets.bottom);
-			    	  
-			     
+
+
 			        int LargeurDeImage = (int) (imagebuffer.getWidth() * image.getPerspective().getZoom());
 			        int hauteurDeImage = (int) (imagebuffer.getHeight() * image.getPerspective().getZoom());
 			        
