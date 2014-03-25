@@ -49,15 +49,15 @@ public class FenetrePrincipale extends JFrame{
 		        //Ajout des elements a la fenetre PP
 		        
 		        this.setJMenuBar(menu);
-		        this.getContentPane().add(panneauImage,BorderLayout.CENTER);
+		        //this.getContentPane().add(panneauImage,BorderLayout.CENTER);
 		        
 		        //JARRIVE PAS A AJOUTER MON SCROLLPANE
-		        //this.getContentPane().add(new JScrollPane(panneauImage), BorderLayout.CENTER);
+		        this.getContentPane().add(new JScrollPane(panneauImage), BorderLayout.CENTER);
 		       
 		        
 		        
 				
-		        add(panneauImage,BorderLayout.CENTER);
+		        //add(panneauImage,BorderLayout.CENTER);
 		        
 		        this.pack();
 		        this.setVisible(true);

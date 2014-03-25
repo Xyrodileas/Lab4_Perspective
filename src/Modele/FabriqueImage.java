@@ -24,8 +24,8 @@ public class FabriqueImage {
 	 * @return (Image)
 	 * @throws IOException
 	 */
-	public static Image fabriqueImage(String lienImage, int largeurPan, int hauteurPan) throws IOException {
-		return new Image(lienImage,largeurPan,hauteurPan);
+	public static Image fabriqueImage(String lienImage) throws IOException {
+		return new Image(lienImage);
 	
 	}
 	

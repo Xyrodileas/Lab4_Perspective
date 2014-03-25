@@ -31,15 +31,15 @@ public class Image  {
 
 	
 	
-	public Image(String lienImage, int largeurDupanneau, int hauteurDuPanneau) throws IOException{
+	public Image(String lienImage) throws IOException{
 		
 			image= ImageIO.read(new File(lienImage));
 			chemin = lienImage;
-	      	int imageLargeur = image.getWidth();
-	        int imageHauteur = image.getHeight();
+			//	int imageLargeur = image.getWidth();
+	        //int imageHauteur = image.getHeight();
 
 
-            perspective = new Perspective (largeurDupanneau, hauteurDuPanneau, imageLargeur, imageHauteur);
+            perspective = new Perspective ( image.getWidth(), image.getHeight());
 	  
 		 
 	}
@@ -59,12 +59,28 @@ public class Image  {
 	public Perspective getPerspective(){
 		return perspective;
 	}
-
+/*
     public int getPosx(){
         return this.perspective.getLargeur();
     }
     public int getPosy(){
         return this.perspective.getHauteur();
+    }*/
+    
+    public int getLargeurImage(){
+    	return this.perspective.getLargeur();
+    }
+	
+    public int getHauteurImage(){
+    	return this.perspective.getHauteur();
+    }
+    
+    public int getFacteurDeplacementX(){
+    	return perspective.getFacteurDeDeplacementX();
+    }
+    
+    public int getFacteurDeplacementY(){
+    	return perspective.getFacteurDeDeplacementY();
     }
 	
 }

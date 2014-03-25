@@ -20,7 +20,7 @@ import java.util.Observable;
 
 
 
-public class PanneauImage extends JPanel implements Modele.Observer {
+public class PanneauImage extends JComponent implements Modele.Observer {
 	
 	//ATTRIBUTS DE IMAGE
 	public FenetrePrincipale fenetrePrincipale;
@@ -30,14 +30,15 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	
 	private Insets insets;
 	private Dimension size;
+	/**
+	 * 1363LArgeur dans le paint()
+679Hauteur dans le paint()
+	 */
 	
-	private  int largeurDuPanneau;
+	private  int largeurDuPanneau  ;
     private  int hauteurDuPanneau ;
     
-   
-    
-    //protected JSlider zoomeur = new JSlider(JSlider.BOTTOM, 1, 4, 1);
-		
+   		
 	
 	public PanneauImage(FenetrePrincipale fenetre){
 		
@@ -61,20 +62,19 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 			          
 			        largeurDuPanneau = size.width - (insets.left + insets.right);
 			        hauteurDuPanneau = size.height - (insets.top + insets.bottom);
-
-
-			        int LargeurDeImage = (int) (imagebuffer.getWidth() * image.getPerspective().getZoom());
-			        int hauteurDeImage = (int) (imagebuffer.getHeight() * image.getPerspective().getZoom());
+			        
+			        
 			        
 			        //Centre du panneau
-			        int x = this.image.getPosx();
-			        int y = this.image.getPosy();
+			        //int x = this.image.getPerspective().recupereXPositionImageDansPanneau(largeurDuPanneau );
+			        //int y = this.image.getPerspective().recupereYPositionImageDansPanneau( hauteurDuPanneau);
+			        
                       //int x = (largeurDuPanneau - LargeurDeImage) / 2;
                       //int y = (hauteurDuPanneau - hauteurDeImage) / 2;
 
 			        // Pour permettre au bord optionnel d'etre dessine.
 		
-			        graphic2d.drawImage(imagebuffer, x, y, LargeurDeImage, hauteurDeImage, this);
+			        graphic2d.drawImage(imagebuffer, image.getFacteurDeplacementX(),image.getFacteurDeplacementY() , image.getLargeurImage(), image.getHauteurImage(), this);
 			       			
 			
 		}
@@ -88,7 +88,7 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	
 	
 	public void setImage(String lienImage) throws IOException{
-		image = Modele.FabriqueImage.fabriqueImage(lienImage, largeurDuPanneau, hauteurDuPanneau);
+		image = Modele.FabriqueImage.fabriqueImage(lienImage);
 		imagebuffer = image.getBufferedImage();
 		repaint();
 	}

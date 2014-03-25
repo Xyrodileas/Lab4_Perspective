@@ -15,14 +15,27 @@ package Modele;
 public class Perspective extends Modele.Observable {
 	private double zoom;
 	public Gardien sauvegardes;
-	
+
+	private int hauteurImage;
+	private int largeurImage;
+	private int facteurDeDeplacementX;
+	private int facteurDeDeplacementY;
 	private int hauteur;
     private int largeur;
 	
-	public Perspective(int largeurPanneau, int hauteurPanneau, int largeurImage, int hauteurImage){
+	public Perspective(int largeurImageR, int hauteurImageR){
+		
+		hauteurImage = hauteurImageR;
+		largeurImage= largeurImageR;
+		
+		facteurDeDeplacementX=0;
+		facteurDeDeplacementY=0;
+		
+		
 		this.zoom = 1.00;
-		this.hauteur= (int)(hauteurPanneau - (hauteurImage * zoom))/2;
-		this.largeur = (int)(largeurPanneau - (largeurImage * zoom))/2;
+		//this.hauteur= (int)(hauteurPanneauR - (hauteurImage * zoom))/2;
+		//this.largeur = (int)(largeurPanneauR - (largeurImage * zoom))/2;
+		
         this.sauvegardes = new Gardien();
 
         //(largeurDuPanneau - LargeurDeImage) / 2
@@ -40,16 +53,18 @@ public class Perspective extends Modele.Observable {
 
 	
 	public int getHauteur(){
-		return hauteur;
+		return this.hauteurImage;
 	}
 	
 	public int getLargeur(){
-		return largeur;
+		return this.largeurImage;
 	}
 
     public double getZoom(){
         return zoom;
     }
+    
+    
     
     public void incrementeZoom(){
     	
@@ -61,7 +76,33 @@ public class Perspective extends Modele.Observable {
     	this.zoom=zoom-0.10;
     	notify();
     }
-
+    
+  
+    public void inrementerFacteurDeDeplacementX(){
+    	facteurDeDeplacementX++;
+    }
+    public void inrementerFacteurDeDeplacementy(){
+    	facteurDeDeplacementY++;
+    }
+    public void decrementerFacteurDeDeplacementX(){
+    	if (facteurDeDeplacementX >0)
+    		facteurDeDeplacementX--;
+    }
+    public void decrementerFacteurDeDeplacementY(){
+    	if (facteurDeDeplacementY >0)
+    		facteurDeDeplacementY--;
+    }
+    
+    public int getFacteurDeDeplacementX(){
+    	return this.facteurDeDeplacementX;
+    }
+    public int getFacteurDeDeplacementY(){
+    	return this.facteurDeDeplacementY;
+    }
+    
+    
+    
+    
     public void setHauteur(int hauteur) {
         this.hauteur = hauteur;
     }
