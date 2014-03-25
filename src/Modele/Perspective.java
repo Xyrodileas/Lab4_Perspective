@@ -46,6 +46,17 @@ public class Perspective extends Modele.Observable {
     public double getZoom(){
         return zoom;
     }
+    
+    public void incrementeZoom(){
+    	
+    	this.zoom=zoom+0.10;
+    	notify();
+    }
+    public void decrementeZoom(){
+    	if(zoom>1.00)
+    	this.zoom=zoom-0.10;
+    	notify();
+    }
 	
 	
 }
