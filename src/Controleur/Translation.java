@@ -30,8 +30,10 @@ public class Translation extends Commande{
 
 
     public void execution(PanneauImage panneauImage){
-        panneauImage.image.getPerspective().setHauteur(this.y);
-        panneauImage.image.getPerspective().setLargeur(this.x);
+        //panneauImage.image.getPerspective().setHauteur(this.y);
+        //panneauImage.image.getPerspective().setLargeur(this.x);
+    	panneauImage.image.getPerspective().inrementerFacteurDeDeplacementX();
+    	panneauImage.image.getPerspective().inrementerFacteurDeDeplacementy();;
         panneauImage.repaint();
     }
 

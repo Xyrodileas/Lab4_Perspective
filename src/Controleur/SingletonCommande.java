@@ -34,7 +34,8 @@ public class SingletonCommande {
 		switch (action) {
 
 		case 1:
-            maCommande = new Translation(valeurs[0], valeurs[1]);
+           // maCommande = new Translation(valeurs[0], valeurs[1]);
+            maCommande = new Translation(0, 0);
             break;
 		case 2:
             maCommande = new Zoom(valeurs[0]);
