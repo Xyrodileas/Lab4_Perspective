@@ -213,3 +213,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+*.class
+bin/Vue/PanneauImage.class
+bin/Controleur/SingletonCommande.class
