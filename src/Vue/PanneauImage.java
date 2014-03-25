@@ -59,17 +59,19 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 			   	   	insets = getInsets();
 			   	   	size = getSize();
 			          
-			        int largeurDuPanneau = size.width - (insets.left + insets.right);
-			        int hauteurDuPanneau = size.height - (insets.top + insets.bottom);
+			        largeurDuPanneau = size.width - (insets.left + insets.right);
+			        hauteurDuPanneau = size.height - (insets.top + insets.bottom);
 
 
 			        int LargeurDeImage = (int) (imagebuffer.getWidth() * image.getPerspective().getZoom());
 			        int hauteurDeImage = (int) (imagebuffer.getHeight() * image.getPerspective().getZoom());
 			        
 			        //Centre du panneau
-			        int x = (largeurDuPanneau - LargeurDeImage) / 2;
-			        int y = (hauteurDuPanneau - hauteurDeImage) / 2;
-			        
+			        int x = this.image.getPosx();
+			        int y = this.image.getPosy();
+                      //int x = (largeurDuPanneau - LargeurDeImage) / 2;
+                      //int y = (hauteurDuPanneau - hauteurDeImage) / 2;
+
 			        // Pour permettre au bord optionnel d'etre dessine.
 		
 			        graphic2d.drawImage(imagebuffer, x, y, LargeurDeImage, hauteurDeImage, this);
@@ -86,7 +88,7 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	
 	
 	public void setImage(String lienImage) throws IOException{
-		image = Modele.FabriqueImage.fabriqueImage(lienImage);
+		image = Modele.FabriqueImage.fabriqueImage(lienImage, largeurDuPanneau, hauteurDuPanneau);
 		imagebuffer = image.getBufferedImage();
 		repaint();
 	}

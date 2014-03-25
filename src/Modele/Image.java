@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: Image.java
-Date créé: 2014-03-15
+Date crï¿½ï¿½: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -11,12 +11,10 @@ Date créé: 2014-03-15
 
 package Modele;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 
 
@@ -39,8 +37,9 @@ public class Image  {
 			chemin = lienImage;
 	      	int imageLargeur = image.getWidth();
 	        int imageHauteur = image.getHeight();
-	        
-	        perspective = new Perspective ((largeurDupanneau - imageLargeur) / 2,(hauteurDuPanneau - imageHauteur) / 2);
+
+
+            perspective = new Perspective (largeurDupanneau, hauteurDuPanneau, imageLargeur, imageHauteur);
 	  
 		 
 	}
@@ -60,5 +59,12 @@ public class Image  {
 	public Perspective getPerspective(){
 		return perspective;
 	}
+
+    public int getPosx(){
+        return this.perspective.getLargeur();
+    }
+    public int getPosy(){
+        return this.perspective.getHauteur();
+    }
 	
 }

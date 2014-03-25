@@ -19,11 +19,15 @@ public class Perspective extends Modele.Observable {
 	private int hauteur;
 	private int largeur;
 	
-	public Perspective(int largeurRecu, int hauteurRecu){
+	public Perspective(int largeurPanneau, int hauteurPanneau, int largeurImage, int hauteurImage){
 		this.zoom = 1.00;
-		this.hauteur= hauteurRecu;
-		this.largeur = largeurRecu;
+		this.hauteur= (int)(hauteurPanneau - (hauteurImage * zoom))/2;
+		this.largeur = (int)(largeurPanneau - (largeurImage * zoom))/2;
         this.sauvegardes = new Gardien();
+
+        //(largeurDuPanneau - LargeurDeImage) / 2
+        //int LargeurDeImage = (int) (imagebuffer.getWidth() * image.getPerspective().getZoom());
+        //int hauteurDeImage = (int) (imagebuffer.getHeight() * image.getPerspective().getZoom());
 		
 	}
     public Perspective(int largeurRecu, int hauteurRecu, double zoom){
