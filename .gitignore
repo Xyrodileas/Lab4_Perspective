@@ -216,3 +216,7 @@ pip-log.txt
 *.class
 bin/Vue/PanneauImage.class
 bin/Controleur/SingletonCommande.class
+bin/Vue/PanneauImage.class
+bin/Modele/Perspective.class
+bin/Modele/Image.class
+bin/Modele/FabriqueImage.class
