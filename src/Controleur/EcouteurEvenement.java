@@ -101,6 +101,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		
 		int[] tabParametres = {e.getLocationOnScreen().x - this.x, e.getLocationOnScreen().y - this.y};
         SingletonCommande.execution(1, tabParametres, this.panneauImage);
+        panneauImage.rafraichirPanneauImage();
 		// int xModifie = e.getX();
 		// int yModifier = e.getY();
 
