@@ -1,5 +1,7 @@
 package Controleur;
 
+import Vue.PanneauImage;
+
 public class Translation extends Commande{
 
 	int x, y;
@@ -27,8 +29,10 @@ public class Translation extends Commande{
 	}
 
 
-    public void execution(){
-
+    public void execution(PanneauImage panneauImage){
+        panneauImage.image.getPerspective().setHauteur(this.y);
+        panneauImage.image.getPerspective().setLargeur(this.x);
+        panneauImage.repaint();
     }
 
 

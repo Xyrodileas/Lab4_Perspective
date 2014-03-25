@@ -17,7 +17,7 @@ public class Perspective extends Modele.Observable {
 	public Gardien sauvegardes;
 	
 	private int hauteur;
-	private int largeur;
+    private int largeur;
 	
 	public Perspective(int largeurPanneau, int hauteurPanneau, int largeurImage, int hauteurImage){
 		this.zoom = 1.00;
@@ -61,6 +61,15 @@ public class Perspective extends Modele.Observable {
     	this.zoom=zoom-0.10;
     	notify();
     }
-	
-	
+
+    public void setHauteur(int hauteur) {
+        this.hauteur = hauteur;
+    }
+
+    public void setLargeur(int largeur) {
+        this.largeur = largeur;
+    }
+
+
+
 }

@@ -9,6 +9,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 
 	private PanneauImage panneauImage;
 
+
     private int x, y;
 	public EcouteurEvenement(PanneauImage im) {
 
@@ -49,8 +50,8 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		System.out.println(" Souris a clique");
-        this.x = arg0.getX();
-        this.y = arg0.getY();
+        this.x = arg0.getXOnScreen();
+        this.y = arg0.getYOnScreen();
 	}
 
 	@Override
@@ -99,7 +100,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		System.out.println("Deplacement de la souris");
 		
 		int[] tabParametres = {e.getLocationOnScreen().x - this.x, e.getLocationOnScreen().y - this.y};
-		
+        SingletonCommande.execution(1, tabParametres, this.panneauImage);
 		// int xModifie = e.getX();
 		// int yModifier = e.getY();
 
@@ -114,7 +115,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		// dX = e.getLocationOnScreen().x - this.getX();
 		// dY = e.getLocationOnScreen().y - this.getY();
 
-		SingletonCommande.execution(1,tabParametres );
+		SingletonCommande.execution(1,tabParametres, this.panneauImage );
 	}
 
 	@Override

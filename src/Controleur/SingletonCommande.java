@@ -11,6 +11,8 @@ Date cr��: 2014-03-15
 
 package Controleur;
 
+import Vue.PanneauImage;
+
 public class SingletonCommande {
 
 	public static SingletonCommande instanceSingleton;
@@ -26,7 +28,7 @@ public class SingletonCommande {
 
 	}
 
-	public static void execution(int action, int[] valeurs) {
+	public static void execution(int action, int[] valeurs, PanneauImage panneauImage) {
 
         Commande maCommande;
 		switch (action) {
@@ -39,7 +41,7 @@ public class SingletonCommande {
             break;
         }
         if(maCommande != null)
-            maCommande.execution();
+            maCommande.execution(panneauImage);
         else{}
             // throw Exception;
 

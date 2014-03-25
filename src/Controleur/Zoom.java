@@ -1,5 +1,7 @@
 package Controleur;
 
+import Vue.PanneauImage;
+
 public class Zoom extends Commande{
 
 	
@@ -13,14 +15,14 @@ public class Zoom extends Commande{
 	}
 	
 	//1 Pour zoom avant
-	//0 Pour zoom arrière
+	//0 Pour zoom arriï¿½re
 	public void execution(Modele.Perspective p, int modeZoom) {
 		if(modeZoom==1)
 			zoomAvant(p);
 		zoomArriere(p);
 	}
 	@Override
-	public void execution() {
+	public void execution(PanneauImage panneauImage) {
 		// TODO Auto-generated method stub
 		
 	}
