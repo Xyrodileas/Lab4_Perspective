@@ -81,17 +81,25 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent arg0) {
+		int[] tabParametres={0};
 		if (arg0.getWheelRotation() < 0) {
 			System.out.println("Zoom avant");
+			
 			// panneauImage.testIncrementerZoom();
 			panneauImage.rafraichirPanneauImage();
+			tabParametres[0] = 1;
 		} else {
 
 			System.out.println("Zoom Arri�re");
+
 			// panneauImage.testDecrementerZoom();
 			panneauImage.rafraichirPanneauImage();
+			tabParametres[0] = 0 ;
 		}
+		
 
+		SingletonCommande.execution(2, tabParametres, this.panneauImage);
+		panneauImage.rafraichirPanneauImage();
 	}
 
 	@Override

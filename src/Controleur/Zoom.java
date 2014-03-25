@@ -4,8 +4,11 @@ import Vue.PanneauImage;
 
 public class Zoom extends Commande{
 
+	int typeZoom;
 	
-	
+	public Zoom(int valeur) {
+		typeZoom = valeur;
+	}
 	private void zoomAvant(Modele.Perspective pRecu){
 		pRecu.incrementeZoom();
 	}
@@ -16,16 +19,24 @@ public class Zoom extends Commande{
 	
 	//1 Pour zoom avant
 	//0 Pour zoom arri�re
-	public void execution(Modele.Perspective p, int modeZoom) {
-		if(modeZoom==1)
+	public void execution(Modele.Perspective p) {
+		System.out.println(" Execution zoom bien");
+		if(typeZoom==1)
 			zoomAvant(p);
+		else
 		zoomArriere(p);
 	}
 	@Override
 	public void execution(PanneauImage panneauImage) {
-		// TODO Auto-generated method stub
+
+		System.out.println(" Execution zoom bien po bien");
 		
+		if(typeZoom==1)
+			zoomAvant(panneauImage.image.getPerspective());
+		else
+		zoomArriere(panneauImage.image.getPerspective());
 	}
+
 	
 	
 	
