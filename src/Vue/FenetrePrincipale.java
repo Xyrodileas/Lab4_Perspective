@@ -43,6 +43,7 @@ public class FenetrePrincipale extends JFrame{
 		        
 		        //Ajout ecouteur de souris au panneauImage
 		        panneauImage.addMouseListener(new Controleur.EcouteurEvenement(panneauImage));
+		        panneauImage.addMouseMotionListener(new Controleur.EcouteurEvenement(panneauImage));
 		        panneauImage.addMouseWheelListener(new Controleur.EcouteurEvenement(panneauImage));
 		        panneauImage.addKeyListener(new Controleur.EcouteurEvenement(panneauImage) );
 		        		        		        
