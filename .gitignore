@@ -220,3 +220,6 @@ bin/Vue/PanneauImage.class
 bin/Modele/Perspective.class
 bin/Modele/Image.class
 bin/Modele/FabriqueImage.class
+src/Controleur/EcouteurEvenement.java
+bin/Modele/Perspective.class
+bin/Controleur/SingletonCommande.class
