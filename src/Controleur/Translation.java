@@ -30,8 +30,8 @@ public class Translation extends Commande{
 
 
     public void execution(PanneauImage panneauImage){
-        panneauImage.image.getPerspective().setFacteurDeDeplacementX(this.x);;
-        panneauImage.image.getPerspective().setFacteurDeDeplacementY(this.y);
+        panneauImage.image.getPerspective().setPositionX(this.x);;
+        panneauImage.image.getPerspective().setPositionY(this.y);
     
         //-----------------------------------A SUPPRIMER APRES CREATION DU NOTIFY OBSERVATEUR -----------------
         panneauImage.repaint();

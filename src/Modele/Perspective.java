@@ -18,20 +18,16 @@ public class Perspective extends Modele.Observable {
 
 	private int hauteurImage;
 	private int largeurImage;
-	private int facteurDeDeplacementX;
-	private int facteurDeDeplacementY;
+	private int positionX;
+	private int positionY;
 
-	
-	private int hauteur;
-    private int largeur;
-	
-	public Perspective(int largeurImageR, int hauteurImageR){
+    public Perspective(int largeurImageR, int hauteurImageR){
 		
 		hauteurImage = hauteurImageR;
 		largeurImage= largeurImageR;
 		
-		facteurDeDeplacementX=0;
-		facteurDeDeplacementY=0;
+		positionX =0;
+		positionY =0;
 		
 		
 		this.zoom = 1;
@@ -43,20 +39,14 @@ public class Perspective extends Modele.Observable {
 	}
     public Perspective(int largeurRecu, int hauteurRecu, int zoom){
 
-        this.hauteur= hauteurRecu;
-        this.largeur = largeurRecu;
+        this.positionX = hauteurRecu;
         this.zoom = zoom;
-
+        positionX = 0;
+        positionY = 0;
     }
 
 	
-	public int getHauteur(){
-		return this.hauteurImage;
-	}
-	
-	public int getLargeur(){
-		return this.largeurImage;
-	}
+
 
     public int getZoom(){
         return zoom;
@@ -77,6 +67,14 @@ public class Perspective extends Modele.Observable {
      	//--------AJOUTER NOTIFY APRES----------
     	//notify();
     }
+
+    public int getHauteurImage(){
+        return this.hauteurImage;
+    }
+
+    public int getLargeurImage(){
+        return this.largeurImage;
+    }
     
     //------------------------GESTION DU DEPLACEMENT DE L'IMAGE---------------------
     /**
@@ -84,12 +82,9 @@ public class Perspective extends Modele.Observable {
      * de l'image en X
      * @param deplacementRecuX
      */
-    public void setFacteurDeDeplacementX(int deplacementRecuX){
-    	System.out.println();
-    	facteurDeDeplacementX=deplacementRecuX- (hauteurImage/2);
-    	System.out.println("VOICI LA HAUTEUR / 2  " + hauteurImage/2);
-    	System.out.println("VOICI LE FACTEUR DE DEPLACEMENT X  "+this.facteurDeDeplacementX);
-    	System.out.println("VOICI LA Difference entre les deux " + (deplacementRecuX - (hauteurImage/2)));
+    public void setPositionX(int deplacementRecuX){
+        positionX += deplacementRecuX;
+
     }
     
     /**
@@ -97,47 +92,36 @@ public class Perspective extends Modele.Observable {
      * de l'image en Y
      * @param deplacementRecuY
      */
-    public void setFacteurDeDeplacementY(int deplacementRecuY){
-    	
-    	facteurDeDeplacementY=deplacementRecuY- (largeurImage/2);
-    	System.out.println("VOICI LARGEUR / 2  " + largeurImage/2);
-    	System.out.println("VOICI LE FACTEUR DE DEPLACEMENT Y "+this.facteurDeDeplacementY);
-    	System.out.println("VOICI LA Difference entre les deux " + (deplacementRecuY-(largeurImage/2)));
+    public void setPositionY(int deplacementRecuY){
+
+        positionY += deplacementRecuY;
+
     }
-    
-    
+
     /**
      * Permet de retourner la position de l'image selon X
      * @return (int)
      */
-    public int getFacteurDeDeplacementX(){
-    	return this.facteurDeDeplacementX;
+    public int getPositionX(){
+    	return this.positionX;
     }
     
     /**
      * Permet de retourner la position de l'image selon Y
      * @return (int)
      */
-    public int getFacteurDeDeplacementY(){
-    	return this.facteurDeDeplacementY;
+    public int getPositionY(){
+    	return this.positionY;
     }
     
     public int recupereCentreXDImage(){
-    	return this.largeur/2;
+    	return this.positionY /2;
     }
     public int recupereCentreYDImage(){
     	return this.hauteurImage/2;
     }
     
     
-    public void setHauteur(int hauteur) {
-        this.hauteur = hauteur;
-    }
-
-    public void setLargeur(int largeur) {
-        this.largeur = largeur;
-    }
-
 
 
 }

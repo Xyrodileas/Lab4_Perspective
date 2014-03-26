@@ -60,26 +60,26 @@ public class Image  {
 	}
 
     public int getPosx(){
-        return this.perspective.getLargeur();
+        return this.perspective.getPositionY();
     }
     public int getPosy(){
-        return this.perspective.getHauteur();
+        return this.perspective.getPositionX();
     }
     
     public int getLargeurImage(){
-    	return this.perspective.getLargeur();
+    	return this.perspective.getLargeurImage();
     }
 	
     public int getHauteurImage(){
-    	return this.perspective.getHauteur();
+    	return this.perspective.getHauteurImage();
     }
     
     public int getFacteurDeplacementX(){
-    	return perspective.getFacteurDeDeplacementX();
+    	return perspective.getPositionX();
     }
-    
+
     public int getFacteurDeplacementY(){
-    	return perspective.getFacteurDeDeplacementY();
+    	return perspective.getPositionY();
     }
     
 

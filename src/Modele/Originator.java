@@ -21,8 +21,8 @@ public class Originator {
     private int largeur;
 	public void SetSave(Perspective maperspective) {
 
-        this.hauteur = maperspective.getHauteur();
-        this.hauteur = maperspective.getLargeur();
+        this.hauteur = maperspective.getPositionX();
+        this.hauteur = maperspective.getPositionY();
         this.zoom = maperspective.getZoom();
 	}
 	
