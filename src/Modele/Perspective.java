@@ -28,8 +28,8 @@ public class Perspective extends Modele.Observable {
 		hauteurImage = hauteurImageR;
 		largeurImage= largeurImageR;
 		
-		facteurDeDeplacementX=0;
-		facteurDeDeplacementY=0;
+		facteurDeDeplacementX=largeurImage/2;
+		facteurDeDeplacementY=hauteurImage/2;
 		
 		
 		this.zoom = 1;
@@ -75,32 +75,23 @@ public class Perspective extends Modele.Observable {
     }
     
     //------------------------GESTION DU DEPLACEMENT DE L'IMAGE---------------------
-    
+    /**
+     * Permet de modifier la position
+     * de l'image en X
+     * @param deplacementRecuX
+     */
     public void setFacteurDeDeplacementX(int deplacementRecuX){
-    	facteurDeDeplacementX=deplacementRecuX;
+    	facteurDeDeplacementX=deplacementRecuX- (hauteurImage/2);
     }
+    
+    /**
+     * Permet de modifier la position
+     * de l'image en Y
+     * @param deplacementRecuY
+     */
     public void setFacteurDeDeplacementY(int deplacementRecuY){
-    	facteurDeDeplacementY=deplacementRecuY;
+    	facteurDeDeplacementY=deplacementRecuY- (largeurImage/2);
     }
-    
-  
-    //------------------------ TESSSSSTTTTTTTTTTTTTTTTTTTTTTTTTTTT---------------------
-    public void inrementerFacteurDeDeplacementX(){
-    	facteurDeDeplacementX++;
-    }
-    public void inrementerFacteurDeDeplacementY(){
-    	facteurDeDeplacementY++;
-    }
-    public void decrementerFacteurDeDeplacementX(){
-    	if (facteurDeDeplacementX >0)
-    		facteurDeDeplacementX--;
-    }
-    public void decrementerFacteurDeDeplacementY(){
-    	if (facteurDeDeplacementY >0)
-    		facteurDeDeplacementY--;
-    }
-    
-    //----------------------------------------FIN DU TEST-------------
     
     
     /**
@@ -119,7 +110,12 @@ public class Perspective extends Modele.Observable {
     	return this.facteurDeDeplacementY;
     }
     
-    
+    public int recupereCentreXDImage(){
+    	return this.largeur/2;
+    }
+    public int recupereCentreYDImage(){
+    	return this.hauteurImage/2;
+    }
     
     
     public void setHauteur(int hauteur) {

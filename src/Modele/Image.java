@@ -28,7 +28,6 @@ public class Image  {
 	private int imageLargeur;
 	private int imageHauteur;
 
-
 	
 	
 	public Image(String lienImage) throws IOException{
@@ -82,5 +81,7 @@ public class Image  {
     public int getFacteurDeplacementY(){
     	return perspective.getFacteurDeDeplacementY();
     }
+    
+
 	
 }

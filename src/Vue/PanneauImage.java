@@ -76,7 +76,7 @@ public class PanneauImage extends JComponent implements Modele.Observer {
 			        int zoom = image.getPerspective().getZoom();
 		
 			        graphic2d.drawImage(imagebuffer, image.getFacteurDeplacementX(),image.getFacteurDeplacementY() , image.getLargeurImage()*zoom, image.getHauteurImage()*zoom, this);
-			       			
+	
 			
 		}
 		else{
