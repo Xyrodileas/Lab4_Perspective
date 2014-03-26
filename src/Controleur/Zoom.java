@@ -17,7 +17,7 @@ public class Zoom extends Commande{
 		
 	}
 	
-	//1 Pour zoom avant
+/**	//1 Pour zoom avant
 	//0 Pour zoom arri�re
 	public void execution(Modele.Perspective p) {
 		System.out.println(" Execution zoom bien");
@@ -25,8 +25,9 @@ public class Zoom extends Commande{
 			zoomAvant(p);
 		else
 		zoomArriere(p);
-	}
-	@Override
+	}**/
+
+	
 	public void execution(PanneauImage panneauImage) {
 
 		System.out.println(" Execution zoom bien po bien");

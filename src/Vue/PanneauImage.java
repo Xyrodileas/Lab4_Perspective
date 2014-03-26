@@ -73,8 +73,9 @@ public class PanneauImage extends JComponent implements Modele.Observer {
                       //int y = (hauteurDuPanneau - hauteurDeImage) / 2;
 
 			        // Pour permettre au bord optionnel d'etre dessine.
+			        int zoom = image.getPerspective().getZoom();
 		
-			        graphic2d.drawImage(imagebuffer, image.getFacteurDeplacementX(),image.getFacteurDeplacementY() , image.getLargeurImage(), image.getHauteurImage(), this);
+			        graphic2d.drawImage(imagebuffer, image.getFacteurDeplacementX(),image.getFacteurDeplacementY() , image.getLargeurImage()*zoom, image.getHauteurImage()*zoom, this);
 			       			
 			
 		}

@@ -59,13 +59,13 @@ public class Image  {
 	public Perspective getPerspective(){
 		return perspective;
 	}
-/*
+
     public int getPosx(){
         return this.perspective.getLargeur();
     }
     public int getPosy(){
         return this.perspective.getHauteur();
-    }*/
+    }
     
     public int getLargeurImage(){
     	return this.perspective.getLargeur();

@@ -86,20 +86,20 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		if (arg0.getWheelRotation() < 0) {
 			System.out.println("Zoom avant");
 			
-			// panneauImage.testIncrementerZoom();
+			
 			panneauImage.rafraichirPanneauImage();
 			tabParametres[0] = 1;
 		} else {
 
 			System.out.println("Zoom Arri�re");
 
-			// panneauImage.testDecrementerZoom();
+		
 			panneauImage.rafraichirPanneauImage();
 			tabParametres[0] = 0 ;
 		}
 		
 
-		//SingletonCommande.execution(2, tabParametres, this.panneauImage);
+		SingletonCommande.execution(2, tabParametres, this.panneauImage);
 		panneauImage.rafraichirPanneauImage();
 	}
 
@@ -110,8 +110,8 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		
 		int[] tabParametres = {e.getLocationOnScreen().x - this.x, e.getLocationOnScreen().y - this.y};
         SingletonCommande.execution(1, tabParametres, this.panneauImage);
-       // panneauImage.rafraichirPanneauImage();
-		// int xModifie = e.getX();
+       panneauImage.rafraichirPanneauImage();
+		int xModifie = e.getX();
 		// int yModifier = e.getY();
 
 
@@ -128,7 +128,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		//SingletonCommande.execution(1,tabParametres, this.panneauImage );
 	}
 
-	@Override
+	
 	public void mouseMoved(MouseEvent e) {
 	}
 

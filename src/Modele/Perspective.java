@@ -13,7 +13,7 @@ package Modele;
 
 
 public class Perspective extends Modele.Observable {
-	private double zoom;
+	private int zoom;
 	public Gardien sauvegardes;
 
 	private int hauteurImage;
@@ -32,24 +32,21 @@ public class Perspective extends Modele.Observable {
 		facteurDeDeplacementY=0;
 		
 		
-		this.zoom = 1.00;
+		this.zoom = 1;
 		//this.hauteur= (int)(hauteurPanneauR - (hauteurImage * zoom))/2;
 		//this.largeur = (int)(largeurPanneauR - (largeurImage * zoom))/2;
 		
         this.sauvegardes = new Gardien();
 
-        //(largeurDuPanneau - LargeurDeImage) / 2
-        //int LargeurDeImage = (int) (imagebuffer.getWidth() * image.getPerspective().getZoom());
-        //int hauteurDeImage = (int) (imagebuffer.getHeight() * image.getPerspective().getZoom());
 		
 	}
-    public Perspective(int largeurRecu, int hauteurRecu, double zoom){
+    /**public Perspective(int largeurRecu, int hauteurRecu){
 
         this.hauteur= hauteurRecu;
         this.largeur = largeurRecu;
         this.zoom = zoom;
 
-    }
+    }**/
 
 	
 	public int getHauteur(){
@@ -60,7 +57,7 @@ public class Perspective extends Modele.Observable {
 		return this.largeurImage;
 	}
 
-    public double getZoom(){
+    public int getZoom(){
         return zoom;
     }
     
@@ -68,13 +65,14 @@ public class Perspective extends Modele.Observable {
     
     public void incrementeZoom(){
     	
-    	this.zoom=zoom+0.10;
-    	notify();
+    	this.zoom++;
+  
+    	//notify();
     }
     public void decrementeZoom(){
-    	if(zoom>1.00)
-    	this.zoom=zoom-0.10;
-    	notify();
+    	if(zoom>1)
+    	this.zoom--;
+    	//notify();
     }
     
   
