@@ -33,20 +33,19 @@ public class Perspective extends Modele.Observable {
 		
 		
 		this.zoom = 1;
-		//this.hauteur= (int)(hauteurPanneauR - (hauteurImage * zoom))/2;
-		//this.largeur = (int)(largeurPanneauR - (largeurImage * zoom))/2;
+		
 		
         this.sauvegardes = new Gardien();
 
 		
 	}
-    /**public Perspective(int largeurRecu, int hauteurRecu){
+    public Perspective(int largeurRecu, int hauteurRecu, int zoom){
 
         this.hauteur= hauteurRecu;
         this.largeur = largeurRecu;
         this.zoom = zoom;
 
-    }**/
+    }
 
 	
 	public int getHauteur(){
@@ -75,11 +74,21 @@ public class Perspective extends Modele.Observable {
     	//notify();
     }
     
+    //------------------------GESTION DU DEPLACEMENT DE L'IMAGE---------------------
+    
+    public void setFacteurDeDeplacementX(int deplacementRecuX){
+    	facteurDeDeplacementX=deplacementRecuX;
+    }
+    public void setFacteurDeDeplacementY(int deplacementRecuY){
+    	facteurDeDeplacementY=deplacementRecuY;
+    }
+    
   
+    //------------------------ TESSSSSTTTTTTTTTTTTTTTTTTTTTTTTTTTT---------------------
     public void inrementerFacteurDeDeplacementX(){
     	facteurDeDeplacementX++;
     }
-    public void inrementerFacteurDeDeplacementy(){
+    public void inrementerFacteurDeDeplacementY(){
     	facteurDeDeplacementY++;
     }
     public void decrementerFacteurDeDeplacementX(){
@@ -91,9 +100,21 @@ public class Perspective extends Modele.Observable {
     		facteurDeDeplacementY--;
     }
     
+    //----------------------------------------FIN DU TEST-------------
+    
+    
+    /**
+     * Permet de retourner la position de l'image selon X
+     * @return (int)
+     */
     public int getFacteurDeDeplacementX(){
     	return this.facteurDeDeplacementX;
     }
+    
+    /**
+     * Permet de retourner la position de l'image selon Y
+     * @return (int)
+     */
     public int getFacteurDeDeplacementY(){
     	return this.facteurDeDeplacementY;
     }

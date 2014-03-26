@@ -52,7 +52,9 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		System.out.println(" Souris a clique");
 		SingletonCommande.execution(1,  null, this.panneauImage);
         this.x = arg0.getXOnScreen();
+        System.out.println("Voici le X retenu par la souris"+this.x);
         this.y = arg0.getYOnScreen();
+        System.out.println("Voici le Y retenu par la souris"+this.y);
 	}
 
 	@Override

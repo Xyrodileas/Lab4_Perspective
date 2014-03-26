@@ -14,7 +14,7 @@ package Modele;
 
 
 public class Originator {
-    public double zoom;
+    public int zoom;
     public Image img;
 
     private int hauteur;
