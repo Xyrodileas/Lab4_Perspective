@@ -89,6 +89,7 @@ public class Perspective extends Modele.Observable {
     	facteurDeDeplacementX=deplacementRecuX- (hauteurImage/2);
     	System.out.println("VOICI LA HAUTEUR / 2  " + hauteurImage/2);
     	System.out.println("VOICI LE FACTEUR DE DEPLACEMENT X  "+this.facteurDeDeplacementX);
+    	System.out.println("VOICI LA Difference entre les deux " + (deplacementRecuX - (hauteurImage/2)));
     }
     
     /**
@@ -101,7 +102,7 @@ public class Perspective extends Modele.Observable {
     	facteurDeDeplacementY=deplacementRecuY- (largeurImage/2);
     	System.out.println("VOICI LARGEUR / 2  " + largeurImage/2);
     	System.out.println("VOICI LE FACTEUR DE DEPLACEMENT Y "+this.facteurDeDeplacementY);
-    	
+    	System.out.println("VOICI LA Difference entre les deux " + (deplacementRecuY-(largeurImage/2)));
     }
     
     
