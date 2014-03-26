@@ -20,6 +20,8 @@ public class Perspective extends Modele.Observable {
 	private int largeurImage;
 	private int facteurDeDeplacementX;
 	private int facteurDeDeplacementY;
+
+	
 	private int hauteur;
     private int largeur;
 	
@@ -28,8 +30,8 @@ public class Perspective extends Modele.Observable {
 		hauteurImage = hauteurImageR;
 		largeurImage= largeurImageR;
 		
-		facteurDeDeplacementX=largeurImage/2;
-		facteurDeDeplacementY=hauteurImage/2;
+		facteurDeDeplacementX=0;
+		facteurDeDeplacementY=0;
 		
 		
 		this.zoom = 1;
@@ -66,11 +68,13 @@ public class Perspective extends Modele.Observable {
     	
     	this.zoom++;
   
+    	//--------AJOUTER NOTIFY APRES----------
     	//notify();
     }
     public void decrementeZoom(){
     	if(zoom>1)
     	this.zoom--;
+     	//--------AJOUTER NOTIFY APRES----------
     	//notify();
     }
     
@@ -81,7 +85,10 @@ public class Perspective extends Modele.Observable {
      * @param deplacementRecuX
      */
     public void setFacteurDeDeplacementX(int deplacementRecuX){
+    	System.out.println();
     	facteurDeDeplacementX=deplacementRecuX- (hauteurImage/2);
+    	System.out.println("VOICI LA HAUTEUR / 2  " + hauteurImage/2);
+    	System.out.println("VOICI LE FACTEUR DE DEPLACEMENT X  "+this.facteurDeDeplacementX);
     }
     
     /**
@@ -90,7 +97,11 @@ public class Perspective extends Modele.Observable {
      * @param deplacementRecuY
      */
     public void setFacteurDeDeplacementY(int deplacementRecuY){
+    	
     	facteurDeDeplacementY=deplacementRecuY- (largeurImage/2);
+    	System.out.println("VOICI LARGEUR / 2  " + largeurImage/2);
+    	System.out.println("VOICI LE FACTEUR DE DEPLACEMENT Y "+this.facteurDeDeplacementY);
+    	
     }
     
     
