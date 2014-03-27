@@ -2,39 +2,58 @@ package Controleur;
 
 import Vue.PanneauImage;
 
+/**
+ * 
+ * Classe Zoom qui va permettre de demander
+ * A la classe perspective de modifier son zoom.
+ * Excecution de commande  Zoom sur l'image modifiant la perspective
+ * 
+ * Cette classe herite de la l'interface Commande et implement execute()
+ *
+ */
 public class Zoom extends Commande{
 
+	//ATTRIBUT DE LA CLASSE ZOOM
 	int typeZoom;
 	
+	
+	/**
+	 * Constructeur par defaut de la classe Zoom
+	 * @param valeur
+	 */
 	public Zoom(int valeur) {
 		typeZoom = valeur;
 	}
+	
+	/**
+	 * Methode qui va permettre de zoomer depuis perspective
+	 * @param pRecu (int)
+	 */
 	private void zoomAvant(Modele.Perspective pRecu){
 		pRecu.incrementeZoom();
 	}
+	
+	/**
+	 * Methode qui va permettre de dezoomer depuis perspective
+	 * @param pRecu (int)
+	 */
 	private void zoomArriere(Modele.Perspective pRecu){
 		pRecu.decrementeZoom();
 		
 	}
 	
-/**	//1 Pour zoom avant
-	//0 Pour zoom arri�re
-	public void execution(Modele.Perspective p) {
-		System.out.println(" Execution zoom bien");
-		if(typeZoom==1)
-			zoomAvant(p);
-		else
-		zoomArriere(p);
-	}**/
-
 	
+	/**
+	 * Methode qui sera executer par le SingletonCommande
+	 * afin d'appliquer les modifications
+	 */
 	public void execution(PanneauImage panneauImage) {
 
-		System.out.println(" Execution zoom bien po bien");
-		
+		// SI TypeZoom =1 donc zoomAvant
 		if(typeZoom==1)
 			zoomAvant(panneauImage.getPerspective());
 		else
+			// SINOn ZOOM ARRIERE
 		zoomArriere(panneauImage.getPerspective());
 	}
 

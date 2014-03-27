@@ -15,6 +15,10 @@ import javax.swing.*;
 import java.awt.*;
 
 
+/**
+ *Classe qui permet une JFrame a l'application
+ *Permet de créer la fenetre principale de l'application
+ */
 public class FenetrePrincipale extends JFrame{
 	
 	/**
@@ -24,6 +28,11 @@ public class FenetrePrincipale extends JFrame{
 	public Menu menu;
 
 
+	/**
+	 * Constructeur par defaut 
+	 * de la classe FenetrePrincipale
+	 * permet d'instancier la fenetre princiapale
+	 */
 	    public FenetrePrincipale() {
 		    	
 	    		//Parametres globale de la fenetre

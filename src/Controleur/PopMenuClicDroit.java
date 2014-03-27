@@ -28,6 +28,14 @@ public class PopMenuClicDroit extends JPopupMenu {
 	private static PanneauImage panneauImage;
 	private int [] perspective;
 	
+	/**
+	 * Constructeur par defaut de la classe PoPMenuClicDroit
+	 * @param panneauR (PanneauImage)
+	 * 
+	 * Consequent : 
+	 * 				panneauImage=PanneauR;
+	 * 				On ajoute les ecouteurs au menu clic droit
+	 */
 	public PopMenuClicDroit(PanneauImage panneauR){
 		
 		panneauImage=panneauR;
