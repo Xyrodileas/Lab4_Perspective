@@ -18,11 +18,28 @@ import Vue.PanneauImage;
  * qui a ete copiee
  */
 public class Coller extends Commande {
-
-	@Override
-	public void execution(PanneauImage image) {
-		// TODO Auto-generated method stub
+	
+	//ATTRIBUT DE COLLER
+	private int [] params;
+	
+	/**
+	 * ConStructeur par defaut de Coller
+	 * Qui a pour parametre la perspective a coller
+	 * @param pR
+	 */
+	public Coller(int[] tab){
 		
+		params=tab.clone();
+	}
+
+	
+	/**
+	 * MEthode qui va permettre d'avertir la Perspective qu'il faut copier des nouveaux parmatres
+	 * mais aussi dès lors, la Perspective va avertir le panneauImage du changement par la methode
+	 * notify()
+	 */
+	public void execution(PanneauImage image) {
+		image.getPerspective().collerUnePerspective(params);
 	}
 
 }

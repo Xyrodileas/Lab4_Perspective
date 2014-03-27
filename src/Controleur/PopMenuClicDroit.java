@@ -20,32 +20,37 @@ import Vue.PanneauImage;
 
 public class PopMenuClicDroit extends JPopupMenu {
 	
-	JPopupMenu menuClicDroit;
-	JMenuItem menu1;
-	JMenuItem menu2;
-
-	PanneauImage panneauImage;
+	
+	//ATTRIBUTS DE LA CLASSE PoPMenuClicDroit
+	private JPopupMenu menuClicDroit;
+	private JMenuItem menu1;
+	private JMenuItem menu2;
+	private static PanneauImage panneauImage;
+	private int [] perspective;
 	
 	public PopMenuClicDroit(PanneauImage panneauR){
 		
 		panneauImage=panneauR;
+		perspective = new int[3];
+		
 		
 		menuClicDroit = new JPopupMenu();
 
 		menu1 = new JMenuItem("Copier Perspective");
 		menu1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Copier Perspective");
-				//SingletonCommande.execution(2, tabParametres, this.panneauImage);
+				
+				perspective[0] = panneauImage.getPerspective().getPositionX();
+						perspective[1] = panneauImage.getPerspective().getPositionY();
+								perspective[2] = (int)panneauImage.getPerspective().getZoom();
 		    }
 	    });
 	    
 	    menu2 = new JMenuItem("Coller Perspective");
 		menu2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Coller Perspective");
 				
-				//SingletonCommande.execution(2, tabParametres, this.panneauImage);
+				SingletonCommande.execution(3, perspective, panneauImage);
 		    }
 	    });
 	  
@@ -55,6 +60,12 @@ public class PopMenuClicDroit extends JPopupMenu {
 		
 	}
 	
+	/**
+	 * Permet d'afficher le menu clic droit selon la position de la souris
+	 * @param comp
+	 * @param x
+	 * @param y
+	 */
 	public void declancheMenu(Component comp,int x,int y){
 		menuClicDroit.show(comp,x, y);
 	}

@@ -80,7 +80,9 @@ public class Menu extends JMenuBar {
 				    				
 				    				//Envoie du chemin recu à la méthode setImage du panneauImage
 				    				fenetrePrincipale.panneauImage.setImage(boitedeChoix.getSelectedFile().getPath());
+				    				
 								} catch (IOException e) {
+									
 									//Sinon on affiche une petite fenetre d'erreur
 									JOptionPane.showMessageDialog(fenetrePrincipale, "Erreur");
 

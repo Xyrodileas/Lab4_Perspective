@@ -48,7 +48,6 @@ public class PanneauImage extends JComponent implements Modele.Observer {
 			        int largeurDuPanneau = getSize().width - (getInsets().left + getInsets().right);
 			        int hauteurDuPanneau = getSize().height - (getInsets().top + getInsets().bottom);
 			        
-			       //graphic2d.drawImage(imageAdessiner, image.getPerspective().getPositionX(),image.getPerspective().getPositionY() , ((int)(image.getLargeurImage()*(1/zoom))),((int)(image.getHauteurImage()*(1/zoom))), this);
 			        graphic2d.drawImage(imageAdessiner, x,y, ((int)(largeurDeLimage*zoom)),((int)(hauteurDeLimage*zoom)), this);
 		}
 		else{
