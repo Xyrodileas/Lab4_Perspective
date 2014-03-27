@@ -33,9 +33,9 @@ public class Zoom extends Commande{
 		System.out.println(" Execution zoom bien po bien");
 		
 		if(typeZoom==1)
-			zoomAvant(panneauImage.image.getPerspective());
+			zoomAvant(panneauImage.getPerspective());
 		else
-		zoomArriere(panneauImage.image.getPerspective());
+		zoomArriere(panneauImage.getPerspective());
 	}
 
 	

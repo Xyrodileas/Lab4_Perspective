@@ -28,11 +28,7 @@ public class Perspective extends Modele.Observable {
 		
 		positionX =0;
 		positionY =0;
-		
-		
 		this.zoom = 1.00;
-		
-		
         this.sauvegardes = new Gardien();
 
 		
@@ -59,14 +55,12 @@ public class Perspective extends Modele.Observable {
     	if(zoom>0.050)
     		this.zoom=this.zoom-0.050;
   
-    	//--------AJOUTER NOTIFY APRES----------
-    	//notify();
+    	  Notify();
     }
     public void decrementeZoom(){
     	
     	this.zoom=this.zoom+0.050;
-     	//--------AJOUTER NOTIFY APRES----------
-    	//notify();
+    	  Notify();
     }
 
     public int getHauteurImage(){
@@ -85,6 +79,7 @@ public class Perspective extends Modele.Observable {
      */
     public void setPositionX(int deplacementRecuX){
         positionX += deplacementRecuX;
+        Notify();
 
     }
     
@@ -96,7 +91,7 @@ public class Perspective extends Modele.Observable {
     public void setPositionY(int deplacementRecuY){
 
         positionY += deplacementRecuY;
-
+        Notify();
     }
 
     /**

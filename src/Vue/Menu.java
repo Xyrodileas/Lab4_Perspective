@@ -45,7 +45,6 @@ public class Menu extends JMenuBar {
 		public Menu(FenetrePrincipale fenetre) {
 			fenetrePrincipale= fenetre;
 			addMenuFichier();
-			addMenuPerspective();
 			addMenuModifier();
 			addMenuQuitter();
 		}
@@ -104,67 +103,6 @@ public class Menu extends JMenuBar {
 			   
 		}
 		
-		/**
-		 * Methode qui permet d'ajouter 
-		 * le menu perspective dans la menu globale
-		 */
-		private void addMenuPerspective() {
-			//menu Perspective du super menu
-	   		JMenu perspective = new JMenu("Perspective ");
-
-	   		//sous menu perspective fixe du menu perspective
-	   		JMenuItem fixe = new JMenuItem("Perspective fixe");
-	   		//sous menu zoom1 fixe du menu perspective
-	   		JMenuItem zoom1 = new JMenuItem("Zoom1");
-	   		//sous menu zoom2 fixe du menu perspective
-	   		JMenuItem zoom2 = new JMenuItem("Zoom2");
-	   		//sous menu zoom3 fixe du menu perspective
-	   		JMenuItem zoom3 = new JMenuItem("Zoom3");
-	   		
-	   		
-	   		//Avertisseur de fixe
-	   		fixe.addActionListener(new ActionListener(){
-    			public void actionPerformed(ActionEvent arg0) {
-    				System.out.println("fixe");
-    		    }
-    	    });
-	   		
-
-	   		//Avertisseur de zoom1
-	   		zoom1.addActionListener(new ActionListener(){
-	    			public void actionPerformed(ActionEvent arg0) {
-	    				System.out.println("Zoom 1");
-	    		    }
-	    	    });
-	   		
-	   		//Avertisseur de zoom2
-	   		zoom2.addActionListener(new ActionListener(){
-    			public void actionPerformed(ActionEvent arg0) {
-    				System.out.println("Zoom 2");
-    		    }
-    	    });
-	   		//Avertisseur de zoom3
-	   		zoom3.addActionListener(new ActionListener(){
-    			public void actionPerformed(ActionEvent arg0) {
-    				System.out.println("Zoom 3");
-    		
-    		    }
-    	    });
-	   		
-	   		
-	   		//ajout de fixe au menu perspective
-	   		perspective.add(fixe);
-	   		//ajout de zoom1 au menu perspective
-	   		perspective.add(zoom1);
-	   		//ajout de zoom2 au menu perspective
-	   		perspective.add(zoom2);
-	   		//ajout de zoom3 au menu perspective
-	   		perspective.add(zoom3);
-	   		//ajout du menu perspective au JMenuBar global
-	   		add(perspective);
-			
-		}
-		
 		
 		/**
 		 * Methode qui permet d'ajouter 
@@ -198,29 +136,11 @@ public class Menu extends JMenuBar {
 			
 			//Menu modifier
 			JMenu modifier = new JMenu("Modifier");
-			//sous menu copier du menu modifier
-			JMenuItem copier = new JMenuItem("Copier");
-			//sous menu coller du menu modifier
-			JMenuItem coller = new JMenuItem("Coller");
 			
 			JMenuItem undo = new JMenuItem("Undo");
 			
 			JMenuItem redo = new JMenuItem("Redo");
-			//Action de copier
-	   		copier.addActionListener(new ActionListener(){
-	    			public void actionPerformed(ActionEvent arg0) {
-	    				System.out.println("Copier");
-	    			
-	    		    }
-	    	    });
 
-	   		//Action de Coller
-	   		coller.addActionListener(new ActionListener(){
-	    			public void actionPerformed(ActionEvent arg0) {
-	    				System.out.println("Coller");
-	    		    }
-	    	    });
-	   		
 	   		undo.addActionListener(new ActionListener(){
     			public void actionPerformed(ActionEvent arg0) {
     				System.out.println("Undo");
@@ -232,11 +152,6 @@ public class Menu extends JMenuBar {
     		    }
     	    });
 
-
-	   		//Ajout du menu copier au menu modifier
-	   		modifier.add(copier);
-	   		//Ajout du menu coller au menu modifier
-	   		modifier.add(coller);
 	   		//Ajout du menu undo au menu modifier
 	   		modifier.add(undo);
 	   		//Ajout du menu redo au menu modifier

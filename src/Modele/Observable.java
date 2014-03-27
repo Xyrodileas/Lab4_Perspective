@@ -14,17 +14,13 @@ package Modele;
 
 
 public class Observable  {
-	public Observer Unnamed1;
+	public Modele.Observer observeur;
 	
-	public void Attach(Object o) {
-	
-	}
-	
-	public void Detach(Object o) {
-	
+	public void addObserver(Modele.Observer observeurRecu){
+		observeur = observeurRecu;
 	}
 	
 	public void Notify() {
-	
+	observeur.update();
 	}
 }

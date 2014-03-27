@@ -15,8 +15,6 @@ import javax.swing.*;
 import java.awt.*;
 
 
-
-
 public class FenetrePrincipale extends JFrame{
 	
 	/**
@@ -37,11 +35,11 @@ public class FenetrePrincipale extends JFrame{
 		        
 		        
 		        //Creation des elements de la fenetre
-		        menu = new Menu(this);
-		        panneauImage = new PanneauImage(this);
+		        menu = new Menu(this);	//CREATION DU MENU
+		        panneauImage = new PanneauImage();  //CREATION DU PANNEAU IMAGE
 		        
 		        
-		        //Ajout ecouteur de souris au panneauImage
+		        //Ajout des ecouteurs de souris et clavier au panneauImage
 		        panneauImage.addMouseListener(new Controleur.EcouteurEvenement(panneauImage));
 		        panneauImage.addMouseMotionListener(new Controleur.EcouteurEvenement(panneauImage));
 		        panneauImage.addMouseWheelListener(new Controleur.EcouteurEvenement(panneauImage));
@@ -49,19 +47,11 @@ public class FenetrePrincipale extends JFrame{
 		        		        		        
 		        //Ajout des elements a la fenetre PP
 		        
-		        this.setJMenuBar(menu);
-		        //this.getContentPane().add(panneauImage,BorderLayout.CENTER);
-		        
-		        //JARRIVE PAS A AJOUTER MON SCROLLPANE
-		        this.getContentPane().add(new JScrollPane(panneauImage), BorderLayout.CENTER);
-		       
-		        
-		        
-				
-		        //add(panneauImage,BorderLayout.CENTER);
+		        this.setJMenuBar(menu);  //LE MENU
+		        add(panneauImage,BorderLayout.CENTER); //LE PANNEAU IMAGE
 		        
 		        this.pack();
-		        this.setVisible(true);
+		        this.setVisible(true);	//ON REND LA FENETRE VISIBLE
 		        
 		    }
 	   
