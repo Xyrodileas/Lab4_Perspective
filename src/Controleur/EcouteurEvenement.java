@@ -14,7 +14,11 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
     private int x, y;
     private static int xClick, yClick;
     private PopMenuClicDroit menu;
-    public static boolean bouttonDroit;
+    
+    private static boolean bouttonGauche;
+    private boolean ctrl;
+
+    
     
     /**
      * Constructeur par defaut de Ecouteur Evenement
@@ -30,35 +34,26 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 	
 	
 	//---------------------------------------------------PARTIE CLAVIER--------------------------------------------
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		System.out.println(arg0.getSource());
-		System.out.println(arg0.getExtendedKeyCode());
-		System.out.println(arg0.getID());
-		pause();
-	}
 
-	@Override
 	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("Bonjour");
-		pause();
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		System.out.println("Bonjour");
-		pause();
-	}
-
-	private void pause() {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		//CAS CTRL
+		if(arg0.getKeyCode()==17 && !panneauImage.imageEstVide()){
+			ctrl=true;
+		}
+		//CAS CTRL Z
+		else if(ctrl && arg0.getKeyCode()==90){
+			System.out.println("CTRL Z");
+			SingletonCommande.execution(4, null, this.panneauImage);
+			ctrl=false;
+		}
+		//CAS CTRL Y
+		else if(ctrl && arg0.getKeyCode()==89){
+			System.out.println("CTRL Y");
+			SingletonCommande.execution(5, null, this.panneauImage);
+			ctrl=false;
 		}
 	}
+
 
 
 	//---------------------------------------------------PARTIE SOURIS CLIC--------------------------------------------
@@ -73,20 +68,20 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 	 */
 	public void mousePressed(MouseEvent arg0) {
 		if(arg0.getButton()==1){
-				bouttonDroit=true;
+				bouttonGauche=true;
 			  	this.xClick = arg0.getX();
 		        this.yClick = arg0.getY();
 		}
 			
 		//CLIC CENTRAL
 		else if (arg0.getButton()==2){
-			bouttonDroit=false;
+			bouttonGauche=false;
 			
 		}
 		//CLIC DROIT
 		else if (arg0.getButton()==3){
-			bouttonDroit=false;
-			if(panneauImage.imageEstVide())
+			bouttonGauche=false;
+			if(!panneauImage.imageEstVide())
 			menu.declancheMenu(arg0.getComponent(),arg0.getX(),arg0.getY());
 			
 		}
@@ -125,7 +120,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 	 * l'image dans le panneau avec la souris
 	 */
 	public void mouseDragged(MouseEvent e) {
-		if(bouttonDroit==true && panneauImage.imageEstVide()){
+		if(bouttonGauche==true && !panneauImage.imageEstVide()){
 			int[] tabParametres = {e.getX() - this.xClick, e.getY() - this.yClick};
 	
 			//APPEL DU SingletonCommande   ----> Translation
@@ -146,5 +141,10 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 	}
 	public void mouseExited(MouseEvent arg0) {
 	}
+	public void keyTyped(KeyEvent arg0) {
+	}
+	public void keyPressed(KeyEvent arg0) {
+	}
+
 
 }

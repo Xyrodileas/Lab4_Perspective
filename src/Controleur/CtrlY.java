@@ -16,7 +16,7 @@ public class CtrlY extends Commande{
 
 
 	public void execution(PanneauImage panneauImage) {
-	
+			//panneauImage.getPerspective().popPerspective();
 		
 	}
 

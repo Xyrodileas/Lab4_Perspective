@@ -35,6 +35,7 @@ public class SingletonCommande {
 	public static synchronized SingletonCommande getInstance() {
 		if (instanceSingleton == null) {
 			instanceSingleton = new SingletonCommande();
+			
 		}
 		return instanceSingleton;
 
@@ -67,16 +68,26 @@ public class SingletonCommande {
 		case 3 :
 				maCommande = new Coller(valeurs);
 				break;
+		//UNDO
+		case 4 :
+			maCommande = new CtrlZ();
+			break;
+		//REDO
+		case 5 :
+			maCommande = new CtrlY();
+			break;
 		//SINON COMMANDE= NULL
 		default:
 			maCommande = null;
             break;
         }
 		//SI COMMANDE DIFFERENT DE NULL EN L EXECUTE
-        if(maCommande != null)
+        if(maCommande != null){
+        	//SAVE A CHAQUE MODIFICATION
+        	//new SauvegardePerspective().execution(panneauImage);
             maCommande.execution(panneauImage);
-        
-        
+        }
+        	
         else{}
             // throw Exception;
 

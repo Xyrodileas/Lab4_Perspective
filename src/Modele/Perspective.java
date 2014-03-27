@@ -17,7 +17,7 @@ package Modele;
  */
 public class Perspective extends Modele.Observable {
 	
-	//LES ATTRIBUTS DE PERSPËCTIVE
+	//LES ATTRIBUTS DE PERSPECTIVE
 	private double zoom;
 	public Gardien sauvegardes;
 	private int hauteurImage;
@@ -35,7 +35,6 @@ public class Perspective extends Modele.Observable {
 		
 		hauteurImage = hauteurImageR;
 		largeurImage= largeurImageR;
-		
 		positionX =0;
 		positionY =0;
 		this.zoom = 1.00;
@@ -159,6 +158,24 @@ public class Perspective extends Modele.Observable {
 		this.positionY = params[1]; 
 		this.zoom = params[2];
     	Notify();
+    }
+    
+    
+    /**
+     * Methode qui permet d'ajouter Une perspective en sauvegarde
+     * @param pR (Modele.Perspective)
+     */
+    public void addDansSauvegardePop(Modele.Perspective pR){
+    	this.sauvegardes.ajouterSnap(pR);
+    }
+    
+    /**
+     * Methode qui permet de récupérer l'ancienne version de la perspective
+     * afin de revenir en arriere sur nos modifications
+     */
+    public void popPerspective(){
+    	Modele.Perspective tmp;
+    	this.sauvegardes.restorFromMemento();
     }
 
 

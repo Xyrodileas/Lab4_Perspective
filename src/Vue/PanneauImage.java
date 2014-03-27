@@ -18,7 +18,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Observable;
 
-public class PanneauImage extends JComponent implements Modele.Observer {
+public class PanneauImage extends JPanel implements Modele.Observer {
 	
 	//ATTRIBUTS DU PANNEAU IMAGE
 	private Modele.Image image;
@@ -26,7 +26,6 @@ public class PanneauImage extends JComponent implements Modele.Observer {
 	private Modele.Perspective perpective;
 	private int x;
 	private int y;
-	private double zoom;
 	private int largeurDeLimage;
 	private int hauteurDeLimage;
    		
@@ -48,7 +47,7 @@ public class PanneauImage extends JComponent implements Modele.Observer {
 			        int largeurDuPanneau = getSize().width - (getInsets().left + getInsets().right);
 			        int hauteurDuPanneau = getSize().height - (getInsets().top + getInsets().bottom);
 			        
-			        graphic2d.drawImage(imageAdessiner, x,y, ((int)(largeurDeLimage*zoom)),((int)(hauteurDeLimage*zoom)), this);
+			        graphic2d.drawImage(imageAdessiner, x,y, largeurDeLimage,hauteurDeLimage, this);
 		}
 		else{
 			g.drawString("Choisir une Image...", 650, 350);
@@ -91,8 +90,8 @@ public class PanneauImage extends JComponent implements Modele.Observer {
 	 */
 	public boolean imageEstVide(){
 		if(imageAdessiner!=null)
-			return true;
-		return false;
+			return false;
+		return true;
 	}
 
 	
@@ -104,9 +103,8 @@ public class PanneauImage extends JComponent implements Modele.Observer {
 	public void reactualiserPanneauImage(){
 		x=perpective.getPositionX();
 		y=perpective.getPositionY();
-		zoom= (1/(image.getPerspective().getZoom()));
-		hauteurDeLimage=perpective.getHauteurImage();
-		largeurDeLimage=perpective.getLargeurImage();
+		hauteurDeLimage=((int)(perpective.getHauteurImage()*(1/(image.getPerspective().getZoom()))));
+		largeurDeLimage=((int)(perpective.getLargeurImage()*(1/(image.getPerspective().getZoom()))));
 		repaint();
 	}
 	

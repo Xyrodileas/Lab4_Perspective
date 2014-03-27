@@ -18,9 +18,9 @@ import java.util.List;
  */
 class Gardien {
 
-    List<ImageSnap> savedStates;
-    Originator createur;
-    int position = -1;
+    private List<ImageSnap> savedStates;
+    private Originator createur;
+    private int position = -1;
 
     public Gardien(){
         createur = new Originator();
@@ -33,12 +33,15 @@ class Gardien {
         position = +1;
     }
 
-    public Perspective restorFromMemento(int x){
-        return createur.restoreFromMemento(savedStates.get(x));
-    }
-
-
-
+    public Perspective restorFromMemento(){
+    	Perspective tmp=null;
+    	if(position>=0){
+    		tmp =createur.restoreFromMemento(savedStates.get(position));
+    		position--;
+    		System.out.println(position);
+    	}
+    	return tmp;
+    	}
 
 
 }

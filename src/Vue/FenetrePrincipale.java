@@ -52,7 +52,7 @@ public class FenetrePrincipale extends JFrame{
 		        panneauImage.addMouseListener(new Controleur.EcouteurEvenement(panneauImage));
 		        panneauImage.addMouseMotionListener(new Controleur.EcouteurEvenement(panneauImage));
 		        panneauImage.addMouseWheelListener(new Controleur.EcouteurEvenement(panneauImage));
-		        panneauImage.addKeyListener(new Controleur.EcouteurEvenement(panneauImage) );
+		        addKeyListener(new Controleur.EcouteurEvenement(panneauImage));
 		        		        		        
 		        //Ajout des elements a la fenetre PP
 		        
