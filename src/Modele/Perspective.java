@@ -11,77 +11,91 @@ Date crï¿½ï¿½: 2014-03-15
 
 package Modele;
 
-/**
- * Classe qui permet de retenir la perspective d'une image,
- *
- */
+
 public class Perspective extends Modele.Observable {
-	
-	//LES ATTRIBUTS DE PERSPECTIVE
-	private double zoom;
+	private int zoom;
 	public Gardien sauvegardes;
+
 	private int hauteurImage;
 	private int largeurImage;
 	private int positionX;
 	private int positionY;
 
-	
-	/**
-	 * Constructeur par defaut de Perspective
-	 * @param largeurImageR
-	 * @param hauteurImageR
-	 */
     public Perspective(int largeurImageR, int hauteurImageR){
 		
 		hauteurImage = hauteurImageR;
 		largeurImage= largeurImageR;
+		
 		positionX =0;
 		positionY =0;
-		this.zoom = 1.00;
+		
+		
+		this.zoom = 1;
+		
+		
         this.sauvegardes = new Gardien();
 
 		
 	}
-    /**
-     * Constructeur de Perspective selon une image Snap 
-     * @param largeurRecu
-     * @param hauteurRecu
-     * @param zoom
-     */
-    public Perspective(int largeurRecu, int hauteurRecu, double zoom){
+    public Perspective(int largeurRecu, int hauteurRecu, int zoom){
 
         this.positionX = hauteurRecu;
         this.zoom = zoom;
         positionX = 0;
         positionY = 0;
     }
+
+	
+
+
+    public int getZoom(){
+        return zoom;
+    }
     
-    //------------------------------------------LES GETS------------------------------------------------------------------------
-    /**
-     * Methode qui permet de retourner la hauteur de 
-     * l'image
-     * @return hauteurImage (int)
-     */
+    
+    
+    public void incrementeZoom(){
+    	
+    	this.zoom++;
+  
+    	//--------AJOUTER NOTIFY APRES----------
+    	//notify();
+    }
+    public void decrementeZoom(){
+    	if(zoom>1)
+    	this.zoom--;
+     	//--------AJOUTER NOTIFY APRES----------
+    	//notify();
+    }
+
     public int getHauteurImage(){
         return this.hauteurImage;
     }
 
-    /**
-     * Methode qui permet de retourner la largeur de 
-     * l'image
-     * @return largeurImage (int)
-     */
     public int getLargeurImage(){
         return this.largeurImage;
     }
     
+    //------------------------GESTION DU DEPLACEMENT DE L'IMAGE---------------------
     /**
-     * MEthode qui permet de retourner le niveau de zoom
-     * de la perspective
-     * @return (int) zoom
+     * Permet de modifier la position
+     * de l'image en X
+     * @param deplacementRecuX
      */
-    public double getZoom(){
-        return zoom;
+    public void setPositionX(int deplacementRecuX){
+        positionX += deplacementRecuX;
+
+    }
+    
+    /**
+     * Permet de modifier la position
+     * de l'image en Y
+     * @param deplacementRecuY
+     */
+    public void setPositionY(int deplacementRecuY){
+
+        positionY += deplacementRecuY;
+
     }
 
     /**
@@ -99,86 +113,27 @@ public class Perspective extends Modele.Observable {
     public int getPositionY(){
     	return this.positionY;
     }
-
-    //------------------------------------------------GESTION DU DEPLACEMENT DE L'IMAGE (SETS)---------------------
-    /**
-     * Methode qui Permet de modifier la position
-     * de l'image en X
-     * @param deplacementRecuX
-     */
-    public void setPositionX(int deplacementRecuX){
-        positionX += deplacementRecuX;
-        Notify();
-
-    }
     
-    /**
-     * Methode qui Permet de modifier la position
-     * de l'image en Y
-     * @param deplacementRecuY
-     */
-    public void setPositionY(int deplacementRecuY){
-
-        positionY += deplacementRecuY;
-        Notify();
+    public int recupereCentreXDImage(){
+    	return this.positionY /2;
+    }
+    public int recupereCentreYDImage(){
+    	return this.hauteurImage/2;
     }
 
-        
-    //------------------------------------------------ACTION SUR ZOOM--------------------------------------------------
-    
-    /**
-     * Methode qui permet de incrémenter le zoom de la perspective
-     * Le zoom se décrémente par pas de 0.02
-     */
-    public void incrementeZoom(){
-    	
-    	if(zoom>0.020)
-    		this.zoom=this.zoom-0.020;
-  
-    	  Notify();
-    }
-    
-    /**
-     * Methode qui permet de décrémenter le zoom de la perspective
-     * Le zoom se décrémente par pas de 0.02
-     */
-    public void decrementeZoom(){
-    	
-    	this.zoom=this.zoom+0.020;
-    	  Notify();
-    }
-    
-    /**
-     * Methode qui permet de copier les 
-     * paramètre d'une perspective a une autre
-     * @param pR (Modele.Perspective)
-     */
-    public void collerUnePerspective(int[] params){
-    	this.positionX = params[0] ;
-		this.positionY = params[1]; 
-		this.zoom = params[2];
-    	Notify();
-    }
-    
-    
-    /**
-     * Methode qui permet d'ajouter Une perspective en sauvegarde
-     * @param pR (Modele.Perspective)
-     */
-    public void addDansSauvegardePop(Modele.Perspective pR){
-    	this.sauvegardes.ajouterSnap(pR);
-    }
-    
-    /**
-     * Methode qui permet de récupérer l'ancienne version de la perspective
-     * afin de revenir en arriere sur nos modifications
-     */
-    public void popPerspective(){
-    	Modele.Perspective tmp;
-    	this.sauvegardes.restorFromMemento();
+    public void restorePerspective(Perspective snap){
+        this.positionX = snap.positionX;
+        this.positionY = snap.positionY;
+        this.zoom = snap.getZoom();
     }
 
+    public void lastSnap(){
+        restorePerspective(this.sauvegardes.restorLast());
+    }
 
-   
+    public void nextSnap(){
+        restorePerspective(this.sauvegardes.restorNext());
+    }
+
 
 }

@@ -17,19 +17,19 @@ public class Originator {
     public double zoom;
     public Image img;
 
-    private int hauteur;
-    private int largeur;
+    private int posX;
+    private int posY;
 	public void SetSave(Perspective maperspective) {
 
-        this.hauteur = maperspective.getPositionX();
-        this.hauteur = maperspective.getPositionY();
+        this.posX = maperspective.getPositionX();
+        this.posY = maperspective.getPositionY();
         this.zoom = maperspective.getZoom();
 	}
 	
 	public ImageSnap CreateSave() {
-        return new ImageSnap(this.zoom, this.hauteur, this.largeur);
+        return new ImageSnap(this.zoom, this.posX, this.posY);
 	}
     public Perspective restoreFromMemento(ImageSnap snap){
-        return new Perspective(snap.getLargeur(), snap.getLargeur(), snap.getZoom());
+        return new Perspective(snap.getPosX(), snap.getPosY(), snap.getZoom());
     }
 }
