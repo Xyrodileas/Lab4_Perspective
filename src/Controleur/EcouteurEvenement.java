@@ -13,6 +13,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
     private PopMenuClicDroit menu;
     
     private static boolean bouttonGauche;
+    private static boolean bouttonMolette;
     private boolean ctrl;
     private static boolean save = false;
 
@@ -77,14 +78,14 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 		//CLIC CENTRAL
 		else if (arg0.getButton()==2){
 			bouttonGauche=false;
+            bouttonMolette =true;
 			
 		}
 		//CLIC DROIT
-		else if (arg0.getButton()==3){
+		else if (arg0.getButton()==2){
 			bouttonGauche=false;
 			if(!panneauImage.imageEstVide())
 			menu.declancheMenu(arg0.getComponent(),arg0.getX(),arg0.getY());
-			
 		}
 	}
 
@@ -134,6 +135,10 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 			this.xClick = e.getX();
 			this.yClick = e.getY();
 		}
+        else if(bouttonMolette = true && !panneauImage.imageEstVide()){
+            this.panneauImage.getImage().editPixel(e.getX(), e.getY());
+            bouttonMolette = false;
+        }
 	}
 
 	//-----------------------------------------NON IMPLEMENTEES------------------------------------

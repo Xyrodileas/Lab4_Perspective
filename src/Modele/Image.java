@@ -41,7 +41,7 @@ public class Image implements Serializable {
 
 
             perspective = new Perspective ( image.getWidth(), image.getHeight());
-	  
+
 		 
 	}
 	
@@ -85,5 +85,21 @@ public class Image implements Serializable {
     	return perspective.getPositionY();
     }
 
+
+
+
+    // EN TEST
+    public void editPixel(int x, int y){
+        int rgb = 0x33FF00;
+        this.image.setRGB(x, y, rgb);
+        this.image.setRGB(x, y-1, rgb);
+        this.image.setRGB(x-1, y, rgb);
+        this.image.setRGB(x-1, y-1, rgb);
+        this.image.setRGB(x, y+1, rgb);
+        this.image.setRGB(x+1, y, rgb);
+        this.image.setRGB(x+1, y+1, rgb);
+
+        this.perspective.Notify();
+    }
 	
 }

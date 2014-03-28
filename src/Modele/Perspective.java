@@ -141,11 +141,16 @@ public class Perspective extends Modele.Observable {
 
     public void lastSnap(){
         restorePerspective(this.sauvegardes.restorLast());
+        Notify();
     }
 
     public void nextSnap(){
         restorePerspective(this.sauvegardes.restorNext());
+        Notify();
     }
 
+    public void save(){
+        sauvegardes.ajouterSnap(this);
+    }
 
 }
