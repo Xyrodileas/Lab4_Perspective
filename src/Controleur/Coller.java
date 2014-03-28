@@ -35,11 +35,11 @@ public class Coller extends Commande {
 	
 	/**
 	 * MEthode qui va permettre d'avertir la Perspective qu'il faut copier des nouveaux parmatres
-	 * mais aussi dès lors, la Perspective va avertir le panneauImage du changement par la methode
+	 * mais aussi dï¿½s lors, la Perspective va avertir le panneauImage du changement par la methode
 	 * notify()
 	 */
 	public void execution(PanneauImage image) {
-		image.getPerspective().collerUnePerspective(params);
+		//image.getPerspective().collerUnePerspective(params);
 	}
 
 }

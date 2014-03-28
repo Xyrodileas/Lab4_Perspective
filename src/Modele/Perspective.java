@@ -51,21 +51,31 @@ public class Perspective extends Modele.Observable {
     public double getZoom(){
         return zoom;
     }
-    
-    
-    
+
+
+
+    //------------------------------------------------ACTION SUR ZOOM--------------------------------------------------
+
+    /**
+     * Methode qui permet de incrémenter le zoom de la perspective
+     * Le zoom se décrémente par pas de 0.02
+     */
     public void incrementeZoom(){
-    	
-    	this.zoom++;
-  
-    	//--------AJOUTER NOTIFY APRES----------
-    	//notify();
+
+        if(zoom>0.020)
+            this.zoom=this.zoom-0.020;
+
+        Notify();
     }
+
+    /**
+     * Methode qui permet de décrémenter le zoom de la perspective
+     * Le zoom se décrémente par pas de 0.02
+     */
     public void decrementeZoom(){
-    	if(zoom>1)
-    	this.zoom--;
-     	//--------AJOUTER NOTIFY APRES----------
-    	//notify();
+
+        this.zoom=this.zoom+0.020;
+        Notify();
     }
 
     public int getHauteurImage(){
@@ -75,7 +85,9 @@ public class Perspective extends Modele.Observable {
     public int getLargeurImage(){
         return this.largeurImage;
     }
-    
+
+
+
     //------------------------GESTION DU DEPLACEMENT DE L'IMAGE---------------------
     /**
      * Permet de modifier la position
@@ -84,6 +96,7 @@ public class Perspective extends Modele.Observable {
      */
     public void setPositionX(int deplacementRecuX){
         positionX += deplacementRecuX;
+        Notify();
 
     }
     
@@ -95,7 +108,7 @@ public class Perspective extends Modele.Observable {
     public void setPositionY(int deplacementRecuY){
 
         positionY += deplacementRecuY;
-
+        Notify();
     }
 
     /**
