@@ -12,16 +12,18 @@ Date cr��: 2014-03-15
 package Modele;
 
 import javax.imageio.ImageIO;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 
 
 
-public class Image  {
+public class Image implements Serializable {
 	
-	private BufferedImage image;	
+	private transient BufferedImage image;	
 	private Perspective perspective;
 	
 	private String chemin;
