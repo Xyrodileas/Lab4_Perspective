@@ -55,6 +55,7 @@ public class Image  {
 	public int getImageHauteur(){
 		return imageHauteur;
 	}
+
 	public Perspective getPerspective(){
 		return perspective;
 	}
@@ -81,7 +82,6 @@ public class Image  {
     public int getFacteurDeplacementY(){
     	return perspective.getPositionY();
     }
-    
 
 	
 }

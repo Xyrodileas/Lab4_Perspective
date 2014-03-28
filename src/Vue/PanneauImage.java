@@ -16,7 +16,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Observable;
 
 public class PanneauImage extends JPanel implements Modele.Observer {
 	
@@ -119,6 +118,8 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 		reactualiserPanneauImage();
 	}
 
-
+    public Modele.Image getImage(){
+        return this.image;
+    }
 	
 }

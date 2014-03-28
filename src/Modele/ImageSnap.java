@@ -15,18 +15,18 @@ package Modele;
 
 
 public class ImageSnap {
-    private int zoom;
+    private double zoom;
 
     private int posY;
     private int posX;
 
-	public ImageSnap(int zoom, int posx, int posY){
+	public ImageSnap(double zoom, int posx, int posY){
         this.zoom = zoom;
         this.posY = posY;
         this.posX = posX;
     }
 
-    public int getZoom() {
+    public double getZoom() {
         return zoom;
     }
 

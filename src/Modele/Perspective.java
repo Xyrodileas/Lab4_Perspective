@@ -13,7 +13,7 @@ package Modele;
 
 
 public class Perspective extends Modele.Observable {
-	private int zoom;
+	private double zoom;
 	public Gardien sauvegardes;
 
 	private int hauteurImage;
@@ -37,7 +37,7 @@ public class Perspective extends Modele.Observable {
 
 		
 	}
-    public Perspective(int largeurRecu, int hauteurRecu, int zoom){
+    public Perspective(int largeurRecu, int hauteurRecu, double zoom){
 
         this.positionX = hauteurRecu;
         this.zoom = zoom;
@@ -48,7 +48,7 @@ public class Perspective extends Modele.Observable {
 	
 
 
-    public int getZoom(){
+    public double getZoom(){
         return zoom;
     }
     
