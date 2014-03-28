@@ -22,7 +22,6 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	//ATTRIBUTS DU PANNEAU IMAGE
 	private Modele.Image image;
 	private BufferedImage imageAdessiner;
-	private Modele.Perspective perpective;
 	private int x;
 	private int y;
 	private int largeurDeLimage;
@@ -63,8 +62,7 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 
 		image = Modele.FabriqueImage.fabriqueImage(lienImage);
 		imageAdessiner = image.getBufferedImage();
-		perpective=image.getPerspective();
-		perpective.addObserver(this);
+		image.getPerspective().addObserver(this);
 		reactualiserPanneauImage();
 		
 	}
@@ -76,7 +74,7 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 * @return Perspective
 	 */
 	public Modele.Perspective getPerspective(){
-		return this.perpective;
+		return this.image.getPerspective();
 	}
 	
 	
@@ -100,10 +98,10 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 * le panneauImage
 	 */
 	public void reactualiserPanneauImage(){
-		x=perpective.getPositionX();
-		y=perpective.getPositionY();
-		hauteurDeLimage=((int)(perpective.getHauteurImage()*(1/(image.getPerspective().getZoom()))));
-		largeurDeLimage=((int)(perpective.getLargeurImage()*(1/(image.getPerspective().getZoom()))));
+		x=image.getPerspective().getPositionX();
+		y=image.getPerspective().getPositionY();
+		hauteurDeLimage=((int)(image.getPerspective().getHauteurImage()*(1/(image.getPerspective().getZoom()))));
+		largeurDeLimage=((int)(image.getPerspective().getLargeurImage()*(1/(image.getPerspective().getZoom()))));
 		repaint();
 	}
 	

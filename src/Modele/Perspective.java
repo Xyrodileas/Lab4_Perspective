@@ -153,4 +153,15 @@ public class Perspective extends Modele.Observable {
         sauvegardes.ajouterSnap(this);
     }
 
+
+    public Perspective clone() {
+        Perspective perp = null;
+        try {
+            perp = (Perspective) super.clone();
+        } catch(CloneNotSupportedException e) {
+            e.printStackTrace(System.err);
+        }
+
+        return perp;
+    }
 }

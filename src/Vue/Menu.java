@@ -12,16 +12,13 @@ Date cr��: 2014-03-15
 
 package Vue;
 
+import Modele.Image;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-
-import javax.swing.JFileChooser;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 
 
 
@@ -65,7 +62,10 @@ public class Menu extends JMenuBar {
 			   		
 			   		//Onglet sauvegarder
 			   		JMenuItem sauvegarder = new JMenuItem("Sauvegarder");
-			   		
+
+                    //Onglet nettoyer
+                    JMenuItem clean = new JMenuItem("nettoyer");
+
 			   		ouvrir.addActionListener(new ActionListener(){
 			    			public void actionPerformed(ActionEvent arg0) {
 			    				
@@ -97,10 +97,26 @@ public class Menu extends JMenuBar {
 		    				Controleur.Serializer.serializePerspective(fenetrePrincipale.panneauImage.getImage());
 		    		    }
 		    	    });
+                    clean.addActionListener(new ActionListener(){
+                        public void actionPerformed(ActionEvent arg0) {
+                            System.out.println("Lancement nettoyage");
+
+                            try{
+                                Image img = new Image(fenetrePrincipale.panneauImage.getImage());
+                                fenetrePrincipale.panneauImage.setImage(img.getChemin());
+                                fenetrePrincipale.panneauImage.getImage().setPerspective(img.getPerspective());
+                            }catch(Exception e){
+                                System.err.println("Err");
+                            }
+                           fenetrePrincipale.panneauImage.reactualiserPanneauImage();
+                        }
+
+                    });
 
 			   		//Ajout de l'onglet ouvrir dans le menu fichier
 			   		menufichier.add(ouvrir);
 			   		menufichier.add(sauvegarder);
+                    menufichier.add(clean);
 			   		//ajout de l'ongler fichier au JMenuBar global
 			   		add(menufichier);
 			   

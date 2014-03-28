@@ -82,7 +82,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 			
 		}
 		//CLIC DROIT
-		else if (arg0.getButton()==2){
+		else if (arg0.getButton()==3){
 			bouttonGauche=false;
 			if(!panneauImage.imageEstVide())
 			menu.declancheMenu(arg0.getComponent(),arg0.getX(),arg0.getY());

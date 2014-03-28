@@ -23,7 +23,7 @@ import java.io.Serializable;
 
 public class Image implements Serializable {
 	
-	private transient BufferedImage image;	
+	private transient BufferedImage image;
 	private Perspective perspective;
 	
 	private String chemin;
@@ -44,6 +44,23 @@ public class Image implements Serializable {
 
 		 
 	}
+
+    public Image(Image img){
+        this.image = img.image;
+        this.perspective = img.perspective;
+        this.chemin = img.chemin;
+    }
+
+    public Image clone() throws CloneNotSupportedException{
+        Image img = null;
+        try{
+            img = (Image) super.clone();
+        } catch(CloneNotSupportedException cnse) {
+        System.err.println("Impossible de cloner l'objet");
+    }
+        img.perspective = perspective.clone();
+        return img;
+    }
 	
 	
 	public BufferedImage getBufferedImage(){
@@ -87,8 +104,6 @@ public class Image implements Serializable {
 
 
 
-
-    // EN TEST
     public void editPixel(int x, int y){
         int rgb = 0x33FF00;
         int coordx = (int) ((x - this.perspective.getPositionX()) / (1/this.perspective.getZoom()));
@@ -101,6 +116,15 @@ public class Image implements Serializable {
         this.image.setRGB(coordx+1, coordy, rgb);
         this.image.setRGB(coordx+1, coordy+1, rgb);
 
+        this.perspective.Notify();
+    }
+
+
+    public String getChemin(){
+        return this.chemin;
+    }
+    public void setPerspective(Perspective p){
+        this.perspective = p;
         this.perspective.Notify();
     }
 	
