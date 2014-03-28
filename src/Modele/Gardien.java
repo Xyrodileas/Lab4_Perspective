@@ -24,8 +24,8 @@ class Gardien implements Serializable{
 
     public Gardien(){
         createur = new Originator();
-        Stack<ImageSnap> savedStatesOld = new Stack<ImageSnap>();
-        Stack<ImageSnap> savedStatesNext = new Stack<ImageSnap>();
+        savedStatesOld = new Stack<ImageSnap>();
+        savedStatesNext = new Stack<ImageSnap>();
     }
 
     public void ajouterSnap(Perspective state){
@@ -40,7 +40,7 @@ class Gardien implements Serializable{
     }
     public Perspective restorNext(){
         savedStatesOld.push(savedStatesNext.peek());
-        return createur.restoreFromMemento(savedStatesOld.pop());
+        return createur.restoreFromMemento(savedStatesNext.pop());
     }
 
 

@@ -51,9 +51,10 @@ public class SingletonCommande {
 	public static void execution(int action, int[] valeurs, PanneauImage panneauImage) {
 		
         Commande maCommande;
+
         
         /**
-         * Chaque numéro correspond a une commande
+         * Chaque numï¿½ro correspond a une commande
          */
 		switch (action) {
 		//CAS translation (deplacement image)

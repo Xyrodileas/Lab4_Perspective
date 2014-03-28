@@ -4,9 +4,6 @@ import Vue.PanneauImage;
 
 import java.awt.event.*;
 
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-
 public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyListener,MouseMotionListener {
 
 	//LES ATTRIBUT DE EcouteurEvenement
@@ -17,6 +14,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
     
     private static boolean bouttonGauche;
     private boolean ctrl;
+    private static boolean save = false;
 
     
     
@@ -24,7 +22,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
      * Constructeur par defaut de Ecouteur Evenement
      * Il va permet de copier le panneauImage recu dans une variable
      * panneauIamge et aussi d'instancier un menu popup PopMenuClicDroit(panneauImage)
-     * @param PanneauImage
+     * @param im
      */
 	public EcouteurEvenement(PanneauImage im) {
 
@@ -71,6 +69,9 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 				bouttonGauche=true;
 			  	this.xClick = arg0.getX();
 		        this.yClick = arg0.getY();
+                save = true;
+                System.out.println("MousePressed");
+
 		}
 			
 		//CLIC CENTRAL
@@ -116,10 +117,15 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 	/**
 	 * Methode qui permet de
 	 * d'utiliser le SingletonCommande afin 
-	 * d'utiliser translation afin de déplacer
+	 * d'utiliser translation afin de dï¿½placer
 	 * l'image dans le panneau avec la souris
 	 */
 	public void mouseDragged(MouseEvent e) {
+        if(save == true){
+            panneauImage.getImage().getPerspective().save();
+            save = false;
+            System.out.println("Sauvegarde");
+        }
 		if(bouttonGauche==true && !panneauImage.imageEstVide()){
 			int[] tabParametres = {e.getX() - this.xClick, e.getY() - this.yClick};
 	

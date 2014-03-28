@@ -20,7 +20,7 @@ public class ImageSnap {
     private int posY;
     private int posX;
 
-	public ImageSnap(double zoom, int posx, int posY){
+	public ImageSnap(double zoom, int posX, int posY){
         this.zoom = zoom;
         this.posY = posY;
         this.posX = posX;
