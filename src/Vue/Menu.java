@@ -94,7 +94,7 @@ public class Menu extends JMenuBar {
 			   		sauvegarder.addActionListener(new ActionListener(){
 		    			public void actionPerformed(ActionEvent arg0) {
 		    				System.out.println("Lancement sauvegarder");
-		    				Controleur.Serializer.serializePerspective(fenetrePrincipale.panneauImage.getPerspective());
+		    				Controleur.Serializer.serializePerspective(fenetrePrincipale.panneauImage.getImage());
 		    		    }
 		    	    });
 
