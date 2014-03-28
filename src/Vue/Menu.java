@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: Menu.java
-Date créé: 2014-03-15
+Date crï¿½ï¿½: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -71,14 +71,14 @@ public class Menu extends JMenuBar {
 			    				
 			    				//Essaye de recupere un fichier
 			    				try {
-			    					//récupération du répertoire par défaut
+			    					//rï¿½cupï¿½ration du rï¿½pertoire par dï¿½faut
 				    				File cheminParDefaut = new File(CHEMIN_REP+CHEMIN_DOSSIER_IMAGES); 
 				    					    				
 				    				JFileChooser boitedeChoix = new JFileChooser(cheminParDefaut);
-				    				boitedeChoix.showOpenDialog(null);//création et affichage des JFileChooser
+				    				boitedeChoix.showOpenDialog(null);//crï¿½ation et affichage des JFileChooser
 				    				
 				    				
-				    				//Envoie du chemin recu à la méthode setImage du panneauImage
+				    				//Envoie du chemin recu ï¿½ la mï¿½thode setImage du panneauImage
 				    				fenetrePrincipale.panneauImage.setImage(boitedeChoix.getSelectedFile().getPath());
 				    				
 								} catch (IOException e) {
@@ -93,7 +93,8 @@ public class Menu extends JMenuBar {
 			    	    });
 			   		sauvegarder.addActionListener(new ActionListener(){
 		    			public void actionPerformed(ActionEvent arg0) {
-		    				System.out.println("SAVEEEEEEEEEEEEEEEEEEEEEEEEE");
+		    				System.out.println("Lancement sauvegarder");
+		    				Controleur.Serializer.serializePerspective(fenetrePrincipale.panneauImage.getPerspective());
 		    		    }
 		    	    });
 

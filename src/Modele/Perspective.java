@@ -11,8 +11,13 @@ Date cr��: 2014-03-15
 
 package Modele;
 
+import java.io.Serializable;
 
-public class Perspective extends Modele.Observable {
+public class Perspective extends Modele.Observable  implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4841806781514479527L;
 	private double zoom;
 	public Gardien sauvegardes;
 
@@ -21,132 +26,144 @@ public class Perspective extends Modele.Observable {
 	private int positionX;
 	private int positionY;
 
-    public Perspective(int largeurImageR, int hauteurImageR){
-		
+	public Perspective(int largeurImageR, int hauteurImageR) {
+
 		hauteurImage = hauteurImageR;
-		largeurImage= largeurImageR;
-		
-		positionX =0;
-		positionY =0;
-		
-		
+		largeurImage = largeurImageR;
+
+		positionX = 0;
+		positionY = 0;
+
 		this.zoom = 1;
-		
-		
-        this.sauvegardes = new Gardien();
 
+		this.sauvegardes = new Gardien();
 		
+		Controleur.Serializer.compteurSave++;
+
 	}
-    public Perspective(int largeurRecu, int hauteurRecu, double zoom){
-
-        this.positionX = hauteurRecu;
-        this.zoom = zoom;
-        positionX = 0;
-        positionY = 0;
-    }
-
+	
 	
 
+	public Perspective(int largeurRecu, int hauteurRecu, double zoom) {
 
-    public double getZoom(){
-        return zoom;
-    }
+		this.positionX = hauteurRecu;
+		this.zoom = zoom;
+		positionX = 0;
+		positionY = 0;
+		Controleur.Serializer.compteurSave++;
+	}
 
+	public Perspective(int hauteurImage2, int largeurImage2, int positionX2,
+			int positionY2, double zoom2) {
 
+		this.hauteurImage = hauteurImage2;
+		this.largeurImage = largeurImage2;
+		this.positionX = positionX2;
+		this.positionY = positionY2;
+		this.zoom = zoom2;
+		Controleur.Serializer.compteurSave++;
 
-    //------------------------------------------------ACTION SUR ZOOM--------------------------------------------------
+	}
 
-    /**
-     * Methode qui permet de incrémenter le zoom de la perspective
-     * Le zoom se décrémente par pas de 0.02
-     */
-    public void incrementeZoom(){
+	public double getZoom() {
+		return zoom;
+	}
 
-        if(zoom>0.020)
-            this.zoom=this.zoom-0.020;
+	// ------------------------------------------------ACTION SUR
+	// ZOOM--------------------------------------------------
 
-        Notify();
-    }
+	/**
+	 * Methode qui permet de incrémenter le zoom de la perspective Le zoom se
+	 * décrémente par pas de 0.02
+	 */
+	public void incrementeZoom() {
 
-    /**
-     * Methode qui permet de décrémenter le zoom de la perspective
-     * Le zoom se décrémente par pas de 0.02
-     */
-    public void decrementeZoom(){
+		if (zoom > 0.020)
+			this.zoom = this.zoom - 0.020;
 
-        this.zoom=this.zoom+0.020;
-        Notify();
-    }
+		Notify();
+	}
 
-    public int getHauteurImage(){
-        return this.hauteurImage;
-    }
+	/**
+	 * Methode qui permet de décrémenter le zoom de la perspective Le zoom se
+	 * décrémente par pas de 0.02
+	 */
+	public void decrementeZoom() {
 
-    public int getLargeurImage(){
-        return this.largeurImage;
-    }
+		this.zoom = this.zoom + 0.020;
+		Notify();
+	}
 
+	public int getHauteurImage() {
+		return this.hauteurImage;
+	}
 
+	public int getLargeurImage() {
+		return this.largeurImage;
+	}
 
-    //------------------------GESTION DU DEPLACEMENT DE L'IMAGE---------------------
-    /**
-     * Permet de modifier la position
-     * de l'image en X
-     * @param deplacementRecuX
-     */
-    public void setPositionX(int deplacementRecuX){
-        positionX += deplacementRecuX;
-        Notify();
+	// ------------------------GESTION DU DEPLACEMENT DE
+	// L'IMAGE---------------------
+	/**
+	 * Permet de modifier la position de l'image en X
+	 * 
+	 * @param deplacementRecuX
+	 */
+	public void setPositionX(int deplacementRecuX) {
+		positionX += deplacementRecuX;
+		Notify();
 
-    }
-    
-    /**
-     * Permet de modifier la position
-     * de l'image en Y
-     * @param deplacementRecuY
-     */
-    public void setPositionY(int deplacementRecuY){
+	}
 
-        positionY += deplacementRecuY;
-        Notify();
-    }
+	/**
+	 * Permet de modifier la position de l'image en Y
+	 * 
+	 * @param deplacementRecuY
+	 */
+	public void setPositionY(int deplacementRecuY) {
 
-    /**
-     * Permet de retourner la position de l'image selon X
-     * @return (int)
-     */
-    public int getPositionX(){
-    	return this.positionX;
-    }
-    
-    /**
-     * Permet de retourner la position de l'image selon Y
-     * @return (int)
-     */
-    public int getPositionY(){
-    	return this.positionY;
-    }
-    
-    public int recupereCentreXDImage(){
-    	return this.positionY /2;
-    }
-    public int recupereCentreYDImage(){
-    	return this.hauteurImage/2;
-    }
+		positionY += deplacementRecuY;
+		Notify();
+	}
 
-    public void restorePerspective(Perspective snap){
-        this.positionX = snap.positionX;
-        this.positionY = snap.positionY;
-        this.zoom = snap.getZoom();
-    }
+	/**
+	 * Permet de retourner la position de l'image selon X
+	 * 
+	 * @return (int)
+	 */
+	public int getPositionX() {
+		return this.positionX;
+	}
 
-    public void lastSnap(){
-        restorePerspective(this.sauvegardes.restorLast());
-    }
+	/**
+	 * Permet de retourner la position de l'image selon Y
+	 * 
+	 * @return (int)
+	 */
+	public int getPositionY() {
+		return this.positionY;
+	}
 
-    public void nextSnap(){
-        restorePerspective(this.sauvegardes.restorNext());
-    }
+	public int recupereCentreXDImage() {
+		return this.positionY / 2;
+	}
 
+	public int recupereCentreYDImage() {
+		return this.hauteurImage / 2;
+	}
+
+	public void restorePerspective(Perspective snap) {
+		this.positionX = snap.positionX;
+		this.positionY = snap.positionY;
+		this.zoom = snap.getZoom();
+	}
+
+	public void lastSnap() {
+		restorePerspective(this.sauvegardes.restorLast());
+	}
+
+	public void nextSnap() {
+		restorePerspective(this.sauvegardes.restorNext());
+	}
 
 }

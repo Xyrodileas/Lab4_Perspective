@@ -12,8 +12,10 @@ Date cr��: 2014-03-15
 
 package Modele;
 
+import java.io.Serializable;
 
-public class Originator {
+
+public class Originator implements Serializable{
     public double zoom;
     public Image img;
 

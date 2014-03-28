@@ -10,12 +10,13 @@ Date cr��: 2014-03-15
  *@date Hiver 2014
  *******************************************************/
 
+import java.io.Serializable;
 import java.util.Stack;
 
 /**
  * Created by Alexis on 19/03/14.
  */
-class Gardien {
+class Gardien implements Serializable{
 
     Stack<ImageSnap> savedStatesOld;
     Stack<ImageSnap> savedStatesNext;
