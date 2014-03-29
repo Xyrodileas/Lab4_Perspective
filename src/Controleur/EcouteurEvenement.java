@@ -125,7 +125,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
         if(save == true){
             panneauImage.getImage().getPerspective().save();
             save = false;
-            System.out.println("Sauvegarde");
+            //System.out.println("Sauvegarde");
         }
 		if(bouttonGauche==true && !panneauImage.imageEstVide()){
 			int[] tabParametres = {e.getX() - this.xClick, e.getY() - this.yClick};

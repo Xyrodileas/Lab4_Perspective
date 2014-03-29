@@ -39,7 +39,7 @@ public class Coller extends Commande {
 	 * notify()
 	 */
 	public void execution(PanneauImage image) {
-		//image.getPerspective().collerUnePerspective(params);
+		image.getPerspective().collerUnePerspective(params);
 	}
 
 }

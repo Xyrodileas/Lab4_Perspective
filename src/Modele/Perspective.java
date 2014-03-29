@@ -21,6 +21,12 @@ public class Perspective extends Modele.Observable {
 	private int positionX;
 	private int positionY;
 
+	/**
+	 * Constructeur par defaut de Perspective
+	 * qui recoit en parametre la hauteur de l'image ainsi que sa hauteur
+	 * @param largeurImageR
+	 * @param hauteurImageR
+	 */
     public Perspective(int largeurImageR, int hauteurImageR){
 		
 		hauteurImage = hauteurImageR;
@@ -126,34 +132,60 @@ public class Perspective extends Modele.Observable {
     	return this.positionY;
     }
     
-    public int recupereCentreXDImage(){
-    	return this.positionY /2;
-    }
-    public int recupereCentreYDImage(){
-    	return this.hauteurImage/2;
-    }
 
+    /**
+     * MEthode qui permet de restaurer une perspective
+     * implique l'utilisation de la sauvegardes
+     * @param snap
+     */
     public void restorePerspective(Perspective snap){
         this.positionX = snap.positionX;
         this.positionY = snap.positionY;
         this.zoom = snap.getZoom();
     }
 
+    /**
+     * MEthode qui permet de récuperer la premiere sauvegarde de l'image
+     */
     public void lastSnap(){
         restorePerspective(this.sauvegardes.restorLast());
         Notify();
     }
 
+    /**
+     * MEthode qui permet de restorer l'ancienne version de l'image
+     */
     public void nextSnap(){
         restorePerspective(this.sauvegardes.restorNext());
         Notify();
     }
 
+    /**
+     * Methode qui permet de sauvegarder une 
+     * perspective dans la pile ( Memento)
+     */
     public void save(){
         sauvegardes.ajouterSnap(this);
     }
+    
+    /**
+     * Methode qui permet de coller une perspective
+     * selon le menu copier coller ( clic droit )
+     * @param tab
+     */
+    public void collerUnePerspective(int[] tab){
+    	this.positionX = tab[0];
+    	this.positionY = tab[1];
+    	this.zoom = tab[2];
+    	Notify();
+    	
+    }
 
-
+    
+    /**
+     * Methode qui permet de cloner une perspective
+     * permet de retourner une Perspective
+     */
     public Perspective clone() {
         Perspective perp = null;
         try {
