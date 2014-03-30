@@ -25,10 +25,8 @@ public class Image implements Serializable {
 	
 	private transient BufferedImage image;
 	private Perspective perspective;
-	
 	private String chemin;
-	private int imageLargeur;
-	private int imageHauteur;
+
 
 	
 	
@@ -36,10 +34,6 @@ public class Image implements Serializable {
 		
 			image= ImageIO.read(new File(lienImage));
 			chemin = lienImage;
-			//	int imageLargeur = image.getWidth();
-	        //int imageHauteur = image.getHeight();
-
-
             perspective = new Perspective ( image.getWidth(), image.getHeight());
 
 		 
@@ -67,13 +61,6 @@ public class Image implements Serializable {
 		 return this.image;
 	}
 	
-	public int getImageLargeur(){
-		return imageLargeur;
-	}
-	
-	public int getImageHauteur(){
-		return imageHauteur;
-	}
 
 	public Perspective getPerspective(){
 		return perspective;
@@ -94,15 +81,6 @@ public class Image implements Serializable {
     	return this.perspective.getHauteurImage();
     }
     
-    public int getFacteurDeplacementX(){
-    	return perspective.getPositionX();
-    }
-
-    public int getFacteurDeplacementY(){
-    	return perspective.getPositionY();
-    }
-
-
 
     public void editPixel(int x, int y){
         int rgb = 0x33FF00;
