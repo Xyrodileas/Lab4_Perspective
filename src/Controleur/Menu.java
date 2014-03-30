@@ -158,25 +158,28 @@ public class Menu extends JMenuBar {
 			//Menu modifier
 			JMenu modifier = new JMenu("Modifier");
 			
-			JMenuItem undo = new JMenuItem("Undo");
+			JMenuItem undo = new JMenuItem("CTRL-Y");
 			
-			JMenuItem redo = new JMenuItem("Redo");
+			JMenuItem redo = new JMenuItem("CTRL-Z retour");
 
 	   		undo.addActionListener(new ActionListener(){
     			public void actionPerformed(ActionEvent arg0) {
     				System.out.println("Undo");
+    				SingletonCommande.execution(5, null,fenetrePrincipale.panneauImage );
     		    }
     	    });
 	   		redo.addActionListener(new ActionListener(){
     			public void actionPerformed(ActionEvent arg0) {
     				System.out.println("Redo");
+    				SingletonCommande.execution(4, null,fenetrePrincipale.panneauImage );
     		    }
     	    });
 
-	   		//Ajout du menu undo au menu modifier
-	   		modifier.add(undo);
 	   		//Ajout du menu redo au menu modifier
 	   		modifier.add(redo);
+	   		//Ajout du menu undo au menu modifier
+	   		modifier.add(undo);
+	   		
 	   		
 	   		//Ajout du menu modifier au JMenuBar global
 	   		add(modifier);
