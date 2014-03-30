@@ -11,6 +11,8 @@ Date creer: 2014-03-15
 
 package Modele;
 
+import java.util.EmptyStackException;
+
 
 public class Perspective extends Modele.Observable {
 	
@@ -171,8 +173,15 @@ public class Perspective extends Modele.Observable {
      * MEthode qui permet de restorer l'ancienne version de l'image donc de la perspective
      */
     public void nextSnap(){
-        restorePerspective(this.sauvegardes.restorNext());
-        Notify();
+    	
+        try {
+			restorePerspective(this.sauvegardes.restorNext());
+			Notify();
+		} catch (EmptyStackException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("JE suis dans l'exception");
+		}
     }
 
     /**

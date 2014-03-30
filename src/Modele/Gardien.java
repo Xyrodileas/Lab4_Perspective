@@ -11,6 +11,7 @@ Date creer: 2014-03-15
  *******************************************************/
 
 import java.io.Serializable;
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 /**
@@ -24,6 +25,8 @@ class Gardien implements Serializable{
     Stack<ImageSnap> savedStatesOld;
     Stack<ImageSnap> savedStatesNext;
     Originator createur;
+    Perspective actuelle;
+    Perspective autre;
 
     /**
      * Constructeur par defaut de la classe Gardien
@@ -52,9 +55,17 @@ class Gardien implements Serializable{
      * memento
      * @return Perspective
      */
-    public Perspective restorLast(){
-        savedStatesNext.push(savedStatesOld.peek());
-        return createur.restoreFromMemento(savedStatesOld.pop());
+    public Perspective restorLast() throws EmptyStackException{
+    	try {
+    		savedStatesNext.push(savedStatesOld.peek());
+    		if(createur.restoreFromMemento(savedStatesOld.pop())!=null){
+    			autre=createur.restoreFromMemento(savedStatesOld.pop());
+    			actuelle=createur.restoreFromMemento(savedStatesOld.pop());
+    		}
+    		return actuelle;
+    	} catch (EmptyStackException e) {
+			return autre;
+		}
 
     }
     
@@ -63,9 +74,18 @@ class Gardien implements Serializable{
      * memento
      * @return Perspective
      */
-    public Perspective restorNext(){
-        savedStatesOld.push(savedStatesNext.peek());
-        return createur.restoreFromMemento(savedStatesNext.pop());
+    public Perspective restorNext() throws EmptyStackException{
+    	
+        try {
+			savedStatesOld.push(savedStatesNext.peek());
+			if(createur.restoreFromMemento(savedStatesOld.pop())!=null){
+				autre =createur.restoreFromMemento(savedStatesNext.pop());
+				actuelle=createur.restoreFromMemento(savedStatesNext.pop());
+			}
+			return actuelle;
+		} catch (Exception e) {
+			return autre;
+		}
     }
 
 }

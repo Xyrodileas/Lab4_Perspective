@@ -85,7 +85,7 @@ public class SingletonCommande {
 		//SI COMMANDE DIFFERENT DE NULL EN L EXECUTE
         if(maCommande != null){
         	//SAVE A CHAQUE MODIFICATION
-        	//new SauvegardePerspective().execution(panneauImage);
+     
             maCommande.execution(panneauImage);
         }
         	
