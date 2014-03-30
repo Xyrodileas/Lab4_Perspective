@@ -29,8 +29,8 @@ public class FabriqueImage {
 	
 	}
 	
-	public static Image fabriqueImageSnap(Image imageRecu) {
-		return null;
+	public static ImageSnap fabriqueImageSnap(double zoom, int posX, int posY) {
+		return new ImageSnap(zoom,posX,posY);
 	
 	}
 }

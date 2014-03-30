@@ -29,7 +29,7 @@ public class Originator implements Serializable{
 	}
 	
 	public ImageSnap CreateSave() {
-        return new ImageSnap(this.zoom, this.posX, this.posY);
+        return Modele.FabriqueImage.fabriqueImageSnap(this.zoom, this.posX, this.posY);
 	}
     public Perspective restoreFromMemento(ImageSnap snap){
         return new Perspective(snap.getPosX(), snap.getPosY(), snap.getZoom());
