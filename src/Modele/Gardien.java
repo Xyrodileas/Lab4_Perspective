@@ -3,7 +3,7 @@ package Modele;
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: Gardien.java
-Date cr��: 2014-03-15
+Date creer: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,

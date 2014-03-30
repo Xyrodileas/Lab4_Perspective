@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: OriginatoPerspective.java
-Date crï¿½ï¿½: 2014-03-15
+Date creer: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -13,9 +13,10 @@ package Modele;
 
 
 public class Perspective extends Modele.Observable {
+	
+	//ATTRIBUTS DE LA CLASSE PERSPECTIVE
 	private double zoom;
 	public Gardien sauvegardes;
-
 	private int hauteurImage;
 	private int largeurImage;
 	private int positionX;
@@ -31,33 +32,27 @@ public class Perspective extends Modele.Observable {
 		
 		hauteurImage = hauteurImageR;
 		largeurImage= largeurImageR;
-		
 		positionX =0;
 		positionY =0;
-		
-		
 		this.zoom = 1;
-		
-		
         this.sauvegardes = new Gardien();
 
 		
 	}
+    /**
+     * Constructeur de Perspective qui va permettre de créer une perspective
+     * en recevant en parametre une position a lecran X et Y ainsi qu'un zoom
+     * @param PosX (Int)
+     * @param PosY (Int)
+     * @param zoom (double)
+     */
     public Perspective(int PosX, int PosY, double zoom){
-
         this.positionY = PosY;
         this.zoom = zoom;
         this.positionX = PosX;
     }
 
 	
-
-
-    public double getZoom(){
-        return zoom;
-    }
-
-
 
     //------------------------------------------------ACTION SUR ZOOM--------------------------------------------------
 
@@ -83,39 +78,33 @@ public class Perspective extends Modele.Observable {
         Notify();
     }
 
+    //-------------------------------------------------------------Getteur------------------------------------------------
+    /**
+     * Methode qui va permettre de retourner la hauteur de l'image
+     * @return hauteur (Int)
+     */
     public int getHauteurImage(){
         return this.hauteurImage;
     }
 
+    /**
+     * Methode qui va permettre de retourner la largeur de l'image
+     * @return largeur (Int)
+     */
     public int getLargeurImage(){
         return this.largeurImage;
     }
 
 
-
-    //------------------------GESTION DU DEPLACEMENT DE L'IMAGE---------------------
     /**
-     * Permet de modifier la position
-     * de l'image en X
-     * @param deplacementRecuX
+     * Methode qui permet de retourner la valeur du zoom
+     * de la perspective
+     * @return zoom (double)
      */
-    public void setPositionX(int deplacementRecuX){
-        positionX += deplacementRecuX;
-        Notify();
-
+    public double getZoom(){
+        return zoom;
     }
     
-    /**
-     * Permet de modifier la position
-     * de l'image en Y
-     * @param deplacementRecuY
-     */
-    public void setPositionY(int deplacementRecuY){
-
-        positionY += deplacementRecuY;
-        Notify();
-    }
-
     /**
      * Permet de retourner la position de l'image selon X
      * @return (int)
@@ -131,6 +120,32 @@ public class Perspective extends Modele.Observable {
     public int getPositionY(){
     	return this.positionY;
     }
+
+
+
+
+    //------------------------GESTION DU DEPLACEMENT DE L'IMAGE ( PERSPECTIVE )---------------------
+    /**
+     * Permet de modifier la position
+     * de l'image en X
+     * @param deplacementRecuX (Int)
+     */
+    public void setPositionX(int deplacementRecuX){
+        positionX += deplacementRecuX;
+        Notify();
+
+    }
+    
+    /**
+     * Permet de modifier la position
+     * de l'image en Y
+     * @param deplacementRecuY (Int)
+     */
+    public void setPositionY(int deplacementRecuY){
+
+        positionY += deplacementRecuY;
+        Notify();
+    }
     
 
     /**
@@ -145,7 +160,7 @@ public class Perspective extends Modele.Observable {
     }
 
     /**
-     * MEthode qui permet de récuperer la premiere sauvegarde de l'image
+     * MEthode qui permet de récuperer la premiere sauvegarde de l'image donc de la perspective
      */
     public void lastSnap(){
         restorePerspective(this.sauvegardes.restorLast());
@@ -153,7 +168,7 @@ public class Perspective extends Modele.Observable {
     }
 
     /**
-     * MEthode qui permet de restorer l'ancienne version de l'image
+     * MEthode qui permet de restorer l'ancienne version de l'image donc de la perspective
      */
     public void nextSnap(){
         restorePerspective(this.sauvegardes.restorNext());

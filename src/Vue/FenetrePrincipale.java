@@ -12,6 +12,9 @@ Date cr��: 2014-03-15
 package Vue;
 
 import javax.swing.*;
+
+import Controleur.Menu;
+
 import java.awt.*;
 
 
