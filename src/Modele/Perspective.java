@@ -11,10 +11,11 @@ Date creer: 2014-03-15
 
 package Modele;
 
+import java.io.Serializable;
 import java.util.EmptyStackException;
 
 
-public class Perspective extends Modele.Observable {
+public class Perspective extends Modele.Observable implements Serializable{
 	
 	//ATTRIBUTS DE LA CLASSE PERSPECTIVE
 	private double zoom;
@@ -42,7 +43,7 @@ public class Perspective extends Modele.Observable {
 		
 	}
     /**
-     * Constructeur de Perspective qui va permettre de créer une perspective
+     * Constructeur de Perspective qui va permettre de crï¿½er une perspective
      * en recevant en parametre une position a lecran X et Y ainsi qu'un zoom
      * @param PosX (Int)
      * @param PosY (Int)
@@ -162,7 +163,7 @@ public class Perspective extends Modele.Observable {
     }
 
     /**
-     * MEthode qui permet de récuperer la premiere sauvegarde de l'image donc de la perspective
+     * MEthode qui permet de rï¿½cuperer la premiere sauvegarde de l'image donc de la perspective
      */
     public void lastSnap(){
         restorePerspective(this.sauvegardes.restorLast());

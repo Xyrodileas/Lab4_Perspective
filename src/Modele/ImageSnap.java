@@ -13,8 +13,10 @@ Date cr��: 2014-03-15
 
 package Modele;
 
+import java.io.Serializable;
 
-public class ImageSnap {
+
+public class ImageSnap implements Serializable{
     private double zoom;
 
     private int posY;
