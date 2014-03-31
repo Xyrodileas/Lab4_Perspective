@@ -31,6 +31,8 @@ public class Menu extends JMenuBar {
 	private static final String CHEMIN_DOSSIER_IMAGES = "\\src\\"
 			+ "\\images\\";
 	public FenetrePrincipale fenetrePrincipale;
+	
+	String extension;
 
 	/**
 	 * Constructeur par defaut de la classe Menu. Permet d'initialiser le menu
@@ -59,11 +61,8 @@ public class Menu extends JMenuBar {
 		// Onglet sauvegarder
 		JMenuItem sauvegarder = new JMenuItem("Sauvegarder");
 
-		// Onglet ouvrirSauvegarde
-		JMenuItem ouvrirSauvegarde = new JMenuItem("Ouvrir une auvegarde");
-
 		// Onglet nettoyer
-		JMenuItem clean = new JMenuItem("nettoyer");
+		JMenuItem clean = new JMenuItem("Nettoyer");
 
 		ouvrir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -81,8 +80,26 @@ public class Menu extends JMenuBar {
 
 					// Envoie du chemin recu � la m�thode setImage du
 					// panneauImage
-					fenetrePrincipale.panneauImage.setImage(boitedeChoix
-							.getSelectedFile().getPath());
+
+					extension = boitedeChoix.getSelectedFile().getPath();
+
+					extension = extension.substring(extension.length() - 3,
+							extension.length());
+
+					System.out.println("Extension : " + extension);
+
+					if (extension.equals("psg")) {
+						fenetrePrincipale.panneauImage
+								.setImage(Controleur.Serializer
+										.deSerialisateur(boitedeChoix
+												.getSelectedFile().getPath()));
+					}
+
+					else {
+						fenetrePrincipale.panneauImage.setImage(boitedeChoix
+								.getSelectedFile().getPath());
+
+					}
 
 				} catch (IOException e) {
 
@@ -101,36 +118,6 @@ public class Menu extends JMenuBar {
 								.getImage());
 
 			}
-		});
-
-		ouvrirSauvegarde.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
-				// Essaye de recupere un fichier
-				try {
-					// r�cup�ration du r�pertoire par d�faut
-					File cheminParDefaut = new File(CHEMIN_REP
-							+ CHEMIN_DOSSIER_IMAGES);
-
-					JFileChooser boitedeChoix = new JFileChooser(
-							cheminParDefaut);
-					boitedeChoix.showOpenDialog(null);// cr�ation et affichage
-														// des JFileChooser
-
-					fenetrePrincipale.panneauImage
-							.setImage(Controleur.Serializer
-									.deSerialisateur(boitedeChoix
-											.getSelectedFile().getPath()));
-
-				} catch (IOException e) {
-
-					// Sinon on affiche une petite fenetre d'erreur
-					JOptionPane.showMessageDialog(fenetrePrincipale, "Erreur");
-
-				}
-
-			}
-
 		});
 
 		clean.addActionListener(new ActionListener() {
@@ -154,7 +141,6 @@ public class Menu extends JMenuBar {
 		// Ajout de l'onglet ouvrir dans le menu fichier
 		menufichier.add(ouvrir);
 		menufichier.add(sauvegarder);
-		menufichier.add(ouvrirSauvegarde);
 		menufichier.add(clean);
 		// ajout de l'ongler fichier au JMenuBar global
 		add(menufichier);
