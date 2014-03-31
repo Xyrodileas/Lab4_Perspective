@@ -64,45 +64,44 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 */
 	public void setImage(String lienImage) throws IOException {
 		String extension;
+		
+		Modele.Image imageSave;
 
 		extension = lienImage.substring(lienImage.length() - 3,
 				lienImage.length());
 
 		if (extension.equals("psg")) {
+			
+			imageSave = SingletonCommande.execution(lienImage);
 
-			setImage(SingletonCommande.execution(lienImage));
 
+
+			try {
+				image = Modele.FabriqueImage.fabriqueImage(imageSave.getChemin());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			imageAdessiner = image.getBufferedImage();
+
+			image.setPerspective(imageSave.getPerspective());
+			image.getPerspective().addObserver(this);
+
+			reactualiserPanneauImage();
+		}
+		else{
+			image = Modele.FabriqueImage.fabriqueImage(lienImage);
+
+			imageAdessiner = image.getBufferedImage();
+			image.getPerspective().addObserver(this);
+			reactualiserPanneauImage();
 		}
 
-		else {
 
-		}
-
-		image = Modele.FabriqueImage.fabriqueImage(lienImage);
-
-		imageAdessiner = image.getBufferedImage();
-		image.getPerspective().addObserver(this);
-		reactualiserPanneauImage();
 
 	}
 
-	public void setImage(Modele.Image imageSave) {
-
-		try {
-			image = Modele.FabriqueImage.fabriqueImage(imageSave.getChemin());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		imageAdessiner = image.getBufferedImage();
-
-		image.setPerspective(imageSave.getPerspective());
-		image.getPerspective().addObserver(this);
-
-		reactualiserPanneauImage();
-
-	}
 
 	/**
 	 * Methode qui permet de retourner la perspective de l'image a dessiner
