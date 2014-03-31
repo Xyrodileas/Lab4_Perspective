@@ -35,6 +35,7 @@ public class Image implements Serializable {
 			image= ImageIO.read(new File(lienImage));
 			chemin = lienImage;
             perspective = new Perspective ( image.getWidth(), image.getHeight());
+            Controleur.Serializer.compteurSave++;
 
 		 
 	}
@@ -43,6 +44,7 @@ public class Image implements Serializable {
         this.image = img.image;
         this.perspective = img.perspective;
         this.chemin = img.chemin;
+        Controleur.Serializer.compteurSave++;
     }
 
     public Image clone() throws CloneNotSupportedException{
