@@ -83,6 +83,7 @@ public class Image implements Serializable {
     	return this.perspective.getHauteurImage();
     }
     
+    
 
     public void editPixel(int x, int y){
     	
@@ -110,7 +111,7 @@ public class Image implements Serializable {
     }
     public void setPerspective(Perspective p){
         this.perspective = p;
-        this.perspective.Notify();
+       
     }
 	
 }

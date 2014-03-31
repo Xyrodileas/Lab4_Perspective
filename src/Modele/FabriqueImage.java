@@ -33,4 +33,6 @@ public class FabriqueImage {
 		return new ImageSnap(zoom,posX,posY);
 	
 	}
+
+
 }
