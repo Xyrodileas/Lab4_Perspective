@@ -20,7 +20,7 @@ public class Serializer extends Commande {
 		imageASerialiser = valeurs;
 	}
 
-	public void execution(Image valeurs, PanneauImage panneau) {
+	public void execution(PanneauImage panneau) {
 
 		try {
 
@@ -34,14 +34,6 @@ public class Serializer extends Commande {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-	}
-
-	
-
-	@Override
-	public void execution(PanneauImage image) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

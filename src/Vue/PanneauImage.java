@@ -64,20 +64,19 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 */
 	public void setImage(String lienImage) throws IOException {
 		String extension;
-		
+
 		Modele.Image imageSave;
 
 		extension = lienImage.substring(lienImage.length() - 3,
 				lienImage.length());
 
 		if (extension.equals("psg")) {
-			
+
 			imageSave = SingletonCommande.execution(lienImage);
 
-
-
 			try {
-				image = Modele.FabriqueImage.fabriqueImage(imageSave.getChemin());
+				image = Modele.FabriqueImage.fabriqueImage(imageSave
+						.getChemin());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -89,8 +88,7 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 			image.getPerspective().addObserver(this);
 
 			reactualiserPanneauImage();
-		}
-		else{
+		} else {
 			image = Modele.FabriqueImage.fabriqueImage(lienImage);
 
 			imageAdessiner = image.getBufferedImage();
@@ -98,10 +96,7 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 			reactualiserPanneauImage();
 		}
 
-
-
 	}
-
 
 	/**
 	 * Methode qui permet de retourner la perspective de l'image a dessiner

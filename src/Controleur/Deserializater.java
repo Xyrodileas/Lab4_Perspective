@@ -14,6 +14,7 @@ public class Deserializater extends Commande {
 
 	private String path;
 	private static final long serialVersionUID = 1L;
+	private ObjectInputStream objetFlux;
 
 	public Deserializater(String pathASauvegarder) {
 		path = pathASauvegarder;
@@ -21,7 +22,7 @@ public class Deserializater extends Commande {
 
 	public Modele.Image execution() throws FileNotFoundException, IOException {
 
-		ObjectInputStream objetFlux = new ObjectInputStream(
+		objetFlux = new ObjectInputStream(
 				new FileInputStream(path));
 
 		Modele.Image imageSauvergarde = null;

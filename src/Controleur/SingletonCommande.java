@@ -122,5 +122,6 @@ public class SingletonCommande {
 			return maCommande.execution();
 		}
 		return null;
+
 	}
 }
