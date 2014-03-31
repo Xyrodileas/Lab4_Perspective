@@ -11,6 +11,7 @@ Date creer le: 2014-03-15
 
 package Controleur;
 
+import Modele.Image;
 import Vue.PanneauImage;
 
 /**
@@ -53,6 +54,12 @@ public class Translation extends Commande{
         //-----------------------------------A SUPPRIMER APRES CREATION DU NOTIFY OBSERVATEUR -----------------
         panneauImage.repaint();
     }
+
+	@Override
+	public Image execution() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }

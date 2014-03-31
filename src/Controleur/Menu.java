@@ -31,8 +31,6 @@ public class Menu extends JMenuBar {
 	private static final String CHEMIN_DOSSIER_IMAGES = "\\src\\"
 			+ "\\images\\";
 	public FenetrePrincipale fenetrePrincipale;
-	
-	String extension;
 
 	/**
 	 * Constructeur par defaut de la classe Menu. Permet d'initialiser le menu
@@ -78,28 +76,8 @@ public class Menu extends JMenuBar {
 					boitedeChoix.showOpenDialog(null);// cr�ation et affichage
 														// des JFileChooser
 
-					// Envoie du chemin recu � la m�thode setImage du
-					// panneauImage
-
-					extension = boitedeChoix.getSelectedFile().getPath();
-
-					extension = extension.substring(extension.length() - 3,
-							extension.length());
-
-					System.out.println("Extension : " + extension);
-
-					if (extension.equals("psg")) {
-						fenetrePrincipale.panneauImage
-								.setImage(Controleur.Serializer
-										.deSerialisateur(boitedeChoix
-												.getSelectedFile().getPath()));
-					}
-
-					else {
-						fenetrePrincipale.panneauImage.setImage(boitedeChoix
-								.getSelectedFile().getPath());
-
-					}
+					fenetrePrincipale.panneauImage.setImage(boitedeChoix
+							.getSelectedFile().getPath());
 
 				} catch (IOException e) {
 
@@ -113,9 +91,9 @@ public class Menu extends JMenuBar {
 		sauvegarder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				Controleur.Serializer
-						.serializePerspective(fenetrePrincipale.panneauImage
-								.getImage());
+				SingletonCommande.execution(
+						fenetrePrincipale.panneauImage.getImage(),
+						fenetrePrincipale.panneauImage);
 
 			}
 		});

@@ -1,5 +1,6 @@
 package Controleur;
 
+import Modele.Image;
 import Vue.PanneauImage;
 
 /**
@@ -55,6 +56,12 @@ public class Zoom extends Commande{
 		else
 			// SINOn ZOOM ARRIERE
 		zoomArriere(panneauImage.getPerspective());
+	}
+
+	@Override
+	public Image execution() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

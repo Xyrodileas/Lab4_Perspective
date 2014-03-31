@@ -10,10 +10,15 @@ Date creer le: 2014-03-15
  *******************************************************/
 package Controleur;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import Vue.PanneauImage;
 
 
 public abstract class Commande {
 
     public abstract void execution(PanneauImage image);
+    
+    public abstract Modele.Image execution() throws FileNotFoundException, IOException;
 }

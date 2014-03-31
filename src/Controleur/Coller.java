@@ -10,6 +10,10 @@ Date creer le: 2014-03-15
  *******************************************************/
 package Controleur;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import Modele.Image;
 import Vue.PanneauImage;
 
 /**
@@ -40,6 +44,13 @@ public class Coller extends Commande {
 	 */
 	public void execution(PanneauImage image) {
 		image.getPerspective().collerUnePerspective(params);
+	}
+
+
+	@Override
+	public Image execution() throws FileNotFoundException, IOException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

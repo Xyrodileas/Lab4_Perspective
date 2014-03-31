@@ -13,6 +13,8 @@ package Vue;
 
 import javax.swing.*;
 
+import Controleur.SingletonCommande;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -61,6 +63,20 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 * @throws IOException
 	 */
 	public void setImage(String lienImage) throws IOException {
+		String extension;
+
+		extension = lienImage.substring(lienImage.length() - 3,
+				lienImage.length());
+
+		if (extension.equals("psg")) {
+
+			setImage(SingletonCommande.execution(lienImage));
+
+		}
+
+		else {
+
+		}
 
 		image = Modele.FabriqueImage.fabriqueImage(lienImage);
 
