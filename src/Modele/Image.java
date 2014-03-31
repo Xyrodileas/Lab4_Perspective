@@ -83,18 +83,23 @@ public class Image implements Serializable {
     
 
     public void editPixel(int x, int y){
-        int rgb = 0x33FF00;
-        int coordx = (int) ((x - this.perspective.getPositionX()) / (1/this.perspective.getZoom()));
-        int coordy = (int)((y - this.perspective.getPositionY()) / (1/this.perspective.getZoom()));
-        this.image.setRGB(coordx, coordy, rgb);
-        this.image.setRGB(coordx, coordy-1, rgb);
-        this.image.setRGB(coordx-1, coordy, rgb);
-        this.image.setRGB(coordx-1, coordy-1, rgb);
-        this.image.setRGB(coordx, coordy+1, rgb);
-        this.image.setRGB(coordx+1, coordy, rgb);
-        this.image.setRGB(coordx+1, coordy+1, rgb);
-
-        this.perspective.Notify();
+    	
+        try {
+			int rgb = 0x33FF00;
+			int coordx = (int) ((x - this.perspective.getPositionX()) / (1/this.perspective.getZoom()));
+			int coordy = (int)((y - this.perspective.getPositionY()) / (1/this.perspective.getZoom()));
+			this.image.setRGB(coordx, coordy, rgb);
+			this.image.setRGB(coordx, coordy-1, rgb);
+			this.image.setRGB(coordx-1, coordy, rgb);
+			this.image.setRGB(coordx-1, coordy-1, rgb);
+			this.image.setRGB(coordx, coordy+1, rgb);
+			this.image.setRGB(coordx+1, coordy, rgb);
+			this.image.setRGB(coordx+1, coordy+1, rgb);
+			this.perspective.Notify();
+			
+		} catch (Exception e) {
+	
+		}
     }
 
 
