@@ -32,9 +32,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 	
 	
 	//---------------------------------------------------PARTIE CLAVIER--------------------------------------------
-
-	public void keyReleased(KeyEvent arg0) {
-		//CAS CTRL
+	public void keyPressed(KeyEvent arg0) {
 		if(arg0.getKeyCode()==17 && !panneauImage.imageEstVide()){
 			ctrl=true;
 		}
@@ -42,14 +40,21 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 		else if(ctrl && arg0.getKeyCode()==90){
 			System.out.println("CTRL Z");
 			SingletonCommande.execution(4, null, this.panneauImage);
-			ctrl=false;
 		}
 		//CAS CTRL Y
 		else if(ctrl && arg0.getKeyCode()==89){
 			System.out.println("CTRL Y");
 			SingletonCommande.execution(5, null, this.panneauImage);
+
+		}
+	}
+
+	public void keyReleased(KeyEvent arg0) {
+		// ON RELACHE CONTROLE 
+		if(arg0.getKeyCode()==17 && !panneauImage.imageEstVide()){
 			ctrl=false;
 		}
+
 	}
 
 
@@ -151,8 +156,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 	}
 	public void keyTyped(KeyEvent arg0) {
 	}
-	public void keyPressed(KeyEvent arg0) {
-	}
+	
 
 
 }
