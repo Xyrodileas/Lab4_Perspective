@@ -103,6 +103,9 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 	 * Soit zoom Arriere
 	 */
 	public void mouseWheelMoved(MouseWheelEvent arg0) {
+
+        //COMMANDE SAVE
+        SingletonCommande.execution(6, null, this.panneauImage);
 		int[] tabParametres={0};
 		
 		//ZOOM AVANT
