@@ -1,13 +1,20 @@
 package Controleur;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import Modele.Image;
 import Vue.PanneauImage;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+/**
+ * Classe gérant l'exécution d'une commande de retours en arrière
+ */
 public class CtrlZ extends Commande{
 
+    /**
+     * Méthode permetant d'exécuter le ctr + z
+     * @param panneauImage
+     */
 	@Override
 	public void execution(PanneauImage panneauImage) {
         panneauImage.getImage().getPerspective().lastSnap();
