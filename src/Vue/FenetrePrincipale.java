@@ -43,6 +43,7 @@ public class FenetrePrincipale extends JFrame{
 		        this.setLayout(new BorderLayout());
 		        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		        this.setExtendedState(MAXIMIZED_BOTH);
+		        this.setMinimumSize(new Dimension(800,600));
 		        
 		        
 		        
