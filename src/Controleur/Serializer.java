@@ -16,6 +16,10 @@ public class Serializer extends Commande {
 
 	private Image imageASerialiser;
 	private static final long serialVersionUID = 1L;
+	private static final String CHEMIN_REP = System.getProperty("user.dir")
+			.replace("src", "");
+	private static final String CHEMIN_DOSSIER_IMAGES = "\\src\\"
+			+ "\\images\\";
 
 	public Serializer(Image valeurs) {
 		imageASerialiser = valeurs;
@@ -30,7 +34,7 @@ public class Serializer extends Commande {
 
 		try {
 
-			FileOutputStream fout = new FileOutputStream(nom + ".psg");
+			FileOutputStream fout = new FileOutputStream(CHEMIN_REP+CHEMIN_DOSSIER_IMAGES+nom + ".psg");
 			ObjectOutputStream oos = new ObjectOutputStream(fout);
 			oos.writeObject(imageASerialiser);
 			oos.close();
