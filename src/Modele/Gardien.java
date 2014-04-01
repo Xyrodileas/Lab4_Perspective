@@ -16,8 +16,8 @@ import java.util.Stack;
 
 /**
  * Application du patron Memento :
- * Utilisation de deux piles pour restauration des états de l'image
- * revenir à l'instant t-1 ou t+1
+ * Utilisation de deux piles pour restauration des ï¿½tats de l'image
+ * revenir ï¿½ l'instant t-1 ou t+1
  *
  */
 class Gardien implements Serializable{
@@ -31,7 +31,7 @@ class Gardien implements Serializable{
     /**
      * Constructeur par defaut de la classe Gardien
      * Qui permet d'instancier un Originator
-     * Et deux piles qui vont permettre la restoration des états de l'image
+     * Et deux piles qui vont permettre la restoration des ï¿½tats de l'image
      */
     public Gardien(){
         createur = new Originator();
@@ -58,13 +58,10 @@ class Gardien implements Serializable{
     public Perspective restorLast() throws EmptyStackException{
     	try {
     		savedStatesNext.push(savedStatesOld.peek());
-    		if(createur.restoreFromMemento(savedStatesOld.pop())!=null){
-    			autre=createur.restoreFromMemento(savedStatesOld.pop());
-    			actuelle=createur.restoreFromMemento(savedStatesOld.pop());
-    		}
-    		return actuelle;
+            return createur.restoreFromMemento(savedStatesOld.pop());
+
     	} catch (EmptyStackException e) {
-			return autre;
+			return new NullPerspective();
 		}
 
     }
@@ -78,13 +75,10 @@ class Gardien implements Serializable{
     	
         try {
 			savedStatesOld.push(savedStatesNext.peek());
-			if(createur.restoreFromMemento(savedStatesOld.pop())!=null){
-				autre =createur.restoreFromMemento(savedStatesNext.pop());
-				actuelle=createur.restoreFromMemento(savedStatesNext.pop());
-			}
-			return actuelle;
+		    return createur.restoreFromMemento(savedStatesNext.pop());
+
 		} catch (Exception e) {
-			return autre;
+			return new NullPerspective();
 		}
     }
 
