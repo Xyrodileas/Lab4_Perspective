@@ -11,20 +11,21 @@ import Vue.PanneauImage;
 
 /**
  * Classe permettant de sérialiser une image
- *
+ * 
  */
 public class Serializer extends Commande {
 
-	//Image à Sérialisée sauvegardée en attribut de las classe
+	// Image à Sérialisée sauvegardée en attribut de las classe
 	private Image imageASerialiser;
-	
+
 	private static final String CHEMIN_REP = System.getProperty("user.dir")
- 			.replace("src", "");
- 	private static final String CHEMIN_DOSSIER_IMAGES = "\\src\\"
- 			+ "\\images\\";
+			.replace("src", "");
+	private static final String CHEMIN_DOSSIER_IMAGES = "\\src\\"
+			+ "\\images\\";
 
 	/**
 	 * Constructeur de la classe, permet de créer un objet Serializer
+	 * 
 	 * @param valeurs
 	 */
 	public Serializer(Image valeurs) {
@@ -38,13 +39,14 @@ public class Serializer extends Commande {
 
 		String nom;
 
-		//On demande à l'utilisateur le nom choisi
+		// On demande à l'utilisateur le nom choisi
 		nom = JOptionPane.showInputDialog(
 				"Veuillez rentrer le nom de la sauvegarde", "imageSauvegardée");
 
 		try {
 
-			FileOutputStream fout = new FileOutputStream(CHEMIN_REP+CHEMIN_DOSSIER_IMAGES+nom + ".psg");
+			FileOutputStream fout = new FileOutputStream(CHEMIN_REP
+					+ CHEMIN_DOSSIER_IMAGES + nom + ".psg");
 			ObjectOutputStream oos = new ObjectOutputStream(fout);
 			oos.writeObject(imageASerialiser);
 			oos.close();
