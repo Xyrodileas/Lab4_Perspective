@@ -148,9 +148,12 @@ public class Image implements Serializable {
 	}
 
 	/**
+	 * Fonction permettant de modifier des pixels autour du cursur
 	 * 
 	 * @param x
+	 *            Coordonnée x
 	 * @param y
+	 *            Coordonnée y
 	 */
 	public void editPixel(int x, int y) {
 
