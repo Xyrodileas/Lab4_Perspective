@@ -55,6 +55,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 			ctrl=false;
 		}
 
+
 	}
 
 
@@ -80,18 +81,30 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 			
 		//CLIC CENTRAL
 		else if (arg0.getButton()==2){
-			bouttonGauche=false;
             bouttonMolette =true;
 			
 		}
 		//CLIC DROIT
 		else if (arg0.getButton()==3){
-			bouttonGauche=false;
 			if(!panneauImage.imageEstVide())
 			menu.declancheMenu(arg0.getComponent(),arg0.getX(),arg0.getY());
 		}
 	}
 
+
+    public void mouseReleased(MouseEvent arg0) {
+        if(arg0.getButton()==1){
+            bouttonGauche=false;
+
+
+        }
+
+        //CLIC CENTRAL
+        else if (arg0.getButton()==2){
+            bouttonMolette =false;
+
+        }
+    }
 
 
 	//---------------------------------------------------PARTIE SOURIS MOUVEMENT--------------------------------------------
@@ -141,16 +154,17 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 			this.yClick = e.getY();
 		}
         else if(bouttonMolette = true && !panneauImage.imageEstVide()){
-            this.panneauImage.getImage().editPixel(e.getX(), e.getY());
-            bouttonMolette = false;
+            int[] tab = {e.getX(), e.getY()};
+            SingletonCommande.execution(7,tab, this.panneauImage);
+
         }
 	}
+
 
 	//-----------------------------------------NON IMPLEMENTEES------------------------------------
 	public void mouseMoved(MouseEvent e) {
 	}
-	public void mouseReleased(MouseEvent arg0) {
-	}
+
 	public void mouseClicked(MouseEvent arg0) {
 	}
 	public void mouseEntered(MouseEvent arg0) {

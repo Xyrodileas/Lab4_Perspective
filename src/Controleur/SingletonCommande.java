@@ -11,11 +11,11 @@ Date cr��: 2014-03-15
 
 package Controleur;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import Modele.Image;
 import Vue.PanneauImage;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * 
@@ -88,6 +88,9 @@ public class SingletonCommande {
 		case 6:
 			maCommande = new SauvegardePerspective();
 			break;
+        case 7:
+            maCommande = new Dessiner(valeurs[0], valeurs[1]);
+            break;
 		// SINON COMMANDE= NULL
 		default:
 			maCommande = null;
