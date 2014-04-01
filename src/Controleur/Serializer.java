@@ -1,10 +1,7 @@
 package Controleur;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+
 import java.io.ObjectOutputStream;
 
 import javax.swing.JOptionPane;
@@ -12,23 +9,36 @@ import javax.swing.JOptionPane;
 import Modele.Image;
 import Vue.PanneauImage;
 
+/**
+ * Classe permettant de sérialiser une image
+ *
+ */
 public class Serializer extends Commande {
 
+	//Image à Sérialisée sauvegardée en attribut de las classe
 	private Image imageASerialiser;
-	private static final long serialVersionUID = 1L;
+	
 	private static final String CHEMIN_REP = System.getProperty("user.dir")
-			.replace("src", "");
-	private static final String CHEMIN_DOSSIER_IMAGES = "\\src\\"
-			+ "\\images\\";
+ 			.replace("src", "");
+ 	private static final String CHEMIN_DOSSIER_IMAGES = "\\src\\"
+ 			+ "\\images\\";
 
+	/**
+	 * Constructeur de la classe, permet de créer un objet Serializer
+	 * @param valeurs
+	 */
 	public Serializer(Image valeurs) {
 		imageASerialiser = valeurs;
 	}
 
+	/**
+	 * Méthode qui sérialise l'objet, appelé par SingletonCommande
+	 */
 	public void execution(PanneauImage panneau) {
 
 		String nom;
 
+		//On demande à l'utilisateur le nom choisi
 		nom = JOptionPane.showInputDialog(
 				"Veuillez rentrer le nom de la sauvegarde", "imageSauvegardée");
 
@@ -38,7 +48,6 @@ public class Serializer extends Commande {
 			ObjectOutputStream oos = new ObjectOutputStream(fout);
 			oos.writeObject(imageASerialiser);
 			oos.close();
-			System.out.println("sauvegarde " + nom + " faite");
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -47,6 +56,7 @@ public class Serializer extends Commande {
 
 	@Override
 	public Image execution() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
