@@ -6,11 +6,11 @@ package Modele;
 public class NullPerspective extends Perspective {
 
     public NullPerspective(int x, int y){
-        super(x, y);
+
     }
 
     public NullPerspective(int PosX, int PosY, double zoom) {
-        super(PosX, PosY, zoom);
+
     }
 
     public NullPerspective(){

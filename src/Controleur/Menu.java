@@ -95,9 +95,7 @@ public class Menu extends JMenuBar {
 		sauvegarder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				SingletonCommande.execution(
-						fenetrePrincipale.panneauImage.getImage(),
-						fenetrePrincipale.panneauImage);
+				SingletonCommande.execution(8, new int[1], fenetrePrincipale.panneauImage);
 
 			}
 		});
