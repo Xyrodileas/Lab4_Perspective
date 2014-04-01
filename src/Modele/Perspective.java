@@ -25,8 +25,13 @@ public class Perspective extends Modele.Observable implements Serializable{
 	private int positionX;
 	private int positionY;
 
+    /**
+     * Constructeur par défaut de Perspective
+     */
+    public Perspective(){}
+
 	/**
-	 * Constructeur par defaut de Perspective
+	 * Constructeur de Perspective
 	 * qui recoit en parametre la hauteur de l'image ainsi que sa hauteur
 	 * @param largeurImageR
 	 * @param hauteurImageR
@@ -157,9 +162,11 @@ public class Perspective extends Modele.Observable implements Serializable{
      * @param snap
      */
     public void restorePerspective(Perspective snap){
-        this.positionX = snap.positionX;
-        this.positionY = snap.positionY;
-        this.zoom = snap.getZoom();
+        if(!(snap instanceof NullPerspective)){
+            this.positionX = snap.positionX;
+            this.positionY = snap.positionY;
+            this.zoom = snap.getZoom();
+        }
     }
 
     /**

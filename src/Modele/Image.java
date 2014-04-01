@@ -12,9 +12,6 @@ Date cr��: 2014-03-15
 package Modele;
 
 import javax.imageio.ImageIO;
-
-import Controleur.SingletonCommande;
-
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +21,7 @@ public class Image implements Serializable {
 
 	private transient BufferedImage image;
 	private Perspective perspective;
-	private String chemin;
+	private final String chemin;
 
 	public Image(String lienImage) throws IOException {
 
