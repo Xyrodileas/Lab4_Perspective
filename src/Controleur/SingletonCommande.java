@@ -84,6 +84,10 @@ public class SingletonCommande {
 		case 5:
 			maCommande = new CtrlY();
 			break;
+		// Save
+		case 6:
+			maCommande = new SauvegardePerspective();
+			break;
 		// SINON COMMANDE= NULL
 		default:
 			maCommande = null;
@@ -92,7 +96,6 @@ public class SingletonCommande {
 		// SI COMMANDE DIFFERENT DE NULL EN L EXECUTE
 		if (maCommande != null) {
 			// SAVE A CHAQUE MODIFICATION
-
 			maCommande.execution(panneauImage);
 		}
 
@@ -108,7 +111,7 @@ public class SingletonCommande {
 
 		if (maCommande != null) {
 			// SAVE A CHAQUE MODIFICATION
-
+			
 			maCommande.execution(panneau);
 		}
 	}

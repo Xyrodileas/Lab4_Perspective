@@ -75,14 +75,19 @@ public class Menu extends JMenuBar {
 							cheminParDefaut);
 					boitedeChoix.showOpenDialog(null);// cr�ation et affichage
 														// des JFileChooser
-					if(boitedeChoix.getSelectedFile().getPath()!=null)
+					if(boitedeChoix.getSelectedFile().getPath()!=null){
 						fenetrePrincipale.panneauImage.setImage(boitedeChoix.getSelectedFile().getPath());
+					}
+						
 
 				} catch (IOException e) {
 
 					// Sinon on affiche une petite fenetre d'erreur
 					JOptionPane.showMessageDialog(fenetrePrincipale, "Erreur");
 
+				}
+				catch (NullPointerException e){
+					
 				}
 
 			}

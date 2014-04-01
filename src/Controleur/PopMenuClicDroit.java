@@ -13,6 +13,7 @@ package Controleur;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
@@ -47,7 +48,9 @@ public class PopMenuClicDroit extends JPopupMenu {
 		menu1 = new JMenuItem("Copier Perspective");
 		menu1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				
+				//COMMANDE SAVE
+				SingletonCommande.execution(6, null, panneauImage);
+				//RECUPERATION DES VALEUR PERSPECTIVE
 				perspective[0] = panneauImage.getPerspective().getPositionX();
 						perspective[1] = panneauImage.getPerspective().getPositionY();
 								perspective[2] = (int)panneauImage.getPerspective().getZoom();

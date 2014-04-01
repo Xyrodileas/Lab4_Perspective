@@ -15,7 +15,6 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
     private static boolean bouttonGauche;
     private static boolean bouttonMolette;
     private boolean ctrl;
-    private static boolean save = false;
 
     
     
@@ -70,8 +69,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 				bouttonGauche=true;
 			  	this.xClick = arg0.getX();
 		        this.yClick = arg0.getY();
-                save = true;
-                System.out.println("MousePressed");
+         
 
 		}
 			
@@ -122,14 +120,13 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,KeyL
 	 * l'image dans le panneau avec la souris
 	 */
 	public void mouseDragged(MouseEvent e) {
-        if(save == true){
-            panneauImage.getImage().getPerspective().save();
-            save = false;
-            //System.out.println("Sauvegarde");
-        }
 		if(bouttonGauche==true && !panneauImage.imageEstVide()){
 			int[] tabParametres = {e.getX() - this.xClick, e.getY() - this.yClick};
 	
+			
+			//COMMANDE SAVE
+			SingletonCommande.execution(6, null, this.panneauImage);
+			
 			//APPEL DU SingletonCommande   ----> Translation
 			SingletonCommande.execution(1, tabParametres, this.panneauImage);
 			this.xClick = e.getX();

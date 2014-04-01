@@ -47,7 +47,6 @@ public class Serializer extends Commande {
 
 	@Override
 	public Image execution() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -77,7 +77,8 @@ public class Image implements Serializable {
 	}
 
 	public void editPixel(int x, int y) {
-
+		
+		
 		try {
 			int rgb = 0x33FF00;
 			int coordx = (int) ((x - this.perspective.getPositionX()) / (1 / this.perspective
@@ -91,6 +92,7 @@ public class Image implements Serializable {
 			this.image.setRGB(coordx, coordy + 1, rgb);
 			this.image.setRGB(coordx + 1, coordy, rgb);
 			this.image.setRGB(coordx + 1, coordy + 1, rgb);
+			getPerspective().save();
 			this.perspective.Notify();
 
 		} catch (Exception e) {
