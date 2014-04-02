@@ -12,7 +12,7 @@ import java.io.IOException;
 public class CtrlZ extends Commande{
 
     /**
-     * Méthode permetant d'exécuter le ctr + z
+     * Méthode permetant d'exécuter le ctr + Z
      * @param panneauImage
      */
 	@Override
