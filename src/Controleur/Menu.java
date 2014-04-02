@@ -95,6 +95,8 @@ public class Menu extends JMenuBar {
 			public void actionPerformed(ActionEvent arg0) {
 
 				SingletonCommande.execution(8, new int[1], fenetrePrincipale.panneauImage);
+				
+				SingletonCommande.execution(8, new int[2], fenetrePrincipale.panneauImage2);
 
 			}
 		});

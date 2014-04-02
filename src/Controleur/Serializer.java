@@ -22,7 +22,7 @@ public class Serializer extends Commande {
 			.replace("src", "");
 	private static final String CHEMIN_DOSSIER_IMAGES = "\\src\\"
 			+ "\\images\\";
-
+	private int position;
 	/**
 	 * Constructeur de la classe, permet de créer un objet Serializer
 	 * 

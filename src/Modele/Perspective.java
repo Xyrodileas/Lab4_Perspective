@@ -228,8 +228,4 @@ public class Perspective extends Modele.Observable implements Serializable{
 
         return perp;
     }
-
-    public void resetStackNext() {
-        sauvegardes.resetNextStack();
-    }
 }

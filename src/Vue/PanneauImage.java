@@ -33,7 +33,6 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 * Constructeur par defaut de la classe PanneauImage
 	 */
 	public PanneauImage() {
-		//add(this,Border);
 	}
 
 	/**

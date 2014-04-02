@@ -9,48 +9,51 @@ Date creer: 2014-03-15
  *@date Hiver 2014
  *******************************************************/
 
-
 package Modele;
 
 import java.io.Serializable;
 
+public class Originator implements Serializable {
 
-public class Originator implements Serializable{
-	
-	//ATTRIBUTS DE LA CLASSE ORIGINATOR
-    public double zoom;
-    public Image img;
-    private int posX;
-    private int posY;
-    
-    /**
-     * Methode qui permet de récuperer les attributs d'une Perspective
-     * recu en paramètre
-     * @param maperspective
-     */
+	// ATTRIBUTS DE LA CLASSE ORIGINATOR
+	public double zoom;
+	public Image img;
+	private int posX;
+	private int posY;
+
+	/**
+	 * Methode qui permet de rï¿½cuperer les attributs d'une Perspective recu en
+	 * paramï¿½tre
+	 * 
+	 * @param maperspective
+	 */
 	public void SetSave(Perspective maperspective) {
 
-        this.posX = maperspective.getPositionX();
-        this.posY = maperspective.getPositionY();
-        this.zoom = maperspective.getZoom();
+		this.posX = maperspective.getPositionX();
+		this.posY = maperspective.getPositionY();
+		this.zoom = maperspective.getZoom();
 	}
-	
+
 	/**
-	 * Methode qui permet de Creer une instance de ImageSnap afin de 
-	 * mémoriser l'état de l'image
-	 * @return ImageSnap (mémorisation de l'etat de l'image)
+	 * Methode qui permet de Creer une instance de ImageSnap afin de mï¿½moriser
+	 * l'ï¿½tat de l'image
+	 * 
+	 * @return ImageSnap (mï¿½morisation de l'etat de l'image)
 	 */
 	public ImageSnap CreateSave() {
-        return Modele.FabriqueImage.fabriqueImageSnap(this.zoom, this.posX, this.posY);
+		return Modele.FabriqueImage.fabriqueImageSnap(this.zoom, this.posX,
+				this.posY);
 	}
-	
+
 	/**
-	 * Methode qui permet de retourner une Perspective selon
-	 * une sauvegarde recu en paramètre
-	 * @param snap (ImageSnap)
+	 * Methode qui permet de retourner une Perspective selon une sauvegarde recu
+	 * en paramï¿½tre
+	 * 
+	 * @param snap
+	 *            (ImageSnap)
 	 * @return Perspective
 	 */
-    public Perspective restoreFromMemento(ImageSnap snap){
-        return new Perspective(snap.getPosX(), snap.getPosY(), snap.getZoom());
-    }
+	public Perspective restoreFromMemento(ImageSnap snap) {
+		return new Perspective(snap.getPosX(), snap.getPosY(), snap.getZoom());
+	}
 }
