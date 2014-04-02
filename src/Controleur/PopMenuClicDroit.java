@@ -1,7 +1,7 @@
 /******************************************************
 Cours:  LOG121
 Projet: laboratoire 4
-Nom du fichier: SingletonCommande.java
+Nom du fichier: PopMenuClicDroit.java
 Date creer le: 2014-03-15
 
  *******************************************************

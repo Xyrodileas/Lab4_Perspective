@@ -19,6 +19,10 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Classe correspondant au menu de la fenetre principale
+ * 
+ */
 public class Menu extends JMenuBar {
 
 	/**
@@ -73,20 +77,20 @@ public class Menu extends JMenuBar {
 							cheminParDefaut);
 					boitedeChoix.showOpenDialog(null);// cr�ation et affichage
 														// des JFileChooser
-					if(boitedeChoix.getSelectedFile().getPath()!=null){
-						fenetrePrincipale.panneauImage.setImage(boitedeChoix.getSelectedFile().getPath());
-						fenetrePrincipale.panneauImage2.setImage(boitedeChoix.getSelectedFile().getPath());
+					if (boitedeChoix.getSelectedFile().getPath() != null) {
+						fenetrePrincipale.panneauImage.setImage(boitedeChoix
+								.getSelectedFile().getPath());
+						fenetrePrincipale.panneauImage2.setImage(boitedeChoix
+								.getSelectedFile().getPath());
 					}
-						
 
 				} catch (IOException e) {
 
 					// Sinon on affiche une petite fenetre d'erreur
 					JOptionPane.showMessageDialog(fenetrePrincipale, "Erreur");
 
-				}
-				catch (NullPointerException e){
-					
+				} catch (NullPointerException e) {
+
 				}
 
 			}
@@ -94,9 +98,11 @@ public class Menu extends JMenuBar {
 		sauvegarder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				SingletonCommande.execution(8, new int[1], fenetrePrincipale.panneauImage);
-				
-				SingletonCommande.execution(8, new int[2], fenetrePrincipale.panneauImage2);
+				SingletonCommande.execution(8, new int[1],
+						fenetrePrincipale.panneauImage);
+
+				SingletonCommande.execution(8, new int[2],
+						fenetrePrincipale.panneauImage2);
 
 			}
 		});
