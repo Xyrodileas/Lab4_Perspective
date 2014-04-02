@@ -9,34 +9,31 @@ Date cr��: 2014-03-15
  *@date Hiver 2014
  *******************************************************/
 
-
-
 package Modele;
 
 import java.io.Serializable;
 
+public class ImageSnap implements Serializable {
+	private double zoom;
 
-public class ImageSnap implements Serializable{
-    private double zoom;
+	private int posY;
+	private int posX;
 
-    private int posY;
-    private int posX;
+	public ImageSnap(double zoom, int posX, int posY) {
+		this.zoom = zoom;
+		this.posY = posY;
+		this.posX = posX;
+	}
 
-	public ImageSnap(double zoom, int posX, int posY){
-        this.zoom = zoom;
-        this.posY = posY;
-        this.posX = posX;
-    }
+	public double getZoom() {
+		return zoom;
+	}
 
-    public double getZoom() {
-        return zoom;
-    }
+	public int getPosY() {
+		return posY;
+	}
 
-    public int getPosY() {
-        return posY;
-    }
-
-    public int getPosX() {
-        return posX;
-    }
+	public int getPosX() {
+		return posX;
+	}
 }
