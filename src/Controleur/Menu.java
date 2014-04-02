@@ -75,6 +75,7 @@ public class Menu extends JMenuBar {
 														// des JFileChooser
 					if(boitedeChoix.getSelectedFile().getPath()!=null){
 						fenetrePrincipale.panneauImage.setImage(boitedeChoix.getSelectedFile().getPath());
+						fenetrePrincipale.panneauImage2.setImage(boitedeChoix.getSelectedFile().getPath());
 					}
 						
 

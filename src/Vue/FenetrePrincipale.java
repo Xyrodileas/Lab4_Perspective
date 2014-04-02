@@ -28,6 +28,10 @@ public class FenetrePrincipale extends JFrame{
 	 * Attributs de FenetrePrincipale
 	 */
 	public PanneauImage panneauImage;
+	
+	public PanneauImage panneauImage2;
+	
+	public PanneauImage panneauImageFixe;
 	public Menu menu;
 
 
@@ -40,7 +44,7 @@ public class FenetrePrincipale extends JFrame{
 		    	
 	    		//Parametres globale de la fenetre
 		        this.setTitle("Perspective");
-		        this.setLayout(new BorderLayout());
+		        this.setLayout(new GridLayout(1,2));
 		        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		        this.setExtendedState(MAXIMIZED_BOTH);
 		        this.setMinimumSize(new Dimension(800,600));
@@ -50,19 +54,28 @@ public class FenetrePrincipale extends JFrame{
 		        //Creation des elements de la fenetre
 		        menu = new Menu(this);	//CREATION DU MENU
 		        panneauImage = new PanneauImage();  //CREATION DU PANNEAU IMAGE
-		        
+		        panneauImage2 = new PanneauImage();
+		        panneauImageFixe=new PanneauImage();
 		        
 		        //Ajout des ecouteurs de souris et clavier au panneauImage
 		        panneauImage.addMouseListener(new Controleur.EcouteurEvenement(panneauImage));
 		        panneauImage.addMouseMotionListener(new Controleur.EcouteurEvenement(panneauImage));
 		        panneauImage.addMouseWheelListener(new Controleur.EcouteurEvenement(panneauImage));
 		        addKeyListener(new Controleur.EcouteurEvenement(panneauImage));
+		        
+		        
+		        
+		        panneauImage2.addMouseListener(new Controleur.EcouteurEvenement(panneauImage2));
+		        panneauImage2.addMouseMotionListener(new Controleur.EcouteurEvenement(panneauImage2));
+		        panneauImage2.addMouseWheelListener(new Controleur.EcouteurEvenement(panneauImage2));
+		        addKeyListener(new Controleur.EcouteurEvenement(panneauImage2));
 		        		        		        
 		        //Ajout des elements a la fenetre PP
 		        
 		        this.setJMenuBar(menu);  //LE MENU
-		        add(panneauImage,BorderLayout.CENTER); //LE PANNEAU IMAGE
-		        
+		        add(panneauImage); //LE PANNEAU IMAGE
+		        add(panneauImage2);
+		        //add(panneauImageFixe);
 		        this.pack();
 		        this.setVisible(true);	//ON REND LA FENETRE VISIBLE
 		        
