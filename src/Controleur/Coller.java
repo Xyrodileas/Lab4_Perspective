@@ -27,7 +27,7 @@ public class Coller extends Commande {
 	private int [] params;
 	
 	/**
-	 * ConStructeur par defaut de Coller
+	 * ConStructeur par default de Coller
 	 * Qui a pour parametre la perspective a coller
 	 * @param pR
 	 */
