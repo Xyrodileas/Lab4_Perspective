@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier:  Observable.java
-Date créé: 2014-03-15
+Date crï¿½ï¿½: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -11,16 +11,28 @@ Date créé: 2014-03-15
 
 package Modele;
 
-
-
-public class Observable  {
+/**
+ * Classe dÃ©finissant le comportement d'une classe observable
+ * 
+ */
+public class Observable {
 	public Modele.Observer observeur;
-	
-	public void addObserver(Modele.Observer observeurRecu){
+
+	/**
+	 * Permet d'ajouter un observateur Ã  une classe observable
+	 * 
+	 * @param observeurRecu
+	 *            : Observateur Ã  rajouter
+	 */
+	public void addObserver(Modele.Observer observeurRecu) {
 		observeur = observeurRecu;
 	}
-	
+
+	/**
+	 * Cette mÃ©thode permet de notifier d'un changement de la classe observÃ© aux
+	 * observateurs
+	 */
 	public void Notify() {
-	observeur.update();
+		observeur.update();
 	}
 }

@@ -1,8 +1,17 @@
+/******************************************************
+Cours:  LOG121
+Projet: laboratoire 4
+Nom du fichier: NullPerspective.java
+Date créé: 2014-03-15
+
+ *******************************************************
+ *@author Alexis Vuillaume, David Murat, Idriss Aissou,
+ *@date Hiver 2014
+ *******************************************************/
+
 package Modele;
 
-/**
- * Created by Alexis on 01/04/14.
- */
+
 public class NullPerspective extends Perspective {
 
     public NullPerspective(int x, int y){
