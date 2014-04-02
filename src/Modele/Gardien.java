@@ -81,5 +81,9 @@ class Gardien implements Serializable{
 			return new NullPerspective();
 		}
     }
+    public void resetNextStack() {
+        if (!this.savedStatesNext.empty())
+            this.savedStatesNext = new Stack<ImageSnap>();
+    }
 
 }

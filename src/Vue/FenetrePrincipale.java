@@ -11,16 +11,15 @@ Date crï¿½ï¿½: 2014-03-15
 
 package Vue;
 
-import javax.swing.*;
-
 import Controleur.Menu;
 
+import javax.swing.*;
 import java.awt.*;
 
 
 /**
  *Classe qui permet une JFrame a l'application
- *Permet de créer la fenetre principale de l'application
+ *Permet de crï¿½er la fenetre principale de l'application
  */
 public class FenetrePrincipale extends JFrame{
 	
