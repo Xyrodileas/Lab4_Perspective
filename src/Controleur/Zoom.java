@@ -56,6 +56,8 @@ public class Zoom extends Commande{
 		else
 			// SINOn ZOOM ARRIERE
 		zoomArriere(panneauImage.getPerspective());
+
+        panneauImage.getImage().getPerspective().resetStackNext();
 	}
 
 	@Override
