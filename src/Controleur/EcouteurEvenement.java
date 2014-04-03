@@ -27,6 +27,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	private static boolean bouttonGauche;
 	private static boolean bouttonMolette;
 	private boolean ctrl;
+    private boolean focus;
 
 	/**
 	 * Constructeur par defaut de Ecouteur Evenement Il va permet de copier le
@@ -39,6 +40,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 
 		panneauImage = im;
 		menu = new PopMenuClicDroit(panneauImage);
+        focus = false;
 	}
 
 	// ---------------------------------------------------PARTIE
@@ -169,9 +171,11 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
+        focus = true;
 	}
 
 	public void mouseExited(MouseEvent arg0) {
+        focus = false;
 	}
 
 	public void keyTyped(KeyEvent arg0) {

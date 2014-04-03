@@ -10,14 +10,12 @@ Date creer le: 2014-03-15
  *******************************************************/
 package Controleur;
 
-import java.awt.Component;
+import Vue.PanneauImage;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-
-import Vue.PanneauImage;
 
 /**
  * Classe définissant le comportement de menu lors d'un clic droit
@@ -29,8 +27,8 @@ public class PopMenuClicDroit extends JPopupMenu {
 	private JPopupMenu menuClicDroit;
 	private JMenuItem menu1;
 	private JMenuItem menu2;
-	private static PanneauImage panneauImage;
-	private int[] perspective;
+	private PanneauImage panneauImage;
+	private static int[] perspective;
 
 	/**
 	 * Constructeur par defaut de la classe PoPMenuClicDroit
