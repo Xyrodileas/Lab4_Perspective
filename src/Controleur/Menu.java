@@ -13,7 +13,9 @@ package Controleur;
 
 import Modele.Image;
 import Vue.FenetrePrincipale;
+
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -81,17 +83,24 @@ public class Menu extends JMenuBar {
                     String extension = boitedeChoix.getSelectedFile().getPath().substring(boitedeChoix.getSelectedFile().getPath().length() - 3,
                             boitedeChoix.getSelectedFile().getPath().length());
 
-                    if (extension.equals("psg")) {
-                        deserialize(boitedeChoix.getSelectedFile().getPath());
+                    if (boitedeChoix.getSelectedFile().getPath() != null) {
+                    	  if (extension.equals("psg")) {
+                    		  System.out.println("JE SUIS DANS OUVERTURE PSG");
+                              deserialize(boitedeChoix.getSelectedFile().getPath());
+                              
+                          }
+                    	  else {
+                    		  System.out.println("JE SUIS DANS OUVERTURE NORMAL");
+      						fenetrePrincipale.panneauImage.setImage(boitedeChoix
+      								.getSelectedFile().getPath(),null);
+      						fenetrePrincipale.panneauImage2.setImage(boitedeChoix
+      								.getSelectedFile().getPath(),null);
+                              fenetrePrincipale.panneauImageFixe.setImage(boitedeChoix
+                                      .getSelectedFile().getPath(),null);
+                              fenetrePrincipale.panneauImageFixe.getImage().getPerspective().setZoom(fenetrePrincipale.panneauImageFixe.getImage().getLargeurImage()/110.f);
                     }
-					else if (boitedeChoix.getSelectedFile().getPath() != null) {
-						fenetrePrincipale.panneauImage.setImage(boitedeChoix
-								.getSelectedFile().getPath());
-						fenetrePrincipale.panneauImage2.setImage(boitedeChoix
-								.getSelectedFile().getPath());
-                        fenetrePrincipale.panneauImageFixe.setImage(boitedeChoix
-                                .getSelectedFile().getPath());
-                        fenetrePrincipale.panneauImageFixe.getImage().getPerspective().setZoom(fenetrePrincipale.panneauImageFixe.getImage().getLargeurImage()/110.f);
+                  
+					
 					}
 
 				} catch (IOException e) {
@@ -111,9 +120,6 @@ public class Menu extends JMenuBar {
 				SingletonCommande.execution(8, new int[1],
 						fenetrePrincipale.panneauImage);
 
-				SingletonCommande.execution(8, new int[2],
-						fenetrePrincipale.panneauImage2);
-
 			}
 		});
 
@@ -124,7 +130,7 @@ public class Menu extends JMenuBar {
 				try {
 					Image img = new Image(fenetrePrincipale.panneauImage
 							.getImage());
-					fenetrePrincipale.panneauImage.setImage(img.getChemin());
+					fenetrePrincipale.panneauImage.setImage(img.getChemin(),null);
 					fenetrePrincipale.panneauImage.getImage().setPerspective(
 							img.getPerspective());
 				} catch (Exception e) {
@@ -152,12 +158,12 @@ public class Menu extends JMenuBar {
             imageSave = SingletonCommande.execution(lienPsg);
 
             try {
-                fenetrePrincipale.panneauImage.setImage(imageSave[0].getChemin());
-                fenetrePrincipale.panneauImage2.setImage(imageSave[1].getChemin());
-                fenetrePrincipale.panneauImageFixe.setImage(imageSave[1].getChemin());
-                fenetrePrincipale.panneauImage.reactualiserPanneauImage();
-                fenetrePrincipale.panneauImage2.reactualiserPanneauImage();
-                fenetrePrincipale.panneauImageFixe.reactualiserPanneauImage();
+                fenetrePrincipale.panneauImage.setImage(imageSave[0].getChemin(),imageSave[0]);
+                fenetrePrincipale.panneauImage2.setImage(imageSave[1].getChemin(),imageSave[1]);
+                //fenetrePrincipale.panneauImage.setImage(imageSave[0].getChemin(),imageSave[0]);
+                //fenetrePrincipale.panneauImage2.setImage(imageSave[1].getChemin(),null);
+                //fenetrePrincipale.panneauImageFixe.setImage(imageSave[1].getChemin(),imageSave[1]);
+        
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

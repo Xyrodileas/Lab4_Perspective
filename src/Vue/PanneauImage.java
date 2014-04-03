@@ -14,6 +14,7 @@ package Vue;
 import Modele.Perspective;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -61,20 +62,31 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 * @param lienImage
 	 * @throws IOException
 	 */
-	public void setImage(String lienImage) throws IOException {
-			this.image = Modele.FabriqueImage.fabriqueImage(lienImage);
-
-			imageAdessiner = this.image.getBufferedImage();
-			image.getPerspective().addObserver(this);
-			reactualiserPanneauImage();
-
+	public void setImage(String lienImage, Modele.Image imageRecu) throws IOException {
+		System.out.println(lienImage);
+		this.image = Modele.FabriqueImage.fabriqueImage(lienImage);
+		
+		if(imageRecu ==null){
+			System.out.println("Je suis dans le null dans set Image");
+			this.imageAdessiner = this.image.getBufferedImage();
+			this.reactualiserPanneauImage();
+			validate();
+		}
+		else{
+			System.out.println("Je suis dans le SINON dans set Image");
+			this.image.setPerspective(imageRecu.getPerspective());
+		}
+			validate();
+			this.image.getPerspective().addObserver(this);
+			this.reactualiserPanneauImage();
+		
 
 	}
 
-    public void setPerspective(Perspective perspective){
+   /** public void setPerspective(Perspective perspective){
         this.image.setPerspective(perspective);
         this.image.getPerspective().addObserver(this);
-    }
+    }**/
 
 	/**
 	 * Methode qui permet de retourner la perspective de l'image a dessiner
@@ -110,6 +122,7 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 				.getPerspective().getZoom()))));
 		repaint();
 	}
+	
 
 	/**
 	 * Methode qui va permettre de mettre a jour le panneau image selon les
