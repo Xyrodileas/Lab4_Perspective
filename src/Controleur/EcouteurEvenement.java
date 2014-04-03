@@ -27,7 +27,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	private static boolean bouttonGauche;
 	private static boolean bouttonMolette;
 	private boolean ctrl;
-    private boolean focus;
+    private static boolean focus;
 
 	/**
 	 * Constructeur par defaut de Ecouteur Evenement Il va permet de copier le
@@ -46,20 +46,25 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	// ---------------------------------------------------PARTIE
 	// CLAVIER--------------------------------------------
 	public void keyPressed(KeyEvent arg0) {
-		if (arg0.getKeyCode() == 17 && !panneauImage.imageEstVide()) {
-			ctrl = true;
-		}
-		// CAS CTRL Z
-		else if (ctrl && arg0.getKeyCode() == 90 && focus) {
-			System.out.println("CTRL Z");
-			SingletonCommande.execution(4, null, this.panneauImage);
-		}
-		// CAS CTRL Y
-		else if (ctrl && arg0.getKeyCode() == 89 && focus) {
-			System.out.println("CTRL Y");
-			SingletonCommande.execution(5, null, this.panneauImage);
+		System.out.println(focus);
+		if(focus==true){
+			if (arg0.getKeyCode() == 17 && !panneauImage.imageEstVide()) {
+				ctrl = true;
+			}
+			// CAS CTRL Z
+			else if (ctrl && arg0.getKeyCode() == 90 && focus) {
+				System.out.println("CTRL Z");
+				SingletonCommande.execution(4, null, this.panneauImage);
+			}
+			// CAS CTRL Y
+			else if (ctrl && arg0.getKeyCode() == 89 && focus) {
+				System.out.println("CTRL Y");
+				SingletonCommande.execution(5, null, this.panneauImage);
 
+			}
+			
 		}
+
 	}
 
 	public void keyReleased(KeyEvent arg0) {
@@ -171,10 +176,12 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
+		System.out.println(((PanneauImage)arg0.getSource()).getName());
         focus = true;
 	}
 
 	public void mouseExited(MouseEvent arg0) {
+		
         focus = false;
 	}
 

@@ -60,6 +60,9 @@ public class FenetrePrincipale extends JFrame{
         panneauImage2 = new PanneauImage();
         panneauImageFixe=new PanneauImage();
 
+        panneauImage.setName("Panneau 0");
+        panneauImage2.setName("Panneau 1");
+        panneauImageFixe.setName("Panneau 2");
 
         //Ajout des ecouteurs de souris et clavier au panneauImage
         panneauImage.addMouseListener(new Controleur.EcouteurEvenement(panneauImage));
