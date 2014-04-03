@@ -43,7 +43,17 @@ public class Coller extends Commande {
 	 * notify()
 	 */
 	public void execution(PanneauImage image) {
-		image.getPerspective().collerUnePerspective(params);
+		if(params[3]==0){
+			image.getPerspective().collerUnePerspective(params);
+		}
+		else if(params[3]==1){
+			image.getPerspective().setPositionX(params[0]);
+			image.getPerspective().setPositionY(params[1]);
+		}
+		else if(params[3]==2){
+			image.getPerspective().setZoom(((double)params[2]/100));
+		}
+		
 	}
 
 

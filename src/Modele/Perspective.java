@@ -155,6 +155,14 @@ public class Perspective extends Modele.Observable implements Serializable{
         Notify();
     }
     
+    /**
+     * Methode qui permet de definir le niveau de zoom
+     * @param zoom (double)
+     */
+    public void setZoom(double zoom){
+        this.zoom = zoom;
+        Notify();
+    }
 
     /**
      * MEthode qui permet de restaurer une perspective
@@ -208,7 +216,7 @@ public class Perspective extends Modele.Observable implements Serializable{
     public void collerUnePerspective(int[] tab){
     	this.positionX = tab[0];
     	this.positionY = tab[1];
-    	this.zoom = tab[2];
+    	this.zoom = (double)tab[2]/100;
     	Notify();
     	
     }
@@ -233,8 +241,5 @@ public class Perspective extends Modele.Observable implements Serializable{
         this.sauvegardes.resetNextStack();
     }
 
-    public void setZoom(double zoom){
-        this.zoom = zoom;
-        Notify();
-    }
+ 
 }

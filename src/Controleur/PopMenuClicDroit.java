@@ -27,6 +27,8 @@ public class PopMenuClicDroit extends JPopupMenu {
 	private JPopupMenu menuClicDroit;
 	private JMenuItem menu1;
 	private JMenuItem menu2;
+	private JMenuItem colleT;
+	private JMenuItem colleZ;
 	private PanneauImage panneauImage;
 	private static int[] perspective;
 
@@ -42,7 +44,7 @@ public class PopMenuClicDroit extends JPopupMenu {
 	public PopMenuClicDroit(PanneauImage panneauR) {
 
 		panneauImage = panneauR;
-		perspective = new int[3];
+		perspective = new int[4];
 
 		menuClicDroit = new JPopupMenu();
 
@@ -54,19 +56,38 @@ public class PopMenuClicDroit extends JPopupMenu {
 				// RECUPERATION DES VALEUR PERSPECTIVE
 				perspective[0] = panneauImage.getPerspective().getPositionX();
 				perspective[1] = panneauImage.getPerspective().getPositionY();
-				perspective[2] = (int) panneauImage.getPerspective().getZoom();
+				perspective[2] = (int) panneauImage.getPerspective().getZoom()*100;
+				perspective[3] = 0;
 			}
 		});
 
-		menu2 = new JMenuItem("Coller Perspective");
+		menu2 = new JMenuItem("Coller Perspective Globale");
 		menu2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
 				SingletonCommande.execution(3, perspective, panneauImage);
 			}
 		});
+		
+		colleT = new JMenuItem("Coller Translation");
+		menu2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				perspective[3] = 1;
+				SingletonCommande.execution(3, perspective, panneauImage);
+			}
+		});
+		
+		colleZ = new JMenuItem("Coller Zoom");
+		colleZ.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				perspective[3] = 2;
+				SingletonCommande.execution(3, perspective, panneauImage);
+			}
+		});
 
 		menuClicDroit.add(menu1);
+		menuClicDroit.add(colleT);
+		menuClicDroit.add(colleZ);
 		menuClicDroit.add(menu2);
 
 	}
