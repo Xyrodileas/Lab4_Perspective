@@ -56,7 +56,7 @@ public class PopMenuClicDroit extends JPopupMenu {
 				// RECUPERATION DES VALEUR PERSPECTIVE
 				perspective[0] = panneauImage.getPerspective().getPositionX();
 				perspective[1] = panneauImage.getPerspective().getPositionY();
-				perspective[2] = (int) panneauImage.getPerspective().getZoom()*100;
+				perspective[2] = (int) (panneauImage.getPerspective().getZoom()*100);
 				perspective[3] = 0;
 			}
 		});

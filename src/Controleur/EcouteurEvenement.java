@@ -50,12 +50,12 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 			ctrl = true;
 		}
 		// CAS CTRL Z
-		else if (ctrl && arg0.getKeyCode() == 90) {
+		else if (ctrl && arg0.getKeyCode() == 90 && focus) {
 			System.out.println("CTRL Z");
 			SingletonCommande.execution(4, null, this.panneauImage);
 		}
 		// CAS CTRL Y
-		else if (ctrl && arg0.getKeyCode() == 89) {
+		else if (ctrl && arg0.getKeyCode() == 89 && focus) {
 			System.out.println("CTRL Y");
 			SingletonCommande.execution(5, null, this.panneauImage);
 
