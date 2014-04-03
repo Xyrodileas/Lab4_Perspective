@@ -11,14 +11,12 @@ Date creer le: 2014-03-15
 
 package Controleur;
 
-import java.io.FileOutputStream;
-
-import java.io.ObjectOutputStream;
-
-import javax.swing.JOptionPane;
-
 import Modele.Image;
 import Vue.PanneauImage;
+
+import javax.swing.*;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * Classe permettant de sérialiser une image
@@ -28,6 +26,7 @@ public class Serializer extends Commande {
 
 	// Image à Sérialisée sauvegardée en attribut de las classe
 	private Image imageASerialiser;
+    private Image imageASerialiser2;
 
 	private static final String CHEMIN_REP = System.getProperty("user.dir")
 			.replace("src", "");
@@ -37,10 +36,11 @@ public class Serializer extends Commande {
 	/**
 	 * Constructeur de la classe, permet de créer un objet Serializer
 	 * 
-	 * @param valeurs
+	 * @param image, image2
 	 */
-	public Serializer(Image valeurs) {
-		imageASerialiser = valeurs;
+	public Serializer(Image image, Image image2) {
+		imageASerialiser = image;
+        imageASerialiser2= image2;
 	}
 
 	/**
@@ -60,6 +60,7 @@ public class Serializer extends Commande {
 					+ CHEMIN_DOSSIER_IMAGES + nom + ".psg");
 			ObjectOutputStream oos = new ObjectOutputStream(fout);
 			oos.writeObject(imageASerialiser);
+            oos.writeObject(imageASerialiser2);
 			oos.close();
 
 		} catch (Exception ex) {
@@ -68,7 +69,7 @@ public class Serializer extends Commande {
 	}
 
 	@Override
-	public Image execution() {
+	public Image[] execution() {
 		// TODO Auto-generated method stub
 		return null;
 	}

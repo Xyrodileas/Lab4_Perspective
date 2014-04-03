@@ -74,7 +74,7 @@ public class Zoom extends Commande {
 	}
 
 	@Override
-	public Image execution() {
+	public Image[] execution() {
 		// TODO Auto-generated method stub
 		return null;
 	}

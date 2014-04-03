@@ -11,13 +11,13 @@ Date creer le: 2014-03-15
 
 package Controleur;
 
+import Modele.Image;
+import Vue.PanneauImage;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
-
-import Vue.PanneauImage;
 
 /**
  * Cette classe permet de désérialiser un objet
@@ -28,7 +28,9 @@ public class Deserializater extends Commande {
 
 	// Chemin de l'image à réouvrire
 	private String path;
+
 	private ObjectInputStream objetFlux;
+    private ObjectInputStream objetFlux2;
 
 	/**
 	 * Constructeur de la classe
@@ -43,15 +45,16 @@ public class Deserializater extends Commande {
 	 * Méthode permettant de faire concretement la désérialisation de l'objet
 	 * sauvgardé
 	 */
-	public Modele.Image execution() throws FileNotFoundException, IOException {
+	public Image[] execution() throws FileNotFoundException, IOException {
 
 		// On récupère la sauvegarde
 		objetFlux = new ObjectInputStream(new FileInputStream(path));
 
-		Modele.Image imageSauvergarde = null;
+		Modele.Image[] imageSauvergarde = new Modele.Image[2];
 		try {
 			// On récupere l'image
-			imageSauvergarde = (Modele.Image) objetFlux.readObject();
+			imageSauvergarde[0] = (Modele.Image) objetFlux.readObject();
+            imageSauvergarde[1] = (Modele.Image) objetFlux.readObject();
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();

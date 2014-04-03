@@ -15,7 +15,7 @@ public class SauvegardePerspective extends Commande {
 	}
 
 	@Override
-	public Image execution() throws FileNotFoundException, IOException {
+	public Image[] execution() throws FileNotFoundException, IOException {
 		// TODO Auto-generated method stub
 		return null;
 	}

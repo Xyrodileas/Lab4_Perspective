@@ -11,6 +11,8 @@ Date cr��: 2014-03-15
 
 package Controleur;
 
+import Lanceur_De_Perspective.DemarrerApplicationGraphique;
+import Modele.Image;
 import Vue.PanneauImage;
 
 import java.io.FileNotFoundException;
@@ -91,7 +93,7 @@ public class SingletonCommande {
 			maCommande = new Dessiner(valeurs[0], valeurs[1]);
 			break;
 		case 8:
-			maCommande = new Serializer(panneauImage.getImage());
+			maCommande = new Serializer(DemarrerApplicationGraphique.getFenetre().panneauImage.getImage(), DemarrerApplicationGraphique.getFenetre().panneauImage2.getImage());
 			break;
 		// SINON COMMANDE= NULL
 		default:
@@ -110,7 +112,7 @@ public class SingletonCommande {
 
 	}
 
-	public static Modele.Image execution(String path)
+	public static Image[] execution(String path)
 			throws FileNotFoundException, IOException {
 		Commande maCommande;
 		maCommande = new Deserializater(path);

@@ -58,7 +58,7 @@ public class Coller extends Commande {
 
 
 	@Override
-	public Image execution() throws FileNotFoundException, IOException {
+	public Image[] execution() throws FileNotFoundException, IOException {
 		// TODO Auto-generated method stub
 		return null;
 	}

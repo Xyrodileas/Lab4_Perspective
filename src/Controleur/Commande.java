@@ -10,6 +10,7 @@ Date creer le: 2014-03-15
  *******************************************************/
 package Controleur;
 
+import Modele.Image;
 import Vue.PanneauImage;
 
 import java.io.FileNotFoundException;
@@ -34,6 +35,6 @@ public abstract class Commande {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public abstract Modele.Image execution() throws FileNotFoundException,
+	public abstract Image[] execution() throws FileNotFoundException,
 			IOException;
 }

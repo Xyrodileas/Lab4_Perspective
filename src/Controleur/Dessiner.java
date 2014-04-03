@@ -38,7 +38,7 @@ public class Dessiner extends Commande {
 	}
 
 	@Override
-	public Image execution() throws FileNotFoundException, IOException {
+	public Image[] execution() throws FileNotFoundException, IOException {
 		return null;
 	}
 }

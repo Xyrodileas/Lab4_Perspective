@@ -11,10 +11,9 @@ Date cr��: 2014-03-15
 
 package Vue;
 
+import Modele.Perspective;
+
 import javax.swing.*;
-
-import Controleur.SingletonCommande;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -63,40 +62,19 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 * @throws IOException
 	 */
 	public void setImage(String lienImage) throws IOException {
-		String extension;
+			this.image = Modele.FabriqueImage.fabriqueImage(lienImage);
 
-		Modele.Image imageSave;
-
-		extension = lienImage.substring(lienImage.length() - 3,
-				lienImage.length());
-
-		if (extension.equals("psg")) {
-
-			imageSave = SingletonCommande.execution(lienImage);
-
-			try {
-				image = Modele.FabriqueImage.fabriqueImage(imageSave
-						.getChemin());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			imageAdessiner = image.getBufferedImage();
-
-			image.setPerspective(imageSave.getPerspective());
-			image.getPerspective().addObserver(this);
-
-			reactualiserPanneauImage();
-		} else {
-			image = Modele.FabriqueImage.fabriqueImage(lienImage);
-
-			imageAdessiner = image.getBufferedImage();
+			imageAdessiner = this.image.getBufferedImage();
 			image.getPerspective().addObserver(this);
 			reactualiserPanneauImage();
-		}
+
 
 	}
+
+    public void setPerspective(Perspective perspective){
+        this.image.setPerspective(perspective);
+        this.image.getPerspective().addObserver(this);
+    }
 
 	/**
 	 * Methode qui permet de retourner la perspective de l'image a dessiner
@@ -145,5 +123,6 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	public Modele.Image getImage() {
 		return this.image;
 	}
+
 
 }

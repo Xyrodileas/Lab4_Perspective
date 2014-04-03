@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: DemarrerApplicationGraphique.java
-Date créé: 2014-03-15
+Date crï¿½ï¿½: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -14,11 +14,15 @@ import Vue.FenetrePrincipale;
 
 
 public class DemarrerApplicationGraphique {
-	
+
+       public static FenetrePrincipale fenetre;
 	   public static void main(String[] args) {
-	        
-	    	new Vue.FenetrePrincipale();    	
+	        fenetre = new Vue.FenetrePrincipale();
 	   
 	    }
+
+        public static FenetrePrincipale getFenetre(){
+            return fenetre;
+        }
 
 }

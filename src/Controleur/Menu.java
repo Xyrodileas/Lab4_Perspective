@@ -77,7 +77,14 @@ public class Menu extends JMenuBar {
 							cheminParDefaut);
 					boitedeChoix.showOpenDialog(null);// cr�ation et affichage
 														// des JFileChooser
-					if (boitedeChoix.getSelectedFile().getPath() != null) {
+
+                    String extension = boitedeChoix.getSelectedFile().getPath().substring(boitedeChoix.getSelectedFile().getPath().length() - 3,
+                            boitedeChoix.getSelectedFile().getPath().length());
+
+                    if (extension.equals("psg")) {
+                        deserialize(boitedeChoix.getSelectedFile().getPath());
+                    }
+					else if (boitedeChoix.getSelectedFile().getPath() != null) {
 						fenetrePrincipale.panneauImage.setImage(boitedeChoix
 								.getSelectedFile().getPath());
 						fenetrePrincipale.panneauImage2.setImage(boitedeChoix
@@ -136,6 +143,28 @@ public class Menu extends JMenuBar {
 		add(menufichier);
 
 	}
+
+    public void deserialize(String lienPsg) throws IOException{
+        String extension;
+
+        Modele.Image[] imageSave;
+
+            imageSave = SingletonCommande.execution(lienPsg);
+
+            try {
+                fenetrePrincipale.panneauImage.setImage(imageSave[0].getChemin());
+                fenetrePrincipale.panneauImage2.setImage(imageSave[1].getChemin());
+                fenetrePrincipale.panneauImageFixe.setImage(imageSave[1].getChemin());
+                fenetrePrincipale.panneauImage.reactualiserPanneauImage();
+                fenetrePrincipale.panneauImage2.reactualiserPanneauImage();
+                fenetrePrincipale.panneauImageFixe.reactualiserPanneauImage();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+
+    }
 
 	/**
 	 * Methode qui permet d'ajouter le menu quitter dans la menu globale
