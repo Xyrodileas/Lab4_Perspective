@@ -232,4 +232,9 @@ public class Perspective extends Modele.Observable implements Serializable{
     public void resetStackNext() {
         this.sauvegardes.resetNextStack();
     }
+
+    public void setZoom(double zoom){
+        this.zoom = zoom;
+        Notify();
+    }
 }

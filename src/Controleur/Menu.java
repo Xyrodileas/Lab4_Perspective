@@ -82,6 +82,9 @@ public class Menu extends JMenuBar {
 								.getSelectedFile().getPath());
 						fenetrePrincipale.panneauImage2.setImage(boitedeChoix
 								.getSelectedFile().getPath());
+                        fenetrePrincipale.panneauImageFixe.setImage(boitedeChoix
+                                .getSelectedFile().getPath());
+                        fenetrePrincipale.panneauImageFixe.getImage().getPerspective().setZoom(fenetrePrincipale.panneauImageFixe.getImage().getLargeurImage()/110.f);
 					}
 
 				} catch (IOException e) {
