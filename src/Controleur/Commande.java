@@ -1,7 +1,7 @@
 /******************************************************
 Cours:  LOG121
 Projet: laboratoire 4
-Nom du fichier: SingletonCommande.java
+Nom du fichier: Commande.java
 Date creer le: 2014-03-15
 
  *******************************************************
@@ -20,17 +20,20 @@ import java.io.IOException;
  */
 public abstract class Commande {
 
-    /**
-     * Methode général d'exécution d'une commande
-     * @param image
-     */
-    public abstract void execution(PanneauImage image);
+	/**
+	 * Methode général d'exécution d'une commande
+	 * 
+	 * @param image
+	 */
+	public abstract void execution(PanneauImage image);
 
-    /**
-     * Méthode général d'exécution de commande retournant une exception
-     * @return
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
-    public abstract Modele.Image execution() throws FileNotFoundException, IOException;
+	/**
+	 * Méthode général d'exécution de commande retournant une exception
+	 * 
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	public abstract Modele.Image execution() throws FileNotFoundException,
+			IOException;
 }

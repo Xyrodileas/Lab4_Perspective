@@ -87,12 +87,12 @@ public class SingletonCommande {
 		case 6:
 			maCommande = new SauvegardePerspective();
 			break;
-        case 7:
-            maCommande = new Dessiner(valeurs[0], valeurs[1]);
-            break;
-        case 8:
-            maCommande = new Serializer(panneauImage.getImage());
-            break;
+		case 7:
+			maCommande = new Dessiner(valeurs[0], valeurs[1]);
+			break;
+		case 8:
+			maCommande = new Serializer(panneauImage.getImage());
+			break;
 		// SINON COMMANDE= NULL
 		default:
 			maCommande = null;
@@ -110,7 +110,8 @@ public class SingletonCommande {
 
 	}
 
-	public static Modele.Image execution(String path) throws FileNotFoundException, IOException {
+	public static Modele.Image execution(String path)
+			throws FileNotFoundException, IOException {
 		Commande maCommande;
 		maCommande = new Deserializater(path);
 
