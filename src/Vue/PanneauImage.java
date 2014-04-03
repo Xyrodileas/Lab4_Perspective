@@ -46,7 +46,7 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 					- (getInsets().top + getInsets().bottom);
 
 			graphic2d.drawImage(this.image.getBufferedImage(), x, y, largeurDeLimage,
-					hauteurDeLimage, this);
+                    hauteurDeLimage, this);
         }
 		} catch(NullPointerException e){
             g.drawString("Choisir une Image...", 650, 350);
@@ -65,12 +65,12 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 		
 		if(imageRecu ==null){
 			System.out.println("Je suis dans le null dans set Image");
-			this.reactualiserPanneauImage();
-			validate();
+
 		}
 		else{
 			System.out.println("Je suis dans le SINON dans set Image");
 			this.image.setPerspective(imageRecu.getPerspective());
+            
 		}
 			validate();
 			this.image.getPerspective().addObserver(this);

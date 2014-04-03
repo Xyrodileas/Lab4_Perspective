@@ -158,11 +158,15 @@ public class Menu extends JMenuBar {
             imageSave = SingletonCommande.execution(lienPsg);
 
             try {
+                fenetrePrincipale.panneauImageFixe.setImage((new Image(imageSave[0])).getChemin(), null);
+                fenetrePrincipale.panneauImageFixe.getPerspective().setPositionX(0);
+                fenetrePrincipale.panneauImageFixe.getPerspective().setPositionY(0);
+                fenetrePrincipale.panneauImageFixe.getImage().getPerspective().setZoom(fenetrePrincipale.panneauImageFixe.getImage().getLargeurImage()/110.f);
                 fenetrePrincipale.panneauImage.setImage(imageSave[0].getChemin(),imageSave[0]);
                 fenetrePrincipale.panneauImage2.setImage(imageSave[1].getChemin(),imageSave[1]);
                 //fenetrePrincipale.panneauImage.setImage(imageSave[0].getChemin(),imageSave[0]);
                 //fenetrePrincipale.panneauImage2.setImage(imageSave[1].getChemin(),null);
-                //fenetrePrincipale.panneauImageFixe.setImage(imageSave[1].getChemin(),imageSave[1]);
+
         
             } catch (IOException e) {
                 // TODO Auto-generated catch block
