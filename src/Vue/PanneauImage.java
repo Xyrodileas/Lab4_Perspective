@@ -11,19 +11,14 @@ Date cr��: 2014-03-15
 
 package Vue;
 
-import Modele.Perspective;
-
 import javax.swing.*;
-
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class PanneauImage extends JPanel implements Modele.Observer {
 
 	// ATTRIBUTS DU PANNEAU IMAGE
 	private Modele.Image image;
-	private BufferedImage imageAdessiner;
 	private int x;
 	private int y;
 	private int largeurDeLimage;
@@ -42,18 +37,20 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D graphic2d = (Graphics2D) g;
-		if (imageAdessiner != null) {
+        try{
+		if (this.image.getBufferedImage() != null) {
 
 			int largeurDuPanneau = getSize().width
 					- (getInsets().left + getInsets().right);
 			int hauteurDuPanneau = getSize().height
 					- (getInsets().top + getInsets().bottom);
 
-			graphic2d.drawImage(imageAdessiner, x, y, largeurDeLimage,
+			graphic2d.drawImage(this.image.getBufferedImage(), x, y, largeurDeLimage,
 					hauteurDeLimage, this);
-		} else {
-			g.drawString("Choisir une Image...", 650, 350);
-		}
+        }
+		} catch(NullPointerException e){
+            g.drawString("Choisir une Image...", 650, 350);
+        }
 	}
 
 	/**
@@ -68,7 +65,6 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 		
 		if(imageRecu ==null){
 			System.out.println("Je suis dans le null dans set Image");
-			this.imageAdessiner = this.image.getBufferedImage();
 			this.reactualiserPanneauImage();
 			validate();
 		}
@@ -104,7 +100,7 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 * @return boolean true = image non vide false = image vide
 	 */
 	public boolean imageEstVide() {
-		if (imageAdessiner != null)
+		if (this.image.getBufferedImage() != null)
 			return false;
 		return true;
 	}
