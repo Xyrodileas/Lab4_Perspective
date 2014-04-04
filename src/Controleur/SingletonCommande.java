@@ -119,6 +119,7 @@ public class SingletonCommande {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
+	@SuppressWarnings("unused")
 	public static Image[] execution(String path)
 			throws FileNotFoundException, IOException {
 		Commande maCommande;

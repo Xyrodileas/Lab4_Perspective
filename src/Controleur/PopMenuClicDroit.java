@@ -23,6 +23,10 @@ import java.awt.event.ActionListener;
  */
 public class PopMenuClicDroit extends JPopupMenu {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7253867073323805312L;
 	// ATTRIBUTS DE LA CLASSE PoPMenuClicDroit
 	private JPopupMenu menuClicDroit;
 	private JMenuItem menu1;

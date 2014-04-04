@@ -28,6 +28,10 @@ import java.io.IOException;
 public class Menu extends JMenuBar {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2268951837992536893L;
+	/**
 	 * Attributs de Menu
 	 */
 	private static final String CHEMIN_REP = System.getProperty("user.dir")
@@ -165,7 +169,6 @@ public class Menu extends JMenuBar {
 	}
 
 	public void deserialize(String lienPsg) throws IOException {
-		String extension;
 
 		Modele.Image[] imageSave;
 
@@ -188,7 +191,6 @@ public class Menu extends JMenuBar {
 					imageSave[1]);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
