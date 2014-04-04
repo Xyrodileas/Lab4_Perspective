@@ -19,6 +19,11 @@ import java.io.Serializable;
  */
 public class ImageSnap implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4158159418018353748L;
+
 	private double zoom;
 
 	private int posY;

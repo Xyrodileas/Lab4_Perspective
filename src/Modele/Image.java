@@ -25,6 +25,10 @@ import java.io.Serializable;
  */
 public class Image implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7811361838577753958L;
 	// Image concrete
 	private transient BufferedImage image;
 	// Perscpective de l'image

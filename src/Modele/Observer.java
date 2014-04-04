@@ -11,8 +11,6 @@ Date créer: 2014-03-15
 
 package Modele;
 
-import java.util.Observable;
-
 /**
  * Cette classe permet de définir le conportement d'une classe Oservateur selon
  * le patron Observable

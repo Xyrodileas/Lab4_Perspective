@@ -22,6 +22,11 @@ import java.util.Stack;
  */
 class Gardien implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3056675298969102177L;
+
 	// Pile des sauvegardes précédente
 	Stack<ImageSnap> savedStatesOld;
 

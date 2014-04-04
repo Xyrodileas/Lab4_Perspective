@@ -17,7 +17,12 @@ package Modele;
  */
 public class NullPerspective extends Perspective {
 
-    public NullPerspective(int x, int y){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -6838776733406794911L;
+
+	public NullPerspective(int x, int y){
 
     }
 
