@@ -12,10 +12,18 @@ package Lanceur_De_Perspective;
 
 import Vue.FenetrePrincipale;
 
-
+/**
+ * Classe permettant de lancer le programme
+ *
+ */
 public class DemarrerApplicationGraphique {
 
        public static FenetrePrincipale fenetre;
+       
+       /**
+        * Méthode main de notre programme
+        * @param args
+        */
 	   public static void main(String[] args) {
 	        fenetre = new Vue.FenetrePrincipale();
 	   

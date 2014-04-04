@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: Observer.java
-Date cr��: 2014-03-15
+Date créer: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,

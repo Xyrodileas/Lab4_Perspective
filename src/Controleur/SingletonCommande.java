@@ -112,6 +112,13 @@ public class SingletonCommande {
 
 	}
 
+	/**
+	 * Ce cas spéciale de commande est utilisé pour la désérialisation
+	 * @param path
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public static Image[] execution(String path)
 			throws FileNotFoundException, IOException {
 		Commande maCommande;

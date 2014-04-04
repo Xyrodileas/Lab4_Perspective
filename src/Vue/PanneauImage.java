@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: PanneauImage.java
-Date cr��: 2014-03-15
+Date créer: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -15,8 +15,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * Classe définissant le comportement d'un panneau contenant une image
+ *
+ */
 public class PanneauImage extends JPanel implements Modele.Observer {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3033645178026518801L;
 	// ATTRIBUTS DU PANNEAU IMAGE
 	private Modele.Image image;
 	private int x;

@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: Originator.java
-Date creer: 2014-03-15
+Date créer: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -13,8 +13,16 @@ package Modele;
 
 import java.io.Serializable;
 
+/**
+ * Classe contenant les méthodes pour effectuer les sauvergardes d'imageSnap selon le patron memento
+ *
+ */
 public class Originator implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9034979774638388887L;
 	// ATTRIBUTS DE LA CLASSE ORIGINATOR
 	public double zoom;
 	public Image img;

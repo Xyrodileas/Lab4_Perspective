@@ -14,9 +14,16 @@ package Modele;
 import java.io.Serializable;
 import java.util.EmptyStackException;
 
-
+/**
+ * Classe contenant les caractéristiques d'une image
+ *
+ */
 public class Perspective extends Modele.Observable implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3666520531890203553L;
 	//ATTRIBUTS DE LA CLASSE PERSPECTIVE
 	private double zoom;
 	public Gardien sauvegardes;

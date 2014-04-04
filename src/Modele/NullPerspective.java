@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: NullPerspective.java
-Date créé: 2014-03-15
+Date créer: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -11,7 +11,10 @@ Date créé: 2014-03-15
 
 package Modele;
 
-
+/**
+ * Classe permettant de définir un objet PerspectiveNull selon le patron Object Null
+ *
+ */
 public class NullPerspective extends Perspective {
 
     public NullPerspective(int x, int y){
