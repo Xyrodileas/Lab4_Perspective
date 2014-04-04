@@ -177,8 +177,8 @@ public class Menu extends JMenuBar {
 		try {
 			fenetrePrincipale.panneauImageFixe.setImage(
 					(new Image(imageSave[0])).getChemin(), null);
-			fenetrePrincipale.panneauImageFixe.getPerspective().setPositionX(0);
-			fenetrePrincipale.panneauImageFixe.getPerspective().setPositionY(0);
+			fenetrePrincipale.panneauImageFixe.getPerspective().incrementePositionX(0);
+			fenetrePrincipale.panneauImageFixe.getPerspective().incrementePositionY(0);
 			fenetrePrincipale.panneauImageFixe
 					.getImage()
 					.getPerspective()

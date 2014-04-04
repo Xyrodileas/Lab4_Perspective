@@ -10,11 +10,11 @@ Date creer le: 2014-03-15
  *******************************************************/
 package Controleur;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import Modele.Image;
 import Vue.PanneauImage;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Classe qui permet de lancer la commande Pour coller la perspective de l'image
@@ -29,7 +29,7 @@ public class Coller extends Commande {
 	 * ConStructeur par default de Coller Qui a pour parametre la perspective a
 	 * coller
 	 * 
-	 * @param pR
+	 * @param tab
 	 */
 	public Coller(int[] tab) {
 

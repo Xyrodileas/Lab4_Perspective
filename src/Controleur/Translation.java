@@ -34,8 +34,8 @@ public class Translation extends Commande {
 	 * de la perspective de l'image contenue dans le panneauImage
 	 */
 	public void execution(PanneauImage panneauImage) {
-		panneauImage.getPerspective().setPositionX(this.x);
-		panneauImage.getPerspective().setPositionY(this.y);
+		panneauImage.getPerspective().incrementePositionX(this.x);
+		panneauImage.getPerspective().incrementePositionY(this.y);
 		panneauImage.getImage().getPerspective().resetStackNext();
 
 	}

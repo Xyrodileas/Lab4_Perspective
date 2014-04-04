@@ -145,18 +145,37 @@ public class Perspective extends Modele.Observable implements Serializable{
      * de l'image en X
      * @param deplacementRecuX (Int)
      */
-    public void setPositionX(int deplacementRecuX){
+    public void incrementePositionX(int deplacementRecuX){
         positionX += deplacementRecuX;
         Notify();
 
     }
+
+    /**
+     * Change la position de X
+     * @param deplacementRecuX
+     */
+    public void setPositionX(int deplacementRecuX){
+        positionX = deplacementRecuX;
+        Notify();
+    }
+
+    /**
+     * Change la position de y
+     * @param deplacementRecuY
+     */
+    public void setPositionY(int deplacementRecuY){
+        positionY = deplacementRecuY;
+        Notify();
+    }
+
     
     /**
      * Permet de modifier la position
      * de l'image en Y
      * @param deplacementRecuY (Int)
      */
-    public void setPositionY(int deplacementRecuY){
+    public void incrementePositionY(int deplacementRecuY){
 
         positionY += deplacementRecuY;
         Notify();

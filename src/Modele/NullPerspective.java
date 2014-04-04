@@ -70,12 +70,12 @@ public class NullPerspective extends Perspective {
     }
 
     @Override
-    public void setPositionX(int deplacementRecuX) {
+    public void incrementePositionX(int deplacementRecuX) {
 
     }
 
     @Override
-    public void setPositionY(int deplacementRecuY) {
+    public void incrementePositionY(int deplacementRecuY) {
 
     }
 
