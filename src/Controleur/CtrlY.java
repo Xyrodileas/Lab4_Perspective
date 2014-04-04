@@ -17,12 +17,19 @@ import java.io.IOException;
 import Modele.Image;
 import Vue.PanneauImage;
 
-public class CtrlY extends Commande{
+/**
+ * Classe permettant de définir une action lors d'un undo
+ * 
+ */
+public class CtrlY extends Commande {
 
+	/**
+	 * Methode allant cherchée la perspective précédente
+	 */
 	@Override
 	public void execution(PanneauImage panneauImage) {
 		panneauImage.getImage().getPerspective().nextSnap();
-		
+
 	}
 
 	@Override

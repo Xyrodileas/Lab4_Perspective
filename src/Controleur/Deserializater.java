@@ -22,7 +22,6 @@ import java.io.ObjectInputStream;
 /**
  * Cette classe permet de désérialiser un objet
  * 
- * 
  */
 public class Deserializater extends Commande {
 
@@ -30,7 +29,6 @@ public class Deserializater extends Commande {
 	private String path;
 
 	private ObjectInputStream objetFlux;
-    private ObjectInputStream objetFlux2;
 
 	/**
 	 * Constructeur de la classe
@@ -54,7 +52,7 @@ public class Deserializater extends Commande {
 		try {
 			// On récupere l'image
 			imageSauvergarde[0] = (Modele.Image) objetFlux.readObject();
-            imageSauvergarde[1] = (Modele.Image) objetFlux.readObject();
+			imageSauvergarde[1] = (Modele.Image) objetFlux.readObject();
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace();
@@ -65,7 +63,6 @@ public class Deserializater extends Commande {
 
 	@Override
 	public void execution(PanneauImage image) {
-		// TODO Auto-generated method stub
 
 	}
 
