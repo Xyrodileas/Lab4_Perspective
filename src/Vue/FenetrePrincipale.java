@@ -94,7 +94,6 @@ public class FenetrePrincipale extends JFrame {
 		add(panneauImage, contrainte);
 		add(panneauImage2, contrainte);
 
-		Button mini = new Button(" Miniature ");
 		contrainte.fill = GridBagConstraints.CENTER;
 		contrainte.ipadx = 110;
 		contrainte.ipady = 100;

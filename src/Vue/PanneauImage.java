@@ -17,7 +17,7 @@ import java.io.IOException;
 
 /**
  * Classe définissant le comportement d'un panneau contenant une image
- *
+ * 
  */
 public class PanneauImage extends JPanel implements Modele.Observer {
 
@@ -45,20 +45,15 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D graphic2d = (Graphics2D) g;
-        try{
-		if (this.image.getBufferedImage() != null) {
+		try {
+			if (this.image.getBufferedImage() != null) {
 
-			int largeurDuPanneau = getSize().width
-					- (getInsets().left + getInsets().right);
-			int hauteurDuPanneau = getSize().height
-					- (getInsets().top + getInsets().bottom);
-
-			graphic2d.drawImage(this.image.getBufferedImage(), x, y, largeurDeLimage,
-                    hauteurDeLimage, this);
-        }
-		} catch(NullPointerException e){
-            g.drawString("Choisir une Image...", 650, 350);
-        }
+				graphic2d.drawImage(this.image.getBufferedImage(), x, y,
+						largeurDeLimage, hauteurDeLimage, this);
+			}
+		} catch (NullPointerException e) {
+			g.drawString("Choisir une Image...", 650, 350);
+		}
 	}
 
 	/**
@@ -67,30 +62,30 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	 * @param lienImage
 	 * @throws IOException
 	 */
-	public void setImage(String lienImage, Modele.Image imageRecu) throws IOException {
+	public void setImage(String lienImage, Modele.Image imageRecu)
+			throws IOException {
 		System.out.println(lienImage);
 		this.image = Modele.FabriqueImage.fabriqueImage(lienImage);
-		
-		if(imageRecu ==null){
+
+		if (imageRecu == null) {
 			System.out.println("Je suis dans le null dans set Image");
 
-		}
-		else{
+		} else {
 			System.out.println("Je suis dans le SINON dans set Image");
 			this.image.setPerspective(imageRecu.getPerspective());
-            
+
 		}
-			validate();
-			this.image.getPerspective().addObserver(this);
-			this.reactualiserPanneauImage();
-		
+		validate();
+		this.image.getPerspective().addObserver(this);
+		this.reactualiserPanneauImage();
 
 	}
 
-   /** public void setPerspective(Perspective perspective){
-        this.image.setPerspective(perspective);
-        this.image.getPerspective().addObserver(this);
-    }**/
+	/**
+	 * public void setPerspective(Perspective perspective){
+	 * this.image.setPerspective(perspective);
+	 * this.image.getPerspective().addObserver(this); }
+	 **/
 
 	/**
 	 * Methode qui permet de retourner la perspective de l'image a dessiner
@@ -126,7 +121,6 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 				.getPerspective().getZoom()))));
 		repaint();
 	}
-	
 
 	/**
 	 * Methode qui va permettre de mettre a jour le panneau image selon les
@@ -140,6 +134,5 @@ public class PanneauImage extends JPanel implements Modele.Observer {
 	public Modele.Image getImage() {
 		return this.image;
 	}
-
 
 }
