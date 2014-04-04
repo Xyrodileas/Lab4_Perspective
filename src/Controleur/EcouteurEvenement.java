@@ -24,11 +24,13 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 
 	// LES ATTRIBUT DE EcouteurEvenement
 	private PanneauImage panneauImage;
+	@SuppressWarnings("unused")
 	private int x, y;
 	private static int xClick, yClick;
 	private PopMenuClicDroit menu;
 
 	private static boolean bouttonGauche;
+	@SuppressWarnings("unused")
 	private static boolean bouttonMolette;
 	private boolean ctrl;
 	private static PanneauImage focus;
@@ -86,6 +88,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	 * affiche un menu popUp permettant de copier ou coller la perspective de
 	 * l'image
 	 */
+	@SuppressWarnings("static-access")
 	public void mousePressed(MouseEvent arg0) {
 		if (arg0.getButton() == 1) {
 			bouttonGauche = true;
@@ -149,6 +152,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	 * Methode qui permet de d'utiliser le SingletonCommande afin d'utiliser
 	 * translation afin de d�placer l'image dans le panneau avec la souris
 	 */
+	@SuppressWarnings("static-access")
 	public void mouseDragged(MouseEvent e) {
 		if (bouttonGauche == true && !panneauImage.imageEstVide()) {
 			int[] tabParametres = { e.getX() - this.xClick,
