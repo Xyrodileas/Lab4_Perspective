@@ -74,7 +74,7 @@ public class PopMenuClicDroit extends JPopupMenu {
 		});
 		
 		colleT = new JMenuItem("Coller Translation");
-		menu2.addActionListener(new ActionListener() {
+		colleT.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				perspective[3] = 1;
 				SingletonCommande.execution(3, perspective, panneauImage);
