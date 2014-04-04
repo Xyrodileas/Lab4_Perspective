@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: laboratoire 4
 Nom du fichier: Menu.java
-Date cr��: 2014-03-15
+Date creer: 2014-03-15
 
  *******************************************************
  *@author Alexis Vuillaume, David Murat, Idriss Aissou,
@@ -79,27 +79,41 @@ public class Menu extends JMenuBar {
 					boitedeChoix.showOpenDialog(null);// cr�ation et affichage
 														// des JFileChooser
 
-                    String extension = boitedeChoix.getSelectedFile().getPath().substring(boitedeChoix.getSelectedFile().getPath().length() - 3,
-                            boitedeChoix.getSelectedFile().getPath().length());
+					String extension = boitedeChoix
+							.getSelectedFile()
+							.getPath()
+							.substring(
+									boitedeChoix.getSelectedFile().getPath()
+											.length() - 3,
+									boitedeChoix.getSelectedFile().getPath()
+											.length());
 
-                    if (boitedeChoix.getSelectedFile().getPath() != null) {
-                    	  if (extension.equals("psg")) {
-                    		  System.out.println("JE SUIS DANS OUVERTURE PSG");
-                              deserialize(boitedeChoix.getSelectedFile().getPath());
-                              
-                          }
-                    	  else {
-                    		  System.out.println("JE SUIS DANS OUVERTURE NORMAL");
-      						fenetrePrincipale.panneauImage.setImage(boitedeChoix
-      								.getSelectedFile().getPath(),null);
-      						fenetrePrincipale.panneauImage2.setImage(boitedeChoix
-      								.getSelectedFile().getPath(),null);
-                              fenetrePrincipale.panneauImageFixe.setImage(boitedeChoix
-                                      .getSelectedFile().getPath(),null);
-                              fenetrePrincipale.panneauImageFixe.getImage().getPerspective().setZoom(fenetrePrincipale.panneauImageFixe.getImage().getLargeurImage()/110.f);
-                    }
-                  
-					
+					if (boitedeChoix.getSelectedFile().getPath() != null) {
+						if (extension.equals("psg")) {
+							System.out.println("JE SUIS DANS OUVERTURE PSG");
+							deserialize(boitedeChoix.getSelectedFile()
+									.getPath());
+
+						} else {
+							System.out.println("JE SUIS DANS OUVERTURE NORMAL");
+							fenetrePrincipale.panneauImage.setImage(
+									boitedeChoix.getSelectedFile().getPath(),
+									null);
+							fenetrePrincipale.panneauImage2.setImage(
+									boitedeChoix.getSelectedFile().getPath(),
+									null);
+							fenetrePrincipale.panneauImageFixe.setImage(
+									boitedeChoix.getSelectedFile().getPath(),
+									null);
+							fenetrePrincipale.panneauImageFixe
+									.getImage()
+									.getPerspective()
+									.setZoom(
+											fenetrePrincipale.panneauImageFixe
+													.getImage()
+													.getLargeurImage() / 110.f);
+						}
+
 					}
 
 				} catch (IOException e) {
@@ -129,7 +143,8 @@ public class Menu extends JMenuBar {
 				try {
 					Image img = new Image(fenetrePrincipale.panneauImage
 							.getImage());
-					fenetrePrincipale.panneauImage.setImage(img.getChemin(),null);
+					fenetrePrincipale.panneauImage.setImage(img.getChemin(),
+							null);
 					fenetrePrincipale.panneauImage.getImage().setPerspective(
 							img.getPerspective());
 				} catch (Exception e) {
@@ -149,31 +164,35 @@ public class Menu extends JMenuBar {
 
 	}
 
-    public void deserialize(String lienPsg) throws IOException{
-        String extension;
+	public void deserialize(String lienPsg) throws IOException {
+		String extension;
 
-        Modele.Image[] imageSave;
+		Modele.Image[] imageSave;
 
-            imageSave = SingletonCommande.execution(lienPsg);
+		imageSave = SingletonCommande.execution(lienPsg);
 
-            try {
-                fenetrePrincipale.panneauImageFixe.setImage((new Image(imageSave[0])).getChemin(), null);
-                fenetrePrincipale.panneauImageFixe.getPerspective().setPositionX(0);
-                fenetrePrincipale.panneauImageFixe.getPerspective().setPositionY(0);
-                fenetrePrincipale.panneauImageFixe.getImage().getPerspective().setZoom(fenetrePrincipale.panneauImageFixe.getImage().getLargeurImage()/110.f);
-                fenetrePrincipale.panneauImage.setImage(imageSave[0].getChemin(),imageSave[0]);
-                fenetrePrincipale.panneauImage2.setImage(imageSave[1].getChemin(),imageSave[1]);
-                //fenetrePrincipale.panneauImage.setImage(imageSave[0].getChemin(),imageSave[0]);
-                //fenetrePrincipale.panneauImage2.setImage(imageSave[1].getChemin(),null);
+		try {
+			fenetrePrincipale.panneauImageFixe.setImage(
+					(new Image(imageSave[0])).getChemin(), null);
+			fenetrePrincipale.panneauImageFixe.getPerspective().setPositionX(0);
+			fenetrePrincipale.panneauImageFixe.getPerspective().setPositionY(0);
+			fenetrePrincipale.panneauImageFixe
+					.getImage()
+					.getPerspective()
+					.setZoom(
+							fenetrePrincipale.panneauImageFixe.getImage()
+									.getLargeurImage() / 110.f);
+			fenetrePrincipale.panneauImage.setImage(imageSave[0].getChemin(),
+					imageSave[0]);
+			fenetrePrincipale.panneauImage2.setImage(imageSave[1].getChemin(),
+					imageSave[1]);
 
-        
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-
-    }
+	}
 
 	/**
 	 * Methode qui permet d'ajouter le menu quitter dans la menu globale

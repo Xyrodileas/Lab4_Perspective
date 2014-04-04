@@ -18,11 +18,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
+ * Classe permettant de dessiner sur les images
  */
 public class Dessiner extends Commande {
 
 	int x, y;
 
+	/**
+	 * Constructeur de la classe
+	 * @param x
+	 * @param y
+	 */
 	public Dessiner(int x, int y) {
 		this.x = x;
 		this.y = y;

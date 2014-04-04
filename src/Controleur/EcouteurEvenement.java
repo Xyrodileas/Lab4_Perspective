@@ -15,6 +15,10 @@ import Vue.PanneauImage;
 
 import java.awt.event.*;
 
+/**
+ * Classe écoutant des actions de la part de la souris 
+ *
+ */
 public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 		KeyListener, MouseMotionListener {
 
@@ -27,7 +31,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	private static boolean bouttonGauche;
 	private static boolean bouttonMolette;
 	private boolean ctrl;
-    private static PanneauImage focus;
+	private static PanneauImage focus;
 
 	/**
 	 * Constructeur par defaut de Ecouteur Evenement Il va permet de copier le
@@ -45,22 +49,22 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	// ---------------------------------------------------PARTIE
 	// CLAVIER--------------------------------------------
 	public void keyPressed(KeyEvent arg0) {
-			if (arg0.getKeyCode() == 17 && !panneauImage.imageEstVide()) {
-				ctrl = true;
-			}
-			// CAS CTRL Z
-			else if (ctrl && arg0.getKeyCode() == 90 && focus.getName().equals(panneauImage.getName())) {
-				System.out.println("CTRL Z");
-				SingletonCommande.execution(4, null, this.panneauImage);
-			}
-			// CAS CTRL Y
-			else if (ctrl && arg0.getKeyCode() == 89 &&focus.getName().equals(panneauImage.getName())) {
-				System.out.println("CTRL Y");
-				SingletonCommande.execution(5, null, this.panneauImage);
+		if (arg0.getKeyCode() == 17 && !panneauImage.imageEstVide()) {
+			ctrl = true;
+		}
+		// CAS CTRL Z
+		else if (ctrl && arg0.getKeyCode() == 90
+				&& focus.getName().equals(panneauImage.getName())) {
+			System.out.println("CTRL Z");
+			SingletonCommande.execution(4, null, this.panneauImage);
+		}
+		// CAS CTRL Y
+		else if (ctrl && arg0.getKeyCode() == 89
+				&& focus.getName().equals(panneauImage.getName())) {
+			System.out.println("CTRL Y");
+			SingletonCommande.execution(5, null, this.panneauImage);
 
-			}
-			
-
+		}
 
 	}
 
@@ -173,7 +177,7 @@ public class EcouteurEvenement implements MouseListener, MouseWheelListener,
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
-		focus = (PanneauImage)arg0.getSource();
+		focus = (PanneauImage) arg0.getSource();
 	}
 
 	public void mouseExited(MouseEvent arg0) {
